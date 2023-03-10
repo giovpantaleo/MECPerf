@@ -1,7 +1,7 @@
 #!/bin/bash
    
 PROJECT_ROOT_PATH=$(pwd)
-COMMON_PATH=$PROJECT_ROOT_PATH/common/src/main/java/
+COMMON_PATH=$PROJECT_ROOT_PATH/common/src/main/java/xxx
 OBSERVER_PATH=$PROJECT_ROOT_PATH/observer/src/main/java/
 REMOTESERVER_PATH=$PROJECT_ROOT_PATH/remoteserver/src/main/java/
 AGGREGATOR_PATH=$PROJECT_ROOT_PATH/aggregator/src/main/java/
