@@ -1,17 +1,17 @@
 {
     "RestServer": [
         {
-            "address" : "",
-            "port": ""
+            "address" : "192.168.3.11",
+            "port": "5001"
         }
     ],
     "Database": [
         {
-            "address" : "",
-            "port": "",
-            "user" : "",
-            "password" : "",
-            "db_name" : "",
+            "address" : "127.0.0.1",
+            "port": "3306",
+            "user" : "MECPerf",
+            "password" : "psw",
+            "db_name" : "MECPerf",
             "charset" : ""
         }
     ]
