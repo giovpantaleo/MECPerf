@@ -1209,6 +1209,8 @@ public class Observer {
     protected static void sendPOSTRequest(String payloadPOST, String serverURL){
         try {
             URL url = new URL(serverURL);
+            System.out.println("connection to: " + url); // deb
+            System.out.println("paylod post: " + payloadPOST); // deb
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
             connection.setDoInput(true);
