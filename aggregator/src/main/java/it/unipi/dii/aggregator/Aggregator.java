@@ -87,13 +87,13 @@ public class Aggregator {
                 System.out.println("Input Stream: "+isr); // deb 
                 System.out.println("Inet address: "+connectionSocket.getInetAddress()); // deb 
                 // leggi i dati dallo stream
-                byte[] buffer = new byte[1024];
-                int bytesRead;
-                while ((bytesRead = isr.read(buffer)) != -1) {
-                // processa i byte letti
-                String data = new String(buffer, 0, bytesRead, "UTF-8");
-                System.out.println(data);
-                }
+//                byte[] buffer = new byte[1024];
+//                int bytesRead;
+//                while ((bytesRead = isr.read(buffer)) != -1) {
+//               // processa i byte letti
+//                String data = new String(buffer, 0, bytesRead, "UTF-8");
+//                System.out.println(data);
+//                }
 //fin qui
                 ObjectInputStream mapInputStream = new ObjectInputStream(isr);
                 Measure measure = (Measure) mapInputStream.readObject();
