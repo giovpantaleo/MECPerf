@@ -1213,13 +1213,13 @@ public class Observer {
             System.out.println("paylod post: " + payloadPOST); // deb
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-            connection.setDoInput(true);
-            connection.setDoOutput(true);
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Accept", "application/json");
-            connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-            System.out.println("connection: " + connection.toString()); // deb
-            System.out.println("content: " + connection.getContent()); // deb
+            //connection.setDoInput(true);
+            //connection.setDoOutput(true);
+            //connection.setRequestMethod("POST");
+            //connection.setRequestProperty("Accept", "application/json");
+            //connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            //System.out.println("connection: " + connection.toString()); // deb
+            //System.out.println("content: " + connection.getContent()); // deb
             OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
             writer.write(payloadPOST);
             writer.close();
