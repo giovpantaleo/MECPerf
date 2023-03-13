@@ -89,7 +89,7 @@ public class Aggregator {
                 // leggi i dati dallo stream
                 byte[] buffer = new byte[1024];
                 int bytesRead;
-                while ((bytesRead = inputStream.read(buffer)) != -1) {
+                while ((bytesRead = isr.read(buffer)) != -1) {
                 // processa i byte letti
                 String data = new String(buffer, 0, bytesRead, "UTF-8");
                 System.out.println(data);
