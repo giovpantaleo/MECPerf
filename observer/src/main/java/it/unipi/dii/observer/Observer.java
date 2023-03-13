@@ -1217,6 +1217,7 @@ public class Observer {
             connection.setDoOutput(true);
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Accept", "application/json");
+            connection.setRequestProperty("HTTP-Version", "HTTP/1.1");//deb
             connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
             
 
