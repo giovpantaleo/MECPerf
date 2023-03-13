@@ -88,7 +88,7 @@ public class Aggregator {
                 System.out.println("Input Stream: "+isr); // deb 
                 System.out.println("Inet address: "+connectionSocket.getInetAddress()); // deb 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(isr, "UTF-8")); // deb
-                ObjectInputStream objemapInputStream = new ObjectInputStream(new ByteArrayInputStream(reader.readLine().getBytes())); //deb
+                ObjectInputStream mapInputStream = new ObjectInputStream(new ByteArrayInputStream(reader.readLine().getBytes())); //deb
                 //ObjectInputStream mapInputStream = new ObjectInputStream(isr);
                 Measure measure = (Measure) mapInputStream.readObject();
 
