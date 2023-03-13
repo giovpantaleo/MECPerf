@@ -91,8 +91,8 @@ public class Aggregator {
                 int bytesRead;
                 while ((bytesRead = inputStream.read(buffer)) != -1) {
                 // processa i byte letti
-                    String data = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8);
-                    System.out.println(data);
+                String data = new String(buffer, 0, bytesRead, "UTF-8");
+                System.out.println(data);
                 }
 //fin qui
                 ObjectInputStream mapInputStream = new ObjectInputStream(isr);
