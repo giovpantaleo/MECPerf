@@ -1218,6 +1218,8 @@ public class Observer {
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Accept", "application/json");
             connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            System.out.println("connection: " + connection.toString()); // deb
+            System.out.println("content: " + connection.getContent()); // deb
             OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
             writer.write(payloadPOST);
             writer.close();
