@@ -1228,7 +1228,7 @@ public class Observer {
             OutputStream out1 = connection.getOutputStream(); //deb
             out1.write(dataBytes); //deb
             out1.close(); //deb
-            System.out.println("contenuto: " + new String(payloadPOST, "UTF-8")); // deb
+            System.out.println( new String(payloadPOST, "UTF-8")); // deb
 
             OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
             writer.write(payloadPOST);
