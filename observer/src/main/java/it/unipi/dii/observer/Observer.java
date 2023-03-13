@@ -1219,9 +1219,13 @@ public class Observer {
             connection.setRequestProperty("Accept", "application/json");
             connection.setRequestProperty("HTTP-Version", "HTTP/1.1");//deb
             connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-            
-
-
+            //deb
+            try (OutputStream output = connection.getOutputStream()) {
+                output.write(query.getBytes("UTF-8"));
+                System.out.println(output.write(query.getBytes("UTF-8")));
+            }
+            System.out.println(output);
+            //deb//
             OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
             writer.write(payloadPOST);
             writer.close();
