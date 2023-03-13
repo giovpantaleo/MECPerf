@@ -85,6 +85,19 @@ public class Aggregator {
                 Socket connectionSocket = welcomeSoket.accept();
 
                 InputStream isr = connectionSocket.getInputStream();
+                
+//deb 
+                BufferedReader reader = new BufferedReader(new InputStreamReader(isr, "UTF-8"));
+                StringBuilder responseBuilder = new StringBuilder();
+                String line = null;
+                while ((line = reader.readLine()) != null) {
+                    responseBuilder.append(line);
+                }
+
+                String jsonResponse = responseBuilder.toString();
+                System.out.println("JSON RESP: "+jsonResponse); // deb 
+
+//deb//
                 System.out.println("Input Stream: "+isr); // deb 
                 System.out.println("Inet address: "+connectionSocket.getInetAddress()); // deb 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(isr, "UTF-8")); // deb
