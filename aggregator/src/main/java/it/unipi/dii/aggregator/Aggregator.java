@@ -87,10 +87,10 @@ public class Aggregator {
                 InputStream isr = connectionSocket.getInputStream();
                 
 //deb 
-                BufferedReader reader = new BufferedReader(new InputStreamReader(isr, "UTF-8"));
+                BufferedReader reader1 = new BufferedReader(new InputStreamReader(isr, "UTF-8"));
                 StringBuilder responseBuilder = new StringBuilder();
                 String line = null;
-                while ((line = reader.readLine()) != null) {
+                while ((line = reader1.readLine()) != null) {
                     responseBuilder.append(line);
                 }
 
