@@ -102,7 +102,7 @@ public class Aggregator {
 //                ObjectInputStream mapInputStream = new ObjectInputStream(isr);
                 //provo a usare in lettura l'eqivalente di scrittura
                 BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                '''
+'''
                 Measure measure = (Measure) mapInputStream.readObject();
 
                 switch(measure.getType()){
@@ -149,7 +149,8 @@ public class Aggregator {
                         objOutputStream.writeObject(obj);
                         break;
                     }
-                }'''
+                }
+'''
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
 
