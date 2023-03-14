@@ -88,7 +88,7 @@ public class Aggregator {
                 System.out.println("Inet address: "+connectionSocket.getInetAddress()); // deb 
                 byte[] header = new byte[4];// deb 
                 isr.read(header);// deb 
-                String message = new String(header, "UTF_8");// deb 
+                String message = new String(header, "UTF-8");// deb 
                 System.out.println("Header ricevuto dal client: " + header);// deb 
                 // leggi i dati dallo stream
 //                byte[] buffer = new byte[1024];

@@ -1232,17 +1232,9 @@ public class Observer {
             //deb//
             boolean  f = true;
             int i = 0;
-            while (f){
+            while (i<5){
                 System.out.println(connection.getHeaderField(i));
                 i = i+1;
-                try{
-                    System.out.println(connection.getHeaderField(i));
-
-                }
-                catch(Exception e){
-                    f = false;
-                    e.printStackTrace();
-                }
             }
             System.out.println(writer.toString());
 //deb//
