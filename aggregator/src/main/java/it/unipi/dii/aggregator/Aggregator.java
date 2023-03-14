@@ -102,55 +102,54 @@ public class Aggregator {
 //                ObjectInputStream mapInputStream = new ObjectInputStream(isr);
                 //provo a usare in lettura l'eqivalente di scrittura
                 BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-'''
-                Measure measure = (Measure) mapInputStream.readObject();
+//                Measure measure = (Measure) mapInputStream.readObject();
 
-                switch(measure.getType()){
-                    case "TCPBandwidth":
-                    case "UDPBandwidth":
-                    case "TCPRTT":
-                    case "UDPRTT": {
-                        System.out.println("Comando: " + measure.getType());
+//                switch(measure.getType()){
+//                    case "TCPBandwidth":
+ //                   case "UDPBandwidth":
+   //////                 case "TCPRTT":
+         //           case "UDPRTT": {
+           //             System.out.println("Comando: " + measure.getType());
 
-                        Measure measureSecondSegment = (Measure) mapInputStream.readObject();
-                        HashMap<String, String> metadataFirstSegment = null;
-                        HashMap<String, String> metadataSecondSegment = null;
+//                        Measure measureSecondSegment = (Measure) mapInputStream.readObject();
+//                        HashMap<String, String> metadataFirstSegment = null;
+//                        HashMap<String, String> metadataSecondSegment = null;
 
-                        if (measure.getType().equals("TCPRTT") || measure.getType().equals("UDPRTT") )
-                        {
-                            metadataFirstSegment = (HashMap<String, String> ) mapInputStream.readObject();
-                            metadataSecondSegment = (HashMap<String, String> ) mapInputStream.readObject();
-                        }
+  //                      if (measure.getType().equals("TCPRTT") || measure.getType().equals("UDPRTT") )
+  //                      {
+   //                         metadataFirstSegment = (HashMap<String, String> ) mapInputStream.readObject();
+    ////                        metadataSecondSegment = (HashMap<String, String> ) mapInputStream.readObject();
+       //                 }
 
-                        try(
-                            Connection dbConnection = DriverManager.getConnection("jdbc:mysql://"
-                                                     + DBADDRESS+":3306/"+ DBNAME + "?useSSL=false",
-                                                       DBUSERNAME, DBPASSWORD)){
-                            dbConnection.setAutoCommit(false);
+        //                try(
+        //                    Connection dbConnection = DriverManager.getConnection("jdbc:mysql://"
+        //                                             + DBADDRESS+":3306/"+ DBNAME + "?useSSL=false",
+        ////                                               DBUSERNAME, DBPASSWORD)){
+        //                    dbConnection.setAutoCommit(false);
+////
+   //                         long id = writeToDB(measure, measureSecondSegment, metadataFirstSegment, metadataSecondSegment, dbConnection);
+    //                        if(id == -1){
+     //                           System.out.println("Inserimento in Tabella Test Fallito");
+      //                      }
 
-                            long id = writeToDB(measure, measureSecondSegment, metadataFirstSegment, metadataSecondSegment, dbConnection);
-                            if(id == -1){
-                                System.out.println("Inserimento in Tabella Test Fallito");
-                            }
+  //                          dbConnection.setAutoCommit(true);
+  //                      } catch (SQLException e) {
+  //                          e.printStackTrace();
+   //                     }
+  //                     break;
+   //                 }
+   //                 case "GET_AVG_BANDWIDTH_DATA":{
+   //                     System.out.println("Comando: GET_AVG_BANDWIDTH_DATA");
+    //                    ObjectOutputStream objOutputStream = null;
+  //                      objOutputStream = new ObjectOutputStream(connectionSocket.getOutputStream());
+   //                     System.out.println("DATA QUERY: " + measure.getExtra());
+   //                     List<MeasureResult> obj = loadAVGBandwidthDataFromDb(measure.getExtra(), measure.getSender());
+   //                     System.out.println("OGGETTO_RTT: " + obj);
+   //                     objOutputStream.writeObject(obj);
+   //                     break;
+   //                 }
+   //             }
 
-                            dbConnection.setAutoCommit(true);
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
-                        break;
-                    }
-                    case "GET_AVG_BANDWIDTH_DATA":{
-                        System.out.println("Comando: GET_AVG_BANDWIDTH_DATA");
-                        ObjectOutputStream objOutputStream = null;
-                        objOutputStream = new ObjectOutputStream(connectionSocket.getOutputStream());
-                        System.out.println("DATA QUERY: " + measure.getExtra());
-                        List<MeasureResult> obj = loadAVGBandwidthDataFromDb(measure.getExtra(), measure.getSender());
-                        System.out.println("OGGETTO_RTT: " + obj);
-                        objOutputStream.writeObject(obj);
-                        break;
-                    }
-                }
-'''
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
 
