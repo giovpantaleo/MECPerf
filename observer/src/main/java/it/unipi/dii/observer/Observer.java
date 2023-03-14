@@ -1237,9 +1237,9 @@ public class Observer {
 //deb            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream()); //deb
             OutputStream outst = connection.getOutputStream(); //deb
             System.out.println(outst);
-            System.out.println(outst.toString());
+//            System.out.println(outst.toString());
 
-            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream()); //deb
+//            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream()); //deb
 
 //           OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
             //deb//
@@ -1251,10 +1251,10 @@ public class Observer {
 //            }
 //            System.out.println(writer.toString());
 //deb//
-            writer.write("Testo di prova" + mes); //deb
+ //           writer.write("Testo di prova" + mes); //deb
 //            writer.write(payloadPOST);
 //            System.out.println(writer); //deb
-            writer.close();
+ //           writer.close();
             BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuffer jsonString = new StringBuffer();
             String line;
