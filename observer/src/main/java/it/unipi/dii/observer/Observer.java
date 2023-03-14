@@ -1243,10 +1243,12 @@ public class Observer {
 //            }
 //            System.out.println(writer.toString());
 //deb//
-            writer.write("Testo di prova" + mes); //deb
-//            writer.write(payloadPOST);
+//            writer.write("Testo di prova" + mes); //deb
+            writer.write(payloadPOST);
 //            System.out.println(writer); //deb
             writer.close();
+            System.out.println("writer finito"); //deb
+
             BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuffer jsonString = new StringBuffer();
             String line;
