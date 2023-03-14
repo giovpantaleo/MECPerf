@@ -1221,9 +1221,9 @@ public class Observer {
             connection.setDoInput(true);
             connection.setDoOutput(true);
             connection.setRequestMethod("POST");
-//            connection.setRequestProperty("Accept", "application/json");
+            connection.setRequestProperty("Accept", "application/json");
             //connection.setRequestProperty("HTTP-Version", "HTTP/1.1");//deb
-//            connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
             //deb
 //            System.out.println(connection.getHeaderFields());
 
@@ -1234,6 +1234,11 @@ public class Observer {
 //            System.out.println(output);
             //deb//
             
+//deb            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream()); //deb
+            OutputStream outst = connection.getOutputStream(); //deb
+            System.out.println(outst);
+            System.out.println(outst.toString());
+
             OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream()); //deb
 
 //           OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
