@@ -1236,8 +1236,11 @@ public class Observer {
             
 //deb            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream()); //deb
             OutputStream outst = connection.getOutputStream(); //deb
-            System.out.println(outst);
-//            System.out.println(outst.toString());
+//            System.out.println(outst);
+            System.out.println("prima");
+
+            System.out.println(outst.toString());
+            System.out.println("dopo");
 
 //            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream()); //deb
 
