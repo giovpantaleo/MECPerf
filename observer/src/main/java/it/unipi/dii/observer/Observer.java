@@ -1250,7 +1250,8 @@ public class Observer {
             System.out.println("writer finito"); //deb
             //DEB
             InputStream inpst = connection.getInputStream();
-            BufferedReader br = new BufferedReader(inpst);
+            InputStreamReader inpst1 = new InputStreamReader(inpst);
+            BufferedReader br = new BufferedReader(inpst1);
 //DEB//
 //            BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuffer jsonString = new StringBuffer();
