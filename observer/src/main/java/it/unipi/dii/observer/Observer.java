@@ -1225,22 +1225,11 @@ public class Observer {
             //connection.setRequestProperty("HTTP-Version", "HTTP/1.1");//deb
             connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
             //deb
-//            System.out.println(connection.getHeaderFields());
-
-//            try (OutputStream output = connection.getOutputStream()) {
-//                output.write(query.getBytes("UTF-8"));
-//                System.out.println(output.write(query.getBytes("UTF-8")));
-//            }
-//            System.out.println(output);
-            //deb//
             
 //deb            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream()); //deb
             OutputStream outst = connection.getOutputStream(); //deb
-//            System.out.println(outst);
-            System.out.println("prima");
+            OutputStreamWriter writer = new OutputStreamWriter(outst); //deb
 
-            System.out.println(outst.toString());
-            System.out.println("dopo");
 
 //            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream()); //deb
 
@@ -1254,10 +1243,10 @@ public class Observer {
 //            }
 //            System.out.println(writer.toString());
 //deb//
- //           writer.write("Testo di prova" + mes); //deb
+            writer.write("Testo di prova" + mes); //deb
 //            writer.write(payloadPOST);
 //            System.out.println(writer); //deb
- //           writer.close();
+            writer.close();
             BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuffer jsonString = new StringBuffer();
             String line;
