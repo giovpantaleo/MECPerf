@@ -102,8 +102,25 @@ public class Aggregator {
 //                ObjectInputStream mapInputStream = new ObjectInputStream(isr);
                 //provo a usare in lettura l'eqivalente di scrittura
                 BufferedReader br = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
-                System.out.println(br);
-                ObjectInputStream mapInputStream = new ObjectInputStream(isr);
+                System.out.println(br.readLine());
+
+                //BufferedReader bufferedReader = new BufferedReader(new FileReader("data.txt"));
+
+                // Legge i dati dal BufferedReader e li scrive su un ByteArrayOutputStream
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                String line;
+                while ((line = br.readLine()) != null) {
+                         byteArrayOutputStream.write(line.getBytes());
+                }
+
+    // Crea un ByteArrayInputStream contenente i dati scritti sul ByteArrayOutputStream
+                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+
+    // Crea un'istanza di ObjectInputStream utilizzando l'ByteArrayInputStream
+                ObjectInputStream mapInputStream = new ObjectInputStream(byteArrayInputStream);
+
+
+                //vero ObjectInputStream mapInputStream = new ObjectInputStream(isr);
 
                 Measure measure = (Measure) mapInputStream.readObject();
 
