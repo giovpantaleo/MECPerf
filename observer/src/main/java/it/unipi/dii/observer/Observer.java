@@ -1212,13 +1212,17 @@ public class Observer {
             System.out.println("connection to: " + url); // deb
             System.out.println("paylod post: " + payloadPOST); // deb
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
+//deb
+            System.out.println("prima encoding " +payloadPOST);
+            String mes = URLEncoder.encode(payloadPOST, "UTF-8");
+            System.out.println("dopo encoding " +mes);
+//deb//
             connection.setDoInput(true);
             connection.setDoOutput(true);
             connection.setRequestMethod("POST");
-            connection.setRequestProperty("Accept", "application/json");
+//            connection.setRequestProperty("Accept", "application/json");
             //connection.setRequestProperty("HTTP-Version", "HTTP/1.1");//deb
-            connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+//            connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
             //deb
 //            System.out.println(connection.getHeaderFields());
 
@@ -1229,7 +1233,7 @@ public class Observer {
 //            System.out.println(output);
             //deb//
             
-            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream());
+            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream()); //deb
 
 //           OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
             //deb//
@@ -1241,7 +1245,7 @@ public class Observer {
 //            }
 //            System.out.println(writer.toString());
 //deb//
-            writer.write("Testo di prova"); //deb
+            writer.write("Testo di prova" + mes); //deb
 //            writer.write(payloadPOST);
 //            System.out.println(writer); //deb
             writer.close();
