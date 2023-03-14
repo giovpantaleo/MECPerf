@@ -1220,7 +1220,7 @@ public class Observer {
             //connection.setRequestProperty("HTTP-Version", "HTTP/1.1");//deb
             connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
             //deb
-            System.out.println(connection.getHeaderFields());
+//            System.out.println(connection.getHeaderFields());
 
 //            try (OutputStream output = connection.getOutputStream()) {
 //                output.write(query.getBytes("UTF-8"));
@@ -1230,15 +1230,16 @@ public class Observer {
             //deb//
             OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
             //deb//
-            boolean  f = true;
-            int i = 0;
-            while (i<15){
-                System.out.println(connection.getHeaderField(i));
-                i = i+1;
-            }
-            System.out.println(writer.toString());
+//            boolean  f = true;
+//            int i = 0;
+//            while (i<15){
+//                System.out.println(connection.getHeaderField(i));
+//                i = i+1;
+//            }
+//            System.out.println(writer.toString());
 //deb//
             writer.write(payloadPOST);
+            System.out.println(writer); //deb
             writer.close();
             BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuffer jsonString = new StringBuffer();
