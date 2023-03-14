@@ -1230,17 +1230,17 @@ public class Observer {
             //deb//
             OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
             //deb//
-            boolean  f = True;
+            boolean  f = true;
             int i = 0;
             while (f){
                 System.out.println(connection.getHeaderField(i));
                 i = i+1;
                 try{
-                    var = connection.getHeaderField(i);
+                    System.out.println(connection.getHeaderField(i));
 
                 }
                 catch(Exception e){
-                    f = False;
+                    f = false;
                     e.printStackTrace();
                 }
             }
