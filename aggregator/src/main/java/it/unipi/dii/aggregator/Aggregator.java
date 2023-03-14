@@ -101,7 +101,7 @@ public class Aggregator {
 //fin qui
 //                ObjectInputStream mapInputStream = new ObjectInputStream(isr);
                 //provo a usare in lettura l'eqivalente di scrittura
-                BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                BufferedReader br = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
 //                Measure measure = (Measure) mapInputStream.readObject();
 
 //                switch(measure.getType()){
