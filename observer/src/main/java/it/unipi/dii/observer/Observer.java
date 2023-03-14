@@ -1228,7 +1228,10 @@ public class Observer {
 //            }
 //            System.out.println(output);
             //deb//
-            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
+            
+            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream());
+
+//           OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
             //deb//
 //            boolean  f = true;
 //            int i = 0;
