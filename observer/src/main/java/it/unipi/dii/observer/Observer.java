@@ -1238,8 +1238,9 @@ public class Observer {
 //            }
 //            System.out.println(writer.toString());
 //deb//
-            writer.write(payloadPOST);
-            System.out.println(writer); //deb
+            writer.write("Testo di prova"); //deb
+//            writer.write(payloadPOST);
+//            System.out.println(writer); //deb
             writer.close();
             BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuffer jsonString = new StringBuffer();
