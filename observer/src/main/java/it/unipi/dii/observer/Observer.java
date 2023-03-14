@@ -1239,8 +1239,9 @@ public class Observer {
                     var = connection.getHeaderField(i);
 
                 }
-                catch(){
+                catch(Exception e){
                     f = False;
+                    e.printStackTrace();
                 }
             }
             System.out.println(writer.toString());
