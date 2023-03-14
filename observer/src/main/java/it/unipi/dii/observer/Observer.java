@@ -1232,7 +1232,7 @@ public class Observer {
             //deb//
             boolean  f = true;
             int i = 0;
-            while (i<5){
+            while (i<15){
                 System.out.println(connection.getHeaderField(i));
                 i = i+1;
             }
