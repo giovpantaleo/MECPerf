@@ -1240,15 +1240,13 @@ public class Observer {
             writer.close();
             System.out.println("writer finito"); //deb
             //DEB
-            //InputStream inpst = connection.getInputStream();
             System.out.println(connection.toString());
-            System.out.println("2 "+ connection.getInputString());
-
-            InputStreamReader inpst1 = connection.getInputStream();
+            InputStream inpst = connection.getInputStream();
+            System.out.println(connection.getInputString());
 
             System.out.println("input stream get ok"); //deb
 
-            //InputStreamReader inpst1 = new InputStreamReader(inpst);
+            InputStreamReader inpst1 = new InputStreamReader(inpst);
             System.out.println("input stream read get ok"); //deb
 
             BufferedReader br = new BufferedReader(inpst1);
