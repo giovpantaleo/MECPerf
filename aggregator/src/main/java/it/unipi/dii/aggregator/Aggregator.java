@@ -110,7 +110,7 @@ public class Aggregator {
 
 
                 ObjectInputStream mapInputStream = new ObjectInputStream(isr);
-                System.out.println(mapInputStream.toString);
+                System.out.println(mapInputStream);
                 Measure measure = (Measure) mapInputStream.readObject();
                 System.out.println(measure);
 
