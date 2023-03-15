@@ -1214,9 +1214,9 @@ public class Observer {
             System.out.println("paylod post: " + payloadPOST); // deb
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 //deb
-            System.out.println("prima encoding " +payloadPOST);
-            String mes = URLEncoder.encode(payloadPOST, "UTF-8");
-            System.out.println("dopo encoding " +mes);
+            //System.out.println("prima encoding " +payloadPOST);
+            //String mes = URLEncoder.encode(payloadPOST, "UTF-8");
+            //System.out.println("dopo encoding " +mes);
 //deb//
             connection.setDoInput(true);
             connection.setDoOutput(true);
@@ -1235,24 +1235,20 @@ public class Observer {
 
 //           OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
             //deb//
-//            boolean  f = true;
-//            int i = 0;
-//            while (i<15){
-//                System.out.println(connection.getHeaderField(i));
-//                i = i+1;
-//            }
-//            System.out.println(writer.toString());
-//deb//
-//            writer.write("Testo di prova" + mes); //deb
+
             writer.write(payloadPOST);
-//            System.out.println(writer); //deb
             writer.close();
             System.out.println("writer finito"); //deb
             //DEB
-            InputStream inpst = connection.getInputStream();
+            //InputStream inpst = connection.getInputStream();
+            System.out.println(connection.toString());
+            System.out.println("2 "+ connection.getInputString());
+
+            InputStreamReader inpst1 = connection.getInputStream();
+
             System.out.println("input stream get ok"); //deb
 
-            InputStreamReader inpst1 = new InputStreamReader(inpst);
+            //InputStreamReader inpst1 = new InputStreamReader(inpst);
             System.out.println("input stream read get ok"); //deb
 
             BufferedReader br = new BufferedReader(inpst1);
