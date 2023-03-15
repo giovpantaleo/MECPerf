@@ -1215,7 +1215,7 @@ public class Observer {
            
             System.out.println("connection to: " + url); // deb
             System.out.println("paylod post: " + payloadPOST); // deb
-            Socket connection = new Socket(url, AGGRPORT);//r
+            Socket connection = new Socket("192.168.3.11", 6766);//r
             
 //DEB            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             System.out.println(url.toString());
