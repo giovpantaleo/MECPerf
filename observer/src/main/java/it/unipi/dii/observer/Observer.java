@@ -1209,46 +1209,37 @@ public class Observer {
      }
     protected static void sendPOSTRequest(String payloadPOST, String serverURL){
         try {
-//DEB            URL url = new URL(serverURL);
-            String url = "192.168.3.11"; //r
-            int AGGRPORT = 6766;//r
+            URL url = new URL(serverURL);
            
             System.out.println("connection to: " + url); // deb
             System.out.println("paylod post: " + payloadPOST); // deb
-            Socket connection = new Socket("192.168.3.11", 6766);//r
             
-//DEB            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             System.out.println(url.toString());
 //deb
             //System.out.println("prima encoding " +payloadPOST);
             //String mes = URLEncoder.encode(payloadPOST, "UTF-8");
             //System.out.println("dopo encoding " +mes);
 //deb//
-//DEB            connection.setDoInput(true);
-//DEB            connection.setDoOutput(true);
-//DEB            connection.setRequestMethod("POST");
-//DEB            connection.setRequestProperty("Accept", "application/json");
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Accept", "application/json");
             //connection.setRequestProperty("HTTP-Version", "HTTP/1.1");//deb
-//DEB            connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
             //deb
             
 //deb            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream()); //deb
-//DEB            OutputStream outst = connection.getOutputStream(); //deb
-//DEB            OutputStreamWriter writer = new OutputStreamWriter(outst, "UTF-8"); //deb
-            ObjectOutputStream out = new ObjectOutputStream(connection.getOutputStream());//r
-            out.writeObject(payloadPOST);//r
-            ObjectInputStream inp = new ObjectInputStream(connection.getInputStream());//r
-            String messs = (String) inp.readObject();//r
-            System.out.println("dopo encoding " +messs);//r
-
+            OutputStream outst = connection.getOutputStream(); //deb
+            OutputStreamWriter writer = new OutputStreamWriter(outst, "UTF-8"); //deb
 
 //            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream()); //deb
 
 //           OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
             //deb//
 
-//DEB            writer.write(payloadPOST);
-//DEB            writer.close();
+            writer.write(payloadPOST);
+            writer.close();
             System.out.println("writer finito"); //deb
             //DEB
             System.out.println(connection.toString());
