@@ -86,7 +86,7 @@ public class Aggregator {
                 InputStream isr = connectionSocket.getInputStream();
                 System.out.println("Input Stream: "+isr); // deb 
                 System.out.println("Inet address: "+connectionSocket.getInetAddress()); // deb 
-                System.out.println("Inet address: "+connectionSocket.getHostAddress()); // deb 
+                System.out.println("Inet address: "+connectionSocket.toString()); // deb 
 
 //                ObjectInputStream mapInputStream = new ObjectInputStream(isr);
 // deb                
