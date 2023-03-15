@@ -1213,6 +1213,7 @@ public class Observer {
             System.out.println("connection to: " + url); // deb
             System.out.println("paylod post: " + payloadPOST); // deb
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            System.out.println(url.toString());
 //deb
             //System.out.println("prima encoding " +payloadPOST);
             //String mes = URLEncoder.encode(payloadPOST, "UTF-8");
@@ -1228,7 +1229,7 @@ public class Observer {
             
 //deb            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream()); //deb
             OutputStream outst = connection.getOutputStream(); //deb
-            OutputStreamWriter writer = new OutputStreamWriter(outst); //deb
+            OutputStreamWriter writer = new OutputStreamWriter(outst, "UTF-8"); //deb
 
 
 //            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream()); //deb
