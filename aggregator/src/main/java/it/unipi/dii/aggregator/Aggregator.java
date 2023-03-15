@@ -110,8 +110,16 @@ public class Aggregator {
 
 
                 ObjectInputStream mapInputStream = new ObjectInputStream(isr);
+                if (mapInputStream.readObject() instanceof Measure) {
+                    Measure measure = (Measure) mapInputStream.readObject();
+                    System.out.println(measure);
+    // eseguire le operazioni con l'oggetto deserializzato
+                } else {
+                    System.out.println(measure);
 
-                Measure measure = (Measure) mapInputStream.readObject();
+    // gestire l'errore o il caso in cui l'oggetto non sia del tipo aspettato
+                }
+                //r /Measure measure = (Measure) mapInputStream.readObject();
 
                 switch(measure.getType()){
                     case "TCPBandwidth":
