@@ -1242,7 +1242,6 @@ public class Observer {
             //DEB
             System.out.println(connection.toString());
             InputStream inpst = connection.getInputStream();
-            System.out.println(connection.getInputString());
 
             System.out.println("input stream get ok"); //deb
 
