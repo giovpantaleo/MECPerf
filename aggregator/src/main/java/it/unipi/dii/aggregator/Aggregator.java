@@ -86,41 +86,30 @@ public class Aggregator {
                 InputStream isr = connectionSocket.getInputStream();
                 System.out.println("Input Stream: "+isr); // deb 
                 System.out.println("Inet address: "+connectionSocket.getInetAddress()); // deb 
-//                byte[] header = new byte[12];// deb 
-//                isr.read(header);// deb 
-//                String message = new String(header, "UTF-8");// deb 
-//                System.out.println("Header ricevuto dal client: " + header);// deb 
-                // leggi i dati dallo stream
-//                byte[] buffer = new byte[1024];
-//                int bytesRead;
-//                while ((bytesRead = isr.read(buffer)) != -1) {
-//               // processa i byte letti
-//                String data = new String(buffer, 0, bytesRead, "UTF-8");
-//                System.out.println(data);
-//                }
-//fin qui
-//                ObjectInputStream mapInputStream = new ObjectInputStream(isr);
-                //provo a usare in lettura l'eqivalente di scrittura
-                BufferedReader br = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
-                System.out.println(br.readLine());
+                System.out.println("Inet address: "+connectionSocket.getHostAddress()); // deb 
 
-                //BufferedReader bufferedReader = new BufferedReader(new FileReader("data.txt"));
+//                ObjectInputStream mapInputStream = new ObjectInputStream(isr);
+// deb                
+                //provo a usare in lettura l'eqivalente di scrittura
+//                BufferedReader br = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
+//                System.out.println(br.readLine());
+
 
                 // Legge i dati dal BufferedReader e li scrive su un ByteArrayOutputStream
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                String line;
-                while ((line = br.readLine()) != null) {
-                         byteArrayOutputStream.write(line.getBytes());
-                }
+  //              ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+  //              String line;
+  //              while ((line = br.readLine()) != null) {
+  //                       byteArrayOutputStream.write(line.getBytes());
+  //              }
 
     // Crea un ByteArrayInputStream contenente i dati scritti sul ByteArrayOutputStream
-                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+  //              ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
 
     // Crea un'istanza di ObjectInputStream utilizzando l'ByteArrayInputStream
-                ObjectInputStream mapInputStream = new ObjectInputStream(byteArrayInputStream);
+    //            ObjectInputStream mapInputStream = new ObjectInputStream(byteArrayInputStream);
 
 
-                //vero ObjectInputStream mapInputStream = new ObjectInputStream(isr);
+                ObjectInputStream mapInputStream = new ObjectInputStream(isr);
 
                 Measure measure = (Measure) mapInputStream.readObject();
 
