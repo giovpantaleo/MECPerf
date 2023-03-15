@@ -1215,7 +1215,7 @@ public class Observer {
            
             System.out.println("connection to: " + url); // deb
             System.out.println("paylod post: " + payloadPOST); // deb
-            Socket connection = new Socket(url, AGGREGATOR);//r
+            Socket connection = new Socket(url, AGGRPORT);//r
             
 //DEB            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             System.out.println(url.toString());
@@ -1274,7 +1274,7 @@ public class Observer {
             br.close();
             System.out.println(" br chiuso"); //deb
 
-            connection.disconnect();
+            //connection.disconnect();
             System.out.println("connection chiusa"); //deb
 
         } catch (Exception e) {
