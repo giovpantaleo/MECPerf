@@ -1250,19 +1250,29 @@ public class Observer {
             System.out.println("writer finito"); //deb
             //DEB
             InputStream inpst = connection.getInputStream();
+            System.out.println("input stream get ok"); //deb
+
             InputStreamReader inpst1 = new InputStreamReader(inpst);
+            System.out.println("input stream read get ok"); //deb
+
             BufferedReader br = new BufferedReader(inpst1);
-            System.out.println("writer finito"); //deb
+            System.out.println("br finito"); //deb
 
 //DEB//
 //            BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuffer jsonString = new StringBuffer();
+            System.out.println("json string initializzato"); //deb
+
             String line;
             while ((line = br.readLine()) != null) {
                 jsonString.append(line);
             }
             br.close();
+            System.out.println(" br chiuso"); //deb
+
             connection.disconnect();
+            System.out.println("connection chiusa"); //deb
+
         } catch (Exception e) {
             e.printStackTrace();
         }
