@@ -1209,6 +1209,22 @@ public class Observer {
      }
     protected static void sendPOSTRequest(String payloadPOST, String serverURL){
         try {
+            Socket socket = new Socket(AGGREGATORIP, AGGRPORT);
+            OutputStream os = socket.getOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(os);
+            //Measure measure = new Measure();
+            ///measure = "Sono solo una stringa";
+            // Inserisci i dati della misura nell'oggetto Measure
+            oos.writeObject(payloadPOST);
+            oos.close();
+            os.close();
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        /*
+        try {
+            
             URL url = new URL(serverURL);
            
             System.out.println("connection to: " + url); // deb
@@ -1271,6 +1287,7 @@ public class Observer {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        */
     }
 
 
