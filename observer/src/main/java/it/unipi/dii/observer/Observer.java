@@ -1208,6 +1208,7 @@ public class Observer {
         return "http://" + AGGREGATORIP + ":" + AGGRPORT + "/post_active_measures/insert_" + measurementType + "_measure";
      }
     protected static void sendPOSTRequest(String payloadPOST, String serverURL){
+        System.out.println(payloadPOST);
         try {
             Socket socket = new Socket(AGGREGATORIP, AGGRPORT);
             OutputStream os = socket.getOutputStream();
@@ -1308,7 +1309,9 @@ public class Observer {
         }
 
         //System.out.println("Sending to " + serverURL);
-        sendPOSTRequest(payloadPOST, serverURL);
+        sendPOSTRequest(payloadPOST, serverURL);//deb questo vero
+        //sendPOSTRequest(payloadPOST, serverURL); //deb
+
     }
 }
 
