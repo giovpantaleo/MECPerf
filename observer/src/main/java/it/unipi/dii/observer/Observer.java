@@ -1209,6 +1209,7 @@ public class Observer {
      }
     protected static void sendPOSTRequest(String payloadPOST, String serverURL){
         System.out.println(payloadPOST);
+        /* TEST
         try {
             Socket socket = new Socket(AGGREGATORIP, AGGRPORT);
             OutputStream os = socket.getOutputStream();
@@ -1223,7 +1224,8 @@ public class Observer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        /*
+        */
+        
         try {
             
             URL url = new URL(serverURL);
@@ -1250,23 +1252,19 @@ public class Observer {
             OutputStream outst = connection.getOutputStream(); //deb
             OutputStreamWriter writer = new OutputStreamWriter(outst, "UTF-8"); //deb
 
-//            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream()); //deb
-
 //           OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
             //deb//
 
             writer.write(payloadPOST);
             writer.close();
-            System.out.println("writer finito"); //deb
+            System.out.println("writer ended"); //deb
+            
             //DEB
             System.out.println(connection.toString());
             InputStream inpst = connection.getInputStream();
-
             System.out.println("input stream get ok"); //deb
-
             InputStreamReader inpst1 = new InputStreamReader(inpst);
             System.out.println("input stream read get ok"); //deb
-
             BufferedReader br = new BufferedReader(inpst1);
             System.out.println("br finito"); //deb
 
@@ -1288,7 +1286,7 @@ public class Observer {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        */
+        
     }
 
 
