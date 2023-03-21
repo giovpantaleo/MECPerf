@@ -1,7 +1,7 @@
 #!/bin/bash
    
 PROJECT_ROOT_PATH=$(pwd)
-COMMON_PATH=$PROJECT_ROOT_PATH/common/src/main/java/
+COMMON_PATH=$PROJECT_ROOT_PATH/common/src/main/java/:/home/MECPerf/MECPerf-master/json-simple-1.1.1.jar
 OBSERVER_PATH=$PROJECT_ROOT_PATH/observer/src/main/java/
 REMOTESERVER_PATH=$PROJECT_ROOT_PATH/remoteserver/src/main/java/
 AGGREGATOR_PATH=$PROJECT_ROOT_PATH/aggregator/src/main/java/
@@ -83,6 +83,8 @@ jar uf $PROJECT_ROOT_PATH/Aggregator.jar it/unipi/dii/common/Measure.class it/un
 jar uf $PROJECT_ROOT_PATH/Aggregator.jar it/unipi/dii/common/MeasureResult.class it/unipi/dii/common/MeasureResult.java 
 cd $AGGREGATOR_PATH
 jar uf $PROJECT_ROOT_PATH/Aggregator.jar it/unipi/dii/aggregator/Aggregator.class it/unipi/dii/aggregator/Aggregator.java
+jar uf $PROJECT_ROOT_PATH/Aggregator.jar /home/MECPerf/MECPerf-master/json-simple-1.1.1.jar
+
 echo "      Aggregator.jar done"
 jar umf MANIFEST.MF $PROJECT_ROOT_PATH/Aggregator.jar
 echo "      Aggregator manifest file updated"
