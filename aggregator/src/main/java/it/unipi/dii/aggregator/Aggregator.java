@@ -22,8 +22,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.json.simple.parser.*;
+import org.json.simple.*;
 
+import org.json.simple.parser.*;
 import it.unipi.dii.common.Measure;
 import it.unipi.dii.common.MeasureResult;
 
