@@ -123,6 +123,8 @@ public class Aggregator {
                 }catch(ParseException e){
                     e.printStackTrace();
                 }
+                System.out.println(objJs.toString());
+
                 Set<String> keysFirstLevel = new HashSet<String>(objJs.keySet());
                 for (int i = 0; i<keysFirstLevel.size(); i++){
                     try{
