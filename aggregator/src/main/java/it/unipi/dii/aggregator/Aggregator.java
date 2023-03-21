@@ -117,7 +117,7 @@ public class Aggregator {
                 System.out.println(measurestr);
                 JSONParser parser = new JSONParser();
                 JSONObject objJs= null;
-                String[] arrayJson = null;
+                Set<String> arrayJson = null;
                 try{
                     objJs = (JSONObject) parser.parse(measurestr);
                 }catch(ParseException e){
