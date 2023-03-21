@@ -118,7 +118,7 @@ public class Aggregator {
                 JSONParser parser = new JSONParser();
                 JSONObject objJs;
                 try{
-                    JSONObject objJs = (JSONObject) parser.parse(measurestr);
+                    objJs = (JSONObject) parser.parse(measurestr);
                 }catch(ParseException e){
                     e.printStackTrace();
                 }
