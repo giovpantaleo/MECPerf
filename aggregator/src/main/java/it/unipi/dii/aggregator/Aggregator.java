@@ -126,8 +126,8 @@ public class Aggregator {
                 Set<String> keysFirstLevel = new HashSet<String>(objJs.keySet());
                 for (int i = 0; i<keysFirstLevel.size(); i++){
                     try{
-                        JSONObject temp = objJs.get(i);
-                        arrayJson.put(temp);
+                        JSONObject temp = (JSONObject)objJs.get(i);
+                        arrayJson.add(temp);
                         System.out.println(arrayJson);
                         System.out.println(temp.keySet());
 
