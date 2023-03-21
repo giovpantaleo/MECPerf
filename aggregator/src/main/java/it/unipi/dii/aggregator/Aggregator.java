@@ -116,7 +116,12 @@ public class Aggregator {
                 String measurestr = (String) mapInputStream.readObject();
                 System.out.println(measurestr);
                 JSONParser parser = new JSONParser();
-                JSONObject objJs = (JSONObject) parser.parse(measurestr);
+                try{
+                    JSONObject objJs = (JSONObject) parser.parse(measurestr);
+
+                }catch(ParseException e){
+                    e.printStackTrace();
+                }
                 System.out.println(objJs.keySet());
                 Measure measure = (Measure) mapInputStream.readObject();
 
