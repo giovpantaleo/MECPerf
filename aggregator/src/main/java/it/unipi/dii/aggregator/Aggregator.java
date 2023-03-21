@@ -117,10 +117,22 @@ public class Aggregator {
                 System.out.println(measurestr);
                 JSONParser parser = new JSONParser();
                 JSONObject objJs= null;
+                String[] arrayJson = null;
                 try{
                     objJs = (JSONObject) parser.parse(measurestr);
                 }catch(ParseException e){
                     e.printStackTrace();
+                }
+                for (int i = 0; i<objJs.length: i++){
+                    try{
+                        JSONObject temp = objJs.get(i);
+                        arrayJson.add(temp);
+                        System.out.println(arrayJson);
+                        System.out.println(temp.keySet());
+
+                    }catch(ParseException e){
+                        e.printStackTrace();
+                    }
                 }
                 System.out.println(objJs.keySet());
                 Measure measure = (Measure) mapInputStream.readObject();
