@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.json.simple.*;
 
 import it.unipi.dii.common.Measure;
 import it.unipi.dii.common.MeasureResult;
@@ -116,7 +117,7 @@ public class Aggregator {
                 JSONParser parser = new JSONParser();
                 JSONObject obj = (JSONObject) parser.parse(measurestr);
                 System.out.println(JSONObject.keySet());
-                Measure measure = new (Measure) mapInputStream.readObject();
+                Measure measure = (Measure) mapInputStream.readObject();
 
                 switch(measure.getType()){
                     case "TCPBandwidth":
