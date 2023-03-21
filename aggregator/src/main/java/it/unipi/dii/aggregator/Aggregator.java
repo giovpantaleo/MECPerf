@@ -117,17 +117,17 @@ public class Aggregator {
                 System.out.println(measurestr);
                 JSONParser parser = new JSONParser();
                 JSONObject objJs= null;
-                Set<String> arrayJson = null;
+                JSONArray arrayJson = null;
                 try{
                     objJs = (JSONObject) parser.parse(measurestr);
                 }catch(ParseException e){
                     e.printStackTrace();
                 }
-                String[] keysFirstLevel = objJs.keySet();
+                Set<String> keysFirstLevel = objJs.keySet(); 
                 for (int i = 0; i<keysFirstLevel.length; i++){
                     try{
                         JSONObject temp = objJs.get(i);
-                        arrayJson.add(temp);
+                        arrayJson.put(temp);
                         System.out.println(arrayJson);
                         System.out.println(temp.keySet());
 
