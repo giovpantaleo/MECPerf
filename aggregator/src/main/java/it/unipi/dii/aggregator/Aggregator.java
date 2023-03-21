@@ -124,7 +124,7 @@ public class Aggregator {
                     e.printStackTrace();
                 }
                 Set<String> keysFirstLevel = new HashSet<String>(objJs.keySet());
-                for (int i = 0; i<keysFirstLevel.length; i++){
+                for (int i = 0; i<keysFirstLevel.size(); i++){
                     try{
                         JSONObject temp = objJs.get(i);
                         arrayJson.put(temp);
