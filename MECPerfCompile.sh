@@ -10,23 +10,23 @@ APPCOMMANDLINE_PATH=$PROJECT_ROOT_PATH/app/src/main/java/
 echo "start compiling..."
 
 
-
-javac -target 11 -source 11 -bootclasspath /home/jdk/jre/lib/rt.jar -cp $COMMON_PATH $COMMON_PATH/it/unipi/dii/common/Measure.java 
-javac -target 11 -source 11 -bootclasspath /home/jdk/jre/lib/rt.jar -cp $COMMON_PATH $COMMON_PATH/it/unipi/dii/common/Measurements.java
-javac -target 11 -source 11 -bootclasspath /home/jdk/jre/lib/rt.jar -cp $COMMON_PATH $COMMON_PATH/it/unipi/dii/common/ControlMessages.java
+#-bootclasspath /home/jdk/jre/lib/rt.jar
+javac -target 11 -source 11 -cp $COMMON_PATH $COMMON_PATH/it/unipi/dii/common/Measure.java 
+javac -target 11 -source 11 -cp $COMMON_PATH $COMMON_PATH/it/unipi/dii/common/Measurements.java
+javac -target 11 -source 11 -cp $COMMON_PATH $COMMON_PATH/it/unipi/dii/common/ControlMessages.java
 echo "      Commons compiled"
-javac -target 11 -source 11 -bootclasspath /home/jdk/jre/lib/rt.jar -cp $COMMON_PATH $APPCOMMANDLINE_PATH/it/unipi/dii/mecperfng/MainUtils.java
+javac -target 11 -source 11 -cp $COMMON_PATH $APPCOMMANDLINE_PATH/it/unipi/dii/mecperfng/MainUtils.java
 echo "      MainUtils compiled"
 
-javac -target 11 -source 11 -bootclasspath /home/jdk/jre/lib/rt.jar -cp $COMMON_PATH $AGGREGATOR_PATH/it/unipi/dii/aggregator/Aggregator.java
+javac -target 11 -source 11 -cp $COMMON_PATH $AGGREGATOR_PATH/it/unipi/dii/aggregator/Aggregator.java
 echo "      Aggregator compiled"
-javac -target 11 -source 11 -bootclasspath /home/jdk/jre/lib/rt.jar -cp $COMMON_PATH  $OBSERVER_PATH/it/unipi/dii/observer/Observer.java
+javac -target 11 -source 11 -cp $COMMON_PATH  $OBSERVER_PATH/it/unipi/dii/observer/Observer.java
 #javac --add-modules=jdk.incubator.httpclient-cp $COMMON_PATH  $OBSERVER_PATH/it/unipi/dii/observer/Observer.java
 echo "      Observer compiled"
-javac -target 11 -source 11 -bootclasspath /home/jdk/jre/lib/rt.jar -cp $COMMON_PATH $REMOTESERVER_PATH/it/unipi/dii/remoteserver/Server.java
+javac -target 11 -source 11 -cp $COMMON_PATH $REMOTESERVER_PATH/it/unipi/dii/remoteserver/Server.java
 echo "      RemoteServer compiled"
 
-javac -target 11 -source 11 -bootclasspath /home/jdk/jre/lib/rt.jar -cp $COMMON_PATH:$APPCOMMANDLINE_PATH -Xlint:unchecked  $APPCOMMANDLINE_PATH/it/unipi/dii/mecperfng/commandlineapp/CommandLineApp.java
+javac -target 11 -source 11 -cp $COMMON_PATH:$APPCOMMANDLINE_PATH -Xlint:unchecked  $APPCOMMANDLINE_PATH/it/unipi/dii/mecperfng/commandlineapp/CommandLineApp.java
 echo "      App for linux compiled"
 
        
