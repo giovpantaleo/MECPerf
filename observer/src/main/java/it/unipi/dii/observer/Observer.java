@@ -1209,7 +1209,7 @@ public class Observer {
      }
     protected static void sendPOSTRequest(String payloadPOST, String serverURL){
         System.out.println(payloadPOST);
-        /* TEST
+        // TEST
         try {
             Socket socket = new Socket(AGGREGATORIP, AGGRPORT);
             OutputStream os = socket.getOutputStream();
@@ -1224,8 +1224,8 @@ public class Observer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        */
         
+        /*
         try {
             
             URL url = new URL(serverURL);
@@ -1285,7 +1285,7 @@ public class Observer {
 
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
         
     }
 
@@ -1308,7 +1308,6 @@ public class Observer {
 
         //System.out.println("Sending to " + serverURL);
         sendPOSTRequest(payloadPOST, serverURL);//deb questo vero
-        //sendPOSTRequest(payloadPOST, serverURL); //deb
 
     }
 }

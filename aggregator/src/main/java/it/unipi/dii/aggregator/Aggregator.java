@@ -88,7 +88,7 @@ public class Aggregator {
                 System.out.println("Inet address: "+connectionSocket.getInetAddress()); // deb 
                 System.out.println("Inet address: "+connectionSocket.toString()); // deb 
 
-//                ObjectInputStream mapInputStream = new ObjectInputStream(isr);
+                ObjectInputStream mapInputStream = new ObjectInputStream(isr);
 // deb                
                 //provo a usare in lettura l'eqivalente di scrittura
 //                BufferedReader br = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
@@ -109,12 +109,10 @@ public class Aggregator {
     //            ObjectInputStream mapInputStream = new ObjectInputStream(byteArrayInputStream);
 
 
-                ObjectInputStream mapInputStream = new ObjectInputStream(isr);
-                System.out.println(mapInputStream);
-                Measure measure = (Measure) mapInputStream.readObject();
-                System.out.println(measure);
 
-                //r /Measure measure = (Measure) mapInputStream.readObject();
+
+
+                Measure measure = (Measure) mapInputStream.readObject();
 
                 switch(measure.getType()){
                     case "TCPBandwidth":
