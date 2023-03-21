@@ -3,7 +3,10 @@ apply plugin: 'java-library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':common')
-    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    //implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    implementation files('/home/MECPerf/MECPerf-master/json-simple-1.1.1.jar')
+//    implementation files('/home//home/MECPerf/MECPerf-master/json-simple-1.1.1.jar')
+
 
 }
 sourceCompatibility = "7"
