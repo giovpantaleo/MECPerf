@@ -111,9 +111,9 @@ public class Aggregator {
 
 
 
-                String measure = (String) mapInputStream.readObject();
-                System.out.println(measure);
-                //Measure measure = (Measure) mapInputStream.readObject();
+                String measurestr = (String) mapInputStream.readObject();
+                System.out.println(measurestr);
+                Measure measure = (Measure) measurestr;
 
                 switch(measure.getType()){
                     case "TCPBandwidth":
