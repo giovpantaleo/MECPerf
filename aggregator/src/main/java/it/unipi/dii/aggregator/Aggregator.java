@@ -131,8 +131,8 @@ public class Aggregator {
                         System.out.println(arrayJson);
                         System.out.println(temp.keySet());
 
-                    }catch(ParseException e){
-                        e.printStackTrace();
+                    }catch(){
+                        System.out.println("Allert");
                     }
                 }
                 System.out.println(objJs.keySet());
