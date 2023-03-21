@@ -118,13 +118,12 @@ public class Aggregator {
                 JSONParser parser = new JSONParser();
                 JSONObject objJs= null;
                 JSONArray arrayJson = null;
-                Set<String> keysFirstLevel = new HashSet<>();
                 try{
                     objJs = (JSONObject) parser.parse(measurestr);
                 }catch(ParseException e){
                     e.printStackTrace();
                 }
-                keysFirstLevel = objJs.keySet(); 
+                Set<String> keysFirstLevel = new HashSet<>(objJs.keySet());
                 for (int i = 0; i<keysFirstLevel.length; i++){
                     try{
                         JSONObject temp = objJs.get(i);
