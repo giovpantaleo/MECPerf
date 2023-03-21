@@ -131,7 +131,7 @@ public class Aggregator {
                         System.out.println(arrayJson);
                         System.out.println(temp.keySet());
 
-                    }catch(){
+                    }catch{
                         System.out.println("Allert");
                     }
                 }
