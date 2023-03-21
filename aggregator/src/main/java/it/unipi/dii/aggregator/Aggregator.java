@@ -113,7 +113,10 @@ public class Aggregator {
 
                 String measurestr = (String) mapInputStream.readObject();
                 System.out.println(measurestr);
-                Measure measure = (Measure) mapInputStream.readObject();
+                JSONParser parser = new JSONParser();
+                JSONObject obj = (JSONObject) parser.parse(measurestr);
+                System.out.println(JSONObject.keySet());
+                Measure measure = new (Measure) mapInputStream.readObject();
 
                 switch(measure.getType()){
                     case "TCPBandwidth":
