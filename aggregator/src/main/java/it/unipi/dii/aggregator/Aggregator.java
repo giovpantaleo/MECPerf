@@ -123,7 +123,8 @@ public class Aggregator {
                 }catch(ParseException e){
                     e.printStackTrace();
                 }
-                for (int i = 0; i<objJs.keySet().length; i++){
+                String[] keysFirstLevel = objJs.keySet();
+                for (int i = 0; i<keysFirstLevel.length; i++){
                     try{
                         JSONObject temp = objJs.get(i);
                         arrayJson.add(temp);
