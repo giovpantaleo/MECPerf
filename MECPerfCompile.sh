@@ -1,7 +1,7 @@
 #!/bin/bash
    
 PROJECT_ROOT_PATH=$(pwd)
-COMMON_PATH=$PROJECT_ROOT_PATH/common/src/main/java/:/home/MECPerf/MECPerf-master/json-simple-1.1.1.jar
+COMMON_PATH=$PROJECT_ROOT_PATH/common/src/main/java/
 OBSERVER_PATH=$PROJECT_ROOT_PATH/observer/src/main/java/
 REMOTESERVER_PATH=$PROJECT_ROOT_PATH/remoteserver/src/main/java/
 AGGREGATOR_PATH=$PROJECT_ROOT_PATH/aggregator/src/main/java/
@@ -18,7 +18,7 @@ echo "      Commons compiled"
 javac -target 11 -source 11 -cp $COMMON_PATH $APPCOMMANDLINE_PATH/it/unipi/dii/mecperfng/MainUtils.java
 echo "      MainUtils compiled"
 
-javac -target 11 -source 11 -cp $COMMON_PATH $AGGREGATOR_PATH/it/unipi/dii/aggregator/Aggregator.java
+javac -target 11 -source 11 -cp $COMMON_PATH -cp /home/MECPerf/MECPerf-master/json-simple-1.1.1.jar $AGGREGATOR_PATH/it/unipi/dii/aggregator/Aggregator.java
 echo "      Aggregator compiled"
 javac -target 11 -source 11 -cp $COMMON_PATH  $OBSERVER_PATH/it/unipi/dii/observer/Observer.java
 #javac --add-modules=jdk.incubator.httpclient-cp $COMMON_PATH  $OBSERVER_PATH/it/unipi/dii/observer/Observer.java
