@@ -170,8 +170,8 @@ public class Aggregator {
                     JSONObject temp_js = (JSONObject) temp;
 
                     Long[] map = new Long[2];
-                    map[0] = Long.parsLong(temp_js.get("nanoTimes").toString());
-                    map[1] = Long.parsLong(temp_js.get("kBytes").toString());
+                    map[0] = Long.parseLong(temp_js.get("nanoTimes").toString());
+                    map[1] = Long.parseLong(temp_js.get("kBytes").toString());
                     bandwidth.put(Integer.parseInt(temp_js.get("sub_id").toString()), map);
                     System.out.println(bandwidth);
 
