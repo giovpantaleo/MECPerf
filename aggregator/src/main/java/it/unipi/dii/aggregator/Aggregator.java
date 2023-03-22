@@ -168,9 +168,9 @@ public class Aggregator {
                     System.out.println(array_bandwidth_first.get(j).getClass());
                     JSONObject temp = (array_bandwidth_first.get(j));
                     Long[] map = new Long[2];
-                    map[0] = array_bandwidth_first.get(j).get("nanoTimes");
-                    map[1] = array_bandwidth_first.get(j).get("kBytes");
-                    bandwidth.put(array_bandwidth_first.get(j).get("sub_id"), map);
+                    map[0] = temp.get("nanoTimes");
+                    map[1] = temp.get("kBytes");
+                    bandwidth.put(temp.get("sub_id"), map);
                     System.out.println(bandwidth);
 
                 }
