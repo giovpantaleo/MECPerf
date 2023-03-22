@@ -123,7 +123,15 @@ public class Aggregator {
                 }catch(ParseException e){
                     e.printStackTrace();
                 }
-                System.out.println(objJs.toString());
+                System.out.println("JSON obj: "+ objJs.toString());
+
+
+                List<String> list = new ArrayList<String>();
+                JSONArray jsonArray = objJs.getJSONArray(keysFirstLevel(0));
+                for(int i = 0 ; i < jsonArray.length(); i++) {
+                    list.add(jsonArray.getJSONObject(i).getString("username"));
+                    System.out.println(jsonArray.getJSONObject(i).getString("username")); // display usernames
+                }
 
                 Set<String> keysFirstLevel = new HashSet<String>(objJs.keySet());
                 for (int i = 0; i<keysFirstLevel.size(); i++){
