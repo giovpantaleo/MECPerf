@@ -30,6 +30,7 @@ import it.unipi.dii.common.MeasureResult;
 import org.json.simple.JSONArray.*;
 import java.lang.*;
 import java.lang.Math.*;
+import java.text.DecimalFormat;
 
 public class Aggregator {
     //private static final int AGGREGATOR_PORT = 6766;
