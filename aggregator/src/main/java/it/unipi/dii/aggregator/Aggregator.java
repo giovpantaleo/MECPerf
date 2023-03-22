@@ -188,6 +188,9 @@ public class Aggregator {
 
                     map[1] = val3;//(Double.parseDouble(temp_js.get("kBytes").toString())*exp).longValue(); non funziona
                     int id = Integer.parseInt(temp_js.get("sub_id").toString());
+                    System.out.println("id "+id );
+                    System.out.println("map "+imap );
+
                     bandwidth.put(id, map);
                     System.out.println(bandwidth);
 
