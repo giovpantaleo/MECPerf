@@ -139,7 +139,17 @@ public class Aggregator {
                 Set<String> keysFirstLevel = new HashSet<String>(objJs.keySet());
                 for (int i = 0; i<keysFirstLevel.size(); i++){
                     try{
-                        JSONObject temp = (JSONObject)objJs.get(i);
+                        System.out.println(objJs.get(i));
+                        System.out.println(objJs.get(i).getClass());
+
+                    }catch(Exception e){
+                        System.out.println("Allert");
+                    }
+                }       
+/*
+                for (int i = 0; i<keysFirstLevel.size(); i++){
+                    try{
+                        JSONOArray temp = (JSONArray)objJs.get(i);
                         arrayJson.add(temp);
                         System.out.println(arrayJson);
                         System.out.println(temp.keySet());
@@ -147,7 +157,7 @@ public class Aggregator {
                     }catch(Exception e){
                         System.out.println("Allert");
                     }
-                }
+                }*/
                 System.out.println(objJs.keySet());
                 Measure measure = (Measure) mapInputStream.readObject();
 
