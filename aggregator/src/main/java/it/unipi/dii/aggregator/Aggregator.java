@@ -174,7 +174,7 @@ public class Aggregator {
 
                     Long[] map = new Long[2];
                     map[0] = Long.parseLong(temp_js.get("nanoTimes").toString());
-                    map[1] = Long.parseLong(temp_js.get("kBytes").toString()*exp);
+                    map[1] = Long.parseLong(Double.parseDouble(temp_js.get("kBytes").toString())*exp);
                     bandwidth.put(Integer.parseInt(temp_js.get("sub_id").toString()), map);
                     System.out.println(bandwidth);
 
