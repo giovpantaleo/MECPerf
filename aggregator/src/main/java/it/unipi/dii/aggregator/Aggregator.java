@@ -135,22 +135,18 @@ public class Aggregator {
                        // System.out.println(objJs.get(keysFirstLevel_str[i]).getClass());
                         Object ob = objJs.get(keysFirstLevel_str[i]);
                         if(ob instanceof JSONObject){
-                        //if((String)objJs.get(keysFirstLevel_str[i]).getClass()=="org.json.simple.JSONObject"){
                             JSONObject obj_temp = (JSONObject) ob;
-                            //JSONObject obj_temp = objJs.get(keysFirstLevel_str[i]);
                             Set<String> keys = new HashSet<String>(obj_temp.keySet());
                             //System.out.println(keys);
                             if (keysFirstLevel_str[i].equals("test_info_first_segment"))
                                 System.out.println( obj_temp.get("ReceiverIdentity")); 
 
                         }else if (ob instanceof JSONArray){
-                        //}else if ((String)objJs.get(keysFirstLevel_str[i]).getClass()=="org.json.simple.JSONArray"){
                             JSONArray obj_temp = (JSONArray) ob;
-                            //JSONArray obj_temp = objJs.get(keysFirstLevel_str[i]);
                             int size = obj_temp.size();
                             for (int j = 0; j<size ; j++)
                                 System.out.println(obj_temp.get(j));
-
+                                //GET BANDWIDTH
                         }
 
                     }catch(Exception e){
@@ -162,7 +158,21 @@ public class Aggregator {
 
                 Object ob = objJs.get("test_info_first_segment");
                 JSONObject obj_first = (JSONObject) ob;
+
+                Object ob_bandwidth_first = objJs.get("bandwidth_values_first_segment");
+                JSONArray array_bandwidth_first = (JSONArray) ob_bandwidth_first;
                 Map<Integer, Long[]>  bandwidth= null;
+
+                for (int j = 0; j<array_bandwidth_first.size() ; j++){
+                    System.out.println(obj_temp.get(j));
+                    Long[] map = new Long[2];
+                    map[0] = array_bandwidth_first.get(j).get("nanoTimes");
+                    map[1] = array_bandwidth_first.get(j).get("kBytes");
+                    bandwidth.put(array_bandwidth_first.get(j).get("sub_id"), map);
+                }
+
+           
+            
                 Map<Integer, Long[]> latency= null;
 
                 Measure measure = new Measure((String) obj_first.get("Command"), (String) obj_first.get("ReceiverIdentity"), (String) obj_first.get("SenderIdentity"), 
