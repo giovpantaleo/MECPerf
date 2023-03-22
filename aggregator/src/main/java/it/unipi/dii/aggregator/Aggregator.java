@@ -27,7 +27,7 @@ import java.util.*;
 import org.json.simple.parser.*;
 import it.unipi.dii.common.Measure;
 import it.unipi.dii.common.MeasureResult;
-
+import org.json.simple.JSONArray.*;
 public class Aggregator {
     //private static final int AGGREGATOR_PORT = 6766;
     private static int AGGREGATOR_PORT = -1;
