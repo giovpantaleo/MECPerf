@@ -127,7 +127,7 @@ public class Aggregator {
 
 
                 List<String> list = new ArrayList<String>();
-                JSONArray jsonArray = objJs.getJSONArray(keysFirstLevel(0));
+                JSONArray jsonArray = (JSONArray)objJs.get(keysFirstLevel(0));
                 for(int i = 0 ; i < jsonArray.length(); i++) {
                     list.add(jsonArray.getJSONObject(i).getString("username"));
                     System.out.println(jsonArray.getJSONObject(i).getString("username")); // display usernames
