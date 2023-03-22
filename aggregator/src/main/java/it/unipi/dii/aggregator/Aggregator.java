@@ -145,7 +145,7 @@ public class Aggregator {
                             //JSONArray obj_temp = objJs.get(keysFirstLevel_str[i]);
                             int size = obj_temp.size();
                             for (int j = 0; j<size ; j++)
-                                System.out.println(obj_temp[j]);
+                                System.out.println(obj_temp.get(j));
 
                         }
                         
