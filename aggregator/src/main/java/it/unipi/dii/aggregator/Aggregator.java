@@ -161,7 +161,6 @@ public class Aggregator {
                             map[0] = Long.parseLong(temp_js.get("nanoTimes").toString());
                             System.out.println(map[0] );
 
-        //                    map[1] = Long.parseLong(Double.parseDouble(temp_js.get("kBytes").toString())*exp);
                             Double val = Double.parseDouble(temp_js.get("kBytes").toString());
                             System.out.println(val.getClass());
                             Double val2 = val*exp;
@@ -199,17 +198,6 @@ public class Aggregator {
                             System.out.println(map[0] );
 
                             map[1] = Long.parseLong(temp_js.get("latency").toString());
-                            //Double val = Double.parseDouble(temp_js.get("latency").toString());
-                            //System.out.println(val.getClass());
-                            //Double val2 = val*exp;
-                            //DecimalFormat df = new DecimalFormat("#");
-                            //df.setMaximumFractionDigits(8);
-                            //System.out.println(df.format(val2));
-                            //String s1 = String.valueOf(df.format(val2));
-                            //Long val3 = Long.parseLong(s1);
-                            //System.out.println(val3.getClass() +""+ val3);
-
-                            //map[1] = val3;//(Double.parseDouble(temp_js.get("kBytes").toString())*exp).longValue(); non funziona
                             int id = Integer.parseInt(temp_js.get("sub_id").toString());
                             System.out.println("id "+id );
                             System.out.println("map "+ map.toString() );
@@ -219,8 +207,8 @@ public class Aggregator {
 
 
                         }
-                }
-
+                    }
+            }
 
 
 
