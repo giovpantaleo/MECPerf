@@ -135,7 +135,8 @@ public class Aggregator {
                         Object ob = objJs.get(keysFirstLevel_str[i]);
                         if(ob instanceof JSONObject){
                         //if((String)objJs.get(keysFirstLevel_str[i]).getClass()=="org.json.simple.JSONObject"){
-                            JSONObject obj_temp = objJs.get(keysFirstLevel_str[i]);
+                            JSONObject obj_temp = (JSONObject) ob;
+                            //JSONObject obj_temp = objJs.get(keysFirstLevel_str[i]);
                             Set<String> keys = new HashSet<String>(obj_temp.keySet());
                             System.out.println(keys);
                         }else if (ob instanceof JSONArray){
