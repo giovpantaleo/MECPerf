@@ -171,6 +171,8 @@ public class Aggregator {
                     map[0] = array_bandwidth_first.get(j).get("nanoTimes");
                     map[1] = array_bandwidth_first.get(j).get("kBytes");
                     bandwidth.put(array_bandwidth_first.get(j).get("sub_id"), map);
+                    System.out.println(bandwidth);
+
                 }
 
            
