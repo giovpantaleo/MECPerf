@@ -143,7 +143,7 @@ public class Aggregator {
                 Map<Integer, Long[]> latency= new LinkedHashMap<>();;
                 Map<Integer, Long[]>  bandwidth= new LinkedHashMap<>();
 
-                if (keysFirstLevel_str.contain("bandwidth_values_first_segment")){
+                if (keysFirstLevel_str.contains("bandwidth_values_first_segment")){
                     Object ob_bandwidth_first = objJs.get("bandwidth_values_first_segment");
                     JSONArray array_bandwidth_first = (JSONArray) ob_bandwidth_first;
                     Double exp = (Double) Math.pow(10, 8);
@@ -179,7 +179,7 @@ public class Aggregator {
 
 
                     }
-                }else if(keysFirstLevel_str.contain(" latency_values_first_segment")){
+                }else if(keysFirstLevel_str.contains(" latency_values_first_segment")){
                     Object ob_latancy_first = objJs.get("latancy_values_first_segment");
                     JSONArray array_latancy_first = (JSONArray) ob_latancy_first;
 
