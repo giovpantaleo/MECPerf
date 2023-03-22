@@ -164,7 +164,7 @@ public class Aggregator {
 
                 Object ob_bandwidth_first = objJs.get("bandwidth_values_first_segment");
                 JSONArray array_bandwidth_first = (JSONArray) ob_bandwidth_first;
-                Map<Integer, Long[]>  bandwidth= null;
+                Map<Integer, Long[]>  bandwidth= new LinkedHashMap<>();
                 Double exp = (Double) Math.pow(10, 8);
 
                 for (int j = 0; j<array_bandwidth_first.size() ; j++){
@@ -191,7 +191,7 @@ public class Aggregator {
                     map[1] = val3;//(Double.parseDouble(temp_js.get("kBytes").toString())*exp).longValue(); non funziona
                     int id = Integer.parseInt(temp_js.get("sub_id").toString());
                     System.out.println("id "+id );
-                    System.out.println("map "+map );
+                    System.out.println("map "+ map );
 
                     bandwidth.put(id, map);
                     System.out.println(bandwidth);
