@@ -164,11 +164,12 @@ public class Aggregator {
                 Map<Integer, Long[]>  bandwidth= null;
 
                 for (int j = 0; j<array_bandwidth_first.size() ; j++){
-                    System.out.println(obj_temp.get(j));
+                    System.out.println(array_bandwidth_first.get(j));
+                    System.out.println(array_bandwidth_first.get(j).getClass());
                     Long[] map = new Long[2];
-                    map[0] = array_bandwidth_first.get(j).get("nanoTimes");
-                    map[1] = array_bandwidth_first.get(j).get("kBytes");
-                    bandwidth.put(array_bandwidth_first.get(j).get("sub_id"), map);
+                    map[0] = array_bandwidth_first.get(j).getString("nanoTimes");
+                    map[1] = array_bandwidth_first.get(j).getString("kBytes");
+                    bandwidth.put(array_bandwidth_first.get(j).getString("sub_id"), map);
                 }
 
            
