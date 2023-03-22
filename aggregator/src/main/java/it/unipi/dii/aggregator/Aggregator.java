@@ -140,7 +140,7 @@ public class Aggregator {
                             Set<String> keys = new HashSet<String>(obj_temp.keySet());
                             //System.out.println(keys);
                             if (keysFirstLevel_str[i]=="test_info_first_segment")
-                                System.out.println( obj_temp.get("ReceiverIdentity")); 
+                                System.out.println( obj_temp); 
 
                         }else if (ob instanceof JSONArray){
                         //}else if ((String)objJs.get(keysFirstLevel_str[i]).getClass()=="org.json.simple.JSONArray"){
