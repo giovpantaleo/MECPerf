@@ -139,8 +139,8 @@ public class Aggregator {
                 Set<String> keysFirstLevel = new HashSet<String>(objJs.keySet());
                 for (int i = 0; i<keysFirstLevel.size(); i++){
                     try{
-                        System.out.println(objJs.get(i));
-                        System.out.println(objJs.get(i).getClass());
+                        System.out.println(objJs.getJSONObject(i));
+                        System.out.println(objJs.getJSONObject(i).getClass());
 
                     }catch(Exception e){
                         System.out.println("Allert");
