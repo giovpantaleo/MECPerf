@@ -142,8 +142,8 @@ public class Aggregator {
                         }else if (ob instanceof JSONArray){
                         //}else if ((String)objJs.get(keysFirstLevel_str[i]).getClass()=="org.json.simple.JSONArray"){
                             JSONArray obj_temp = (JSONArray) ob;
-                            JSONArray obj_temp = objJs.get(keysFirstLevel_str[i]);
-                            for (int j = 0; obj_temp.length(); j++)
+                            //JSONArray obj_temp = objJs.get(keysFirstLevel_str[i]);
+                            for (int j = 0; obj_temp.size(); j++)
                                 System.out.println(obj_temp[j]);
 
                         }
