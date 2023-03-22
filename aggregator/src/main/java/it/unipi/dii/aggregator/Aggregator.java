@@ -173,7 +173,7 @@ public class Aggregator {
                     Object temp = (array_bandwidth_first.get(j));
                     JSONObject temp_js = (JSONObject) temp;
 
-                    Long[] map = new Long[1];
+                    Long[] map = new Long[2];
                     map[0] = Long.parseLong(temp_js.get("nanoTimes").toString());
 //                    map[1] = Long.parseLong(Double.parseDouble(temp_js.get("kBytes").toString())*exp);
                     Double val = Double.parseDouble(temp_js.get("kBytes").toString());
@@ -186,8 +186,9 @@ public class Aggregator {
                     Long val3 = Long.parseLong(s1);
                     System.out.println(val3.getClass() +""+ val3);
 
-                    //map[1] = (Double.parseDouble(temp_js.get("kBytes").toString())*exp).longValue();
-                    bandwidth.put(Integer.parseInt(temp_js.get("sub_id").toString()), map);
+                    map[1] = val3;//(Double.parseDouble(temp_js.get("kBytes").toString())*exp).longValue(); non funziona
+                    int id = Integer.parseInt(temp_js.get("sub_id").toString());
+                    bandwidth.put(id, map);
                     System.out.println(bandwidth);
 
                 }
