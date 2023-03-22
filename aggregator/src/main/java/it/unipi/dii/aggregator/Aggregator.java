@@ -110,7 +110,7 @@ public class Aggregator {
     // Crea un'istanza di ObjectInputStream utilizzando l'ByteArrayInputStream
     //            ObjectInputStream mapInputStream = new ObjectInputStream(byteArrayInputStream);
 
-
+ 
 
 
                 String measurestr = (String) mapInputStream.readObject();
@@ -126,27 +126,32 @@ public class Aggregator {
                 System.out.println("JSON obj: "+ objJs.toString());
                 System.out.println(objJs.keySet().getClass());
 
-                System.out.println("JSON keys: "+ objJs.toString());
-
-/*
-                List<String> list = new ArrayList<String>();
-                JSONArray jsonArray = (JSONArray)objJs.get(keysFirstLevel(0));
-                for(int i = 0 ; i < jsonArray.length(); i++) {
-                    list.add(jsonArray.getJSONObject(i).getString("username"));
-                    System.out.println(jsonArray.getJSONObject(i).getString("username")); // display usernames
-                }*/
-
                 Set<String> keysFirstLevel = new HashSet<String>(objJs.keySet());
                 String[] keysFirstLevel_str = keysFirstLevel.toArray(new String[keysFirstLevel.size()]);
                 for (int i = 0; i<keysFirstLevel.size(); i++){
                     try{
                         System.out.println(objJs.get(keysFirstLevel_str[i]));
                         System.out.println(objJs.get(keysFirstLevel_str[i]).getClass());
+                        if(objJs.get(keysFirstLevel_str[i]).isObject()){
+                            JSONObject obj_temp = objJs.get(keysFirstLevel_str[i]);
+                            Set<String> keys = new HashSet<String>(obj_temp.keySet());
+                            System.out.println(keys);
+
+                        }else if (objJs.get(keysFirstLevel_str[i]).isArray){
+                            JSONArray obj_temp = objJs.get(keysFirstLevel_str[i]);
+                            for (int j = 0; obj_temp.size(); j++)
+                                System.out.println(obj_temp[j]);
+
+                        }
+                        
 
                     }catch(Exception e){
                         System.out.println("Allert");
                     }
-                }       
+                } 
+
+
+   
 /*
                 for (int i = 0; i<keysFirstLevel.size(); i++){
                     try{
