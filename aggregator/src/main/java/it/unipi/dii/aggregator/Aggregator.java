@@ -164,9 +164,7 @@ public class Aggregator {
                 Map<Integer, Long[]>  bandwidth= null;
                 Map<Integer, Long[]> latency= null;
 
-                Measure measure = new Measure((String) obj_first.get("Command"), (String) obj_first.get("ReceiverIdentity"), (String) obj_first.get("SenderIdentity"), (Map<Integer, Long[]>)  bandwidth,
-                   (Map<Integer, Long[]>) latency, (String) obj_first.get("Keyword"), (int) obj_first.get("PackSize"), (int) obj_first.get("NumPack"),
-                   (String) obj_first.get("SenderIPv4Address"), (String) obj_first.get("ReceiverIPv4Address") );
+                Measure measure = new Measure((String) obj_first.get("Command"), (String) obj_first.get("ReceiverIdentity"), (String) obj_first.get("SenderIdentity"), (Map<Integer, Long[]>)  bandwidth,(Map<Integer, Long[]>) latency, (String) obj_first.get("Keyword"), (int) Integer.parseInt(obj_first.get("PackSize")), (int) Integer.parseInt(obj_first.get("NumPack")), (String) obj_first.get("SenderIPv4Address"), (String) obj_first.get("ReceiverIPv4Address") );
 
                 switch(measure.getType()){
                     case "TCPBandwidth":
@@ -181,7 +179,7 @@ public class Aggregator {
                         //Map<Integer, Long[]>  bandwidth= null;
                         //Map<Integer, Long[]> latency= null;
 
-                        Measure measureSecondSegment = new Measure((String) obj_second.get("Command"), (String) obj_second.get("ReceiverIdentity"), (String) obj_second.get("SenderIdentity"), (Map<Integer, Long[]>)  bandwidth, (Map<Integer, Long[]>) latency, (String) obj_second.get("Keyword"), (int) obj_second.get("PackSize"), (int) obj_second.get("NumPack"), (String) obj_second.get("SenderIPv4Address"), (String) obj_second.get("ReceiverIPv4Address") );
+                        Measure measureSecondSegment = new Measure((String) obj_second.get("Command"), (String) obj_second.get("ReceiverIdentity"), (String) obj_second.get("SenderIdentity"), (Map<Integer, Long[]>)  bandwidth, (Map<Integer, Long[]>) latency, (String) obj_second.get("Keyword"), (int) Integer.parseInt(obj_second.get("PackSize")), (int) Integer.parseInt(obj_second.get("NumPack")), (String) obj_second.get("SenderIPv4Address"), (String) obj_second.get("ReceiverIPv4Address") );
                         //Measure measureSecondSegment = (Measure) mapInputStream.readObject();
                         HashMap<String, String> metadataFirstSegment = null;
                         HashMap<String, String> metadataSecondSegment = null;
