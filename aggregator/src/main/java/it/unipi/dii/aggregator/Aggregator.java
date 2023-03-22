@@ -31,6 +31,7 @@ import org.json.simple.JSONArray.*;
 import java.lang.*;
 import java.lang.Math.*;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class Aggregator {
     //private static final int AGGREGATOR_PORT = 6766;
@@ -179,7 +180,7 @@ public class Aggregator {
 
 
                     }
-                }else if(keysFirstLevel_str.contains(" latency_values_first_segment")){
+                }else if(keysFirstLevel_str.contains("latency_values_first_segment")){
                     Object ob_latancy_first = objJs.get("latancy_values_first_segment");
                     JSONArray array_latancy_first = (JSONArray) ob_latancy_first;
 
