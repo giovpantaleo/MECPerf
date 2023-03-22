@@ -29,6 +29,8 @@ import it.unipi.dii.common.Measure;
 import it.unipi.dii.common.MeasureResult;
 import org.json.simple.JSONArray.*;
 import java.lang.*;
+import java.lang.Math.*;
+
 public class Aggregator {
     //private static final int AGGREGATOR_PORT = 6766;
     private static int AGGREGATOR_PORT = -1;
@@ -162,6 +164,7 @@ public class Aggregator {
                 Object ob_bandwidth_first = objJs.get("bandwidth_values_first_segment");
                 JSONArray array_bandwidth_first = (JSONArray) ob_bandwidth_first;
                 Map<Integer, Long[]>  bandwidth= null;
+                int exp = (int) Math.pow(10, 9);
 
                 for (int j = 0; j<array_bandwidth_first.size() ; j++){
                     System.out.println(array_bandwidth_first.get(j));
@@ -171,7 +174,7 @@ public class Aggregator {
 
                     Long[] map = new Long[2];
                     map[0] = Long.parseLong(temp_js.get("nanoTimes").toString());
-                    map[1] = Long.parseLong(temp_js.get("kBytes").toString());
+                    map[1] = Long.parseLong(temp_js.get("kBytes").toString()*exp);
                     bandwidth.put(Integer.parseInt(temp_js.get("sub_id").toString()), map);
                     System.out.println(bandwidth);
 
