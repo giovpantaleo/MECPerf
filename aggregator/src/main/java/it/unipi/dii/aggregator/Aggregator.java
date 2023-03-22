@@ -139,7 +139,7 @@ public class Aggregator {
                             //JSONObject obj_temp = objJs.get(keysFirstLevel_str[i]);
                             Set<String> keys = new HashSet<String>(obj_temp.keySet());
                             System.out.println(keys);
-                            if (keysFirstLevel[i]=="test_info_first_segment")
+                            if (keysFirstLevel_str[i]=="test_info_first_segment")
                                 System.out.println( obj_temp.get("ReceiverIdentity")); 
 
                         }else if (ob instanceof JSONArray){
@@ -151,7 +151,6 @@ public class Aggregator {
                                 System.out.println(obj_temp.get(j));
 
                         }
-                    System.out.println(objJs.get("test_info_first_segment").get("ReceiverIdentity")); 
 
                     }catch(Exception e){
                         System.out.println("Allert");
