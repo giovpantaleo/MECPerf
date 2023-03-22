@@ -148,7 +148,7 @@ public class Aggregator {
                                 System.out.println(obj_temp.get(j));
 
                         }
-                    System.out.println(objJs.getJSONObject("test_info_first_segment").get("ReceiverIdentity")); 
+                    System.out.println(objJs.get("test_info_first_segment").get("ReceiverIdentity")); 
 
                     }catch(Exception e){
                         System.out.println("Allert");
