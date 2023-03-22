@@ -184,13 +184,13 @@ public class Aggregator {
                     //}else if(keysFirstLevel_str.contains("latency_values_first_segment")){
                     }else if(keysFirstLevel_str[i].equals("latency_values_first_segment")){
 
-                        Object ob_latancy_first = objJs.get("latancy_values_first_segment");
-                        JSONArray array_latancy_first = (JSONArray) ob_latancy_first;
+                        Object ob_latency_first = objJs.get("latency_values_first_segment");
+                        JSONArray array_latency_first = (JSONArray) ob_latency_first;
 
-                        for (int j = 0; j<array_latancy_first.size() ; j++){
-                            System.out.println(array_latancy_first.get(j));
-                            System.out.println(array_latancy_first.get(j).getClass());
-                            Object temp = (array_latancy_first.get(j));
+                        for (int j = 0; j<array_latency_first.size() ; j++){
+                            System.out.println(array_latency_first.get(j));
+                            System.out.println(array_latency_first.get(j).getClass());
+                            Object temp = (array_latency_first.get(j));
                             JSONObject temp_js = (JSONObject) temp;
 
                             Long[] map = new Long[2];
