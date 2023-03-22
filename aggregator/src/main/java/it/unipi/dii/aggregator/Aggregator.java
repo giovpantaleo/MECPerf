@@ -178,8 +178,8 @@ public class Aggregator {
                         //Measure measureSecondSegment = (Measure) mapInputStream.readObject();
                         Object ob2 = objJs.get("test_info_second_segment");
                         JSONObject obj_second = (JSONObject) ob2;
-                        Map<Integer, Long[]>  bandwidth= null;
-                        Map<Integer, Long[]> latency= null;
+                        //Map<Integer, Long[]>  bandwidth= null;
+                        //Map<Integer, Long[]> latency= null;
 
                         Measure measureSecondSegment = new Measure((String) obj_second.get("Command"), (String) obj_second.get("ReceiverIdentity"), (String) obj_second.get("SenderIdentity"), (Map<Integer, Long[]>)  bandwidth, (Map<Integer, Long[]>) latency, (String) obj_second.get("Keyword"), (int) obj_second.get("PackSize"), (int) obj_second.get("NumPack"), (String) obj_second.get("SenderIPv4Address"), (String) obj_second.get("ReceiverIPv4Address") );
                         //Measure measureSecondSegment = (Measure) mapInputStream.readObject();
