@@ -124,14 +124,17 @@ public class Aggregator {
                     e.printStackTrace();
                 }
                 System.out.println("JSON obj: "+ objJs.toString());
+                System.out.println(objJs.keySet().getClass());
 
+                System.out.println("JSON keys: "+ objJs.toString());
 
+/*
                 List<String> list = new ArrayList<String>();
                 JSONArray jsonArray = (JSONArray)objJs.get(keysFirstLevel(0));
                 for(int i = 0 ; i < jsonArray.length(); i++) {
                     list.add(jsonArray.getJSONObject(i).getString("username"));
                     System.out.println(jsonArray.getJSONObject(i).getString("username")); // display usernames
-                }
+                }*/
 
                 Set<String> keysFirstLevel = new HashSet<String>(objJs.keySet());
                 for (int i = 0; i<keysFirstLevel.size(); i++){
