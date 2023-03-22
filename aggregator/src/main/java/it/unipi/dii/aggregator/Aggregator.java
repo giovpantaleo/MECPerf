@@ -157,22 +157,16 @@ public class Aggregator {
                     }
                 } 
 
-
-   
-/*
-                for (int i = 0; i<keysFirstLevel.size(); i++){
-                    try{
-                        JSONOArray temp = (JSONArray)objJs.get(i);
-                        arrayJson.add(temp);
-                        System.out.println(arrayJson);
-                        System.out.println(temp.keySet());
-
-                    }catch(Exception e){
-                        System.out.println("Allert");
-                    }
-                }*/
                 System.out.println(objJs.keySet());
-                Measure measure = (Measure) mapInputStream.readObject();
+
+                Object ob = objJs.get("test_info_first_segment");
+                JSONObject obj_first = (JSONObject) ob;
+                Map<Integer, Long[]>  bandwidth= null;
+                Map<Integer, Long[]> latency= null;
+
+                Measure measure = new Measure((String) obj_first.get("Command"), (String) obj_first.get("ReceiverIdentity"), (String) obj_first.get("SenderIdentity"), (Map<Integer, Long[]>)  bandwidth,
+                   (Map<Integer, Long[]>) latency, (String) obj_first.get("Keyword"), (int) obj_first.get("PackSize"), (int) obj_first.get("NumPack"),
+                   (String) obj_first.get("SenderIPv4Address"), (String) obj_first.get("ReceiverIPv4Address") );
 
                 switch(measure.getType()){
                     case "TCPBandwidth":
@@ -181,7 +175,14 @@ public class Aggregator {
                     case "UDPRTT": {
                         System.out.println("Comando: " + measure.getType());
 
-                        Measure measureSecondSegment = (Measure) mapInputStream.readObject();
+                        //Measure measureSecondSegment = (Measure) mapInputStream.readObject();
+                        Object ob2 = objJs.get("test_info_second_segment");
+                        JSONObject obj_second = (JSONObject) ob2;
+                        Map<Integer, Long[]>  bandwidth= null;
+                        Map<Integer, Long[]> latency= null;
+
+                        Measure measureSecondSegment = new Measure((String) obj_second.get("Command"), (String) obj_second.get("ReceiverIdentity"), (String) obj_second.get("SenderIdentity"), (Map<Integer, Long[]>)  bandwidth, (Map<Integer, Long[]>) latency, (String) obj_second.get("Keyword"), (int) obj_second.get("PackSize"), (int) obj_second.get("NumPack"), (String) obj_second.get("SenderIPv4Address"), (String) obj_second.get("ReceiverIPv4Address") );
+                        //Measure measureSecondSegment = (Measure) mapInputStream.readObject();
                         HashMap<String, String> metadataFirstSegment = null;
                         HashMap<String, String> metadataSecondSegment = null;
 
