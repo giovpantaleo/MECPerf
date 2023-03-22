@@ -143,7 +143,8 @@ public class Aggregator {
                         //}else if ((String)objJs.get(keysFirstLevel_str[i]).getClass()=="org.json.simple.JSONArray"){
                             JSONArray obj_temp = (JSONArray) ob;
                             //JSONArray obj_temp = objJs.get(keysFirstLevel_str[i]);
-                            for (int j = 0; (int) obj_temp.size(); j++)
+                            int size = obj_temp.size();
+                            for (int j = 0; j<size ; j++)
                                 System.out.println(obj_temp[j]);
 
                         }
