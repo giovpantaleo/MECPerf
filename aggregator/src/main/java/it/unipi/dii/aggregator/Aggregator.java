@@ -31,7 +31,6 @@ import org.json.simple.JSONArray.*;
 import java.lang.*;
 import java.lang.Math.*;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 
 public class Aggregator {
     //private static final int AGGREGATOR_PORT = 6766;
@@ -144,77 +143,82 @@ public class Aggregator {
                 Map<Integer, Long[]> latency= new LinkedHashMap<>();;
                 Map<Integer, Long[]>  bandwidth= new LinkedHashMap<>();
 
-                if (keysFirstLevel_str.contains("bandwidth_values_first_segment")){
-                    Object ob_bandwidth_first = objJs.get("bandwidth_values_first_segment");
-                    JSONArray array_bandwidth_first = (JSONArray) ob_bandwidth_first;
-                    Double exp = (Double) Math.pow(10, 8);
+                boolean flag = true; //true bandwidth
+                for (int i = 0; i<keysFirstLevel.size(); i++){
+                    if (keysFirstLevel_str[i].equals("bandwidth_values_first_segment")){
+                    //if (keysFirstLevel_str.contains("bandwidth_values_first_segment")){
+                        Object ob_bandwidth_first = objJs.get("bandwidth_values_first_segment");
+                        JSONArray array_bandwidth_first = (JSONArray) ob_bandwidth_first;
+                        Double exp = (Double) Math.pow(10, 8);
 
-                    for (int j = 0; j<array_bandwidth_first.size() ; j++){
-                        System.out.println(array_bandwidth_first.get(j));
-                        System.out.println(array_bandwidth_first.get(j).getClass());
-                        Object temp = (array_bandwidth_first.get(j));
-                        JSONObject temp_js = (JSONObject) temp;
+                        for (int j = 0; j<array_bandwidth_first.size() ; j++){
+                            System.out.println(array_bandwidth_first.get(j));
+                            System.out.println(array_bandwidth_first.get(j).getClass());
+                            Object temp = (array_bandwidth_first.get(j));
+                            JSONObject temp_js = (JSONObject) temp;
 
-                        Long[] map = new Long[2];
-                        map[0] = Long.parseLong(temp_js.get("nanoTimes").toString());
-                        System.out.println(map[0] );
+                            Long[] map = new Long[2];
+                            map[0] = Long.parseLong(temp_js.get("nanoTimes").toString());
+                            System.out.println(map[0] );
 
-    //                    map[1] = Long.parseLong(Double.parseDouble(temp_js.get("kBytes").toString())*exp);
-                        Double val = Double.parseDouble(temp_js.get("kBytes").toString());
-                        System.out.println(val.getClass());
-                        Double val2 = val*exp;
-                        DecimalFormat df = new DecimalFormat("#");
-                        df.setMaximumFractionDigits(8);
-                        System.out.println(df.format(val2));
-                        String s1 = String.valueOf(df.format(val2));
-                        Long val3 = Long.parseLong(s1);
-                        System.out.println(val3.getClass() +""+ val3);
+        //                    map[1] = Long.parseLong(Double.parseDouble(temp_js.get("kBytes").toString())*exp);
+                            Double val = Double.parseDouble(temp_js.get("kBytes").toString());
+                            System.out.println(val.getClass());
+                            Double val2 = val*exp;
+                            DecimalFormat df = new DecimalFormat("#");
+                            df.setMaximumFractionDigits(8);
+                            System.out.println(df.format(val2));
+                            String s1 = String.valueOf(df.format(val2));
+                            Long val3 = Long.parseLong(s1);
+                            System.out.println(val3.getClass() +""+ val3);
 
-                        map[1] = val3;//(Double.parseDouble(temp_js.get("kBytes").toString())*exp).longValue(); non funziona
-                        int id = Integer.parseInt(temp_js.get("sub_id").toString());
-                        System.out.println("id "+id );
-                        System.out.println("map "+ map.toString() );
+                            map[1] = val3;//(Double.parseDouble(temp_js.get("kBytes").toString())*exp).longValue(); non funziona
+                            int id = Integer.parseInt(temp_js.get("sub_id").toString());
+                            System.out.println("id "+id );
+                            System.out.println("map "+ map.toString() );
 
-                        bandwidth.put(id, map);
-                        System.out.println(bandwidth);
-
-
-                    }
-                }else if(keysFirstLevel_str.contains("latency_values_first_segment")){
-                    Object ob_latancy_first = objJs.get("latancy_values_first_segment");
-                    JSONArray array_latancy_first = (JSONArray) ob_latancy_first;
-
-                    for (int j = 0; j<array_latancy_first.size() ; j++){
-                        System.out.println(array_latancy_first.get(j));
-                        System.out.println(array_latancy_first.get(j).getClass());
-                        Object temp = (array_latancy_first.get(j));
-                        JSONObject temp_js = (JSONObject) temp;
-
-                        Long[] map = new Long[2];
-                        map[0] = Long.parseLong(temp_js.get("timestamp_millis").toString());
-                        System.out.println(map[0] );
-
-                        map[1] = Long.parseLong(temp_js.get("latency").toString());
-                        //Double val = Double.parseDouble(temp_js.get("latency").toString());
-                        //System.out.println(val.getClass());
-                        //Double val2 = val*exp;
-                        //DecimalFormat df = new DecimalFormat("#");
-                        //df.setMaximumFractionDigits(8);
-                        //System.out.println(df.format(val2));
-                        //String s1 = String.valueOf(df.format(val2));
-                        //Long val3 = Long.parseLong(s1);
-                        //System.out.println(val3.getClass() +""+ val3);
-
-                        //map[1] = val3;//(Double.parseDouble(temp_js.get("kBytes").toString())*exp).longValue(); non funziona
-                        int id = Integer.parseInt(temp_js.get("sub_id").toString());
-                        System.out.println("id "+id );
-                        System.out.println("map "+ map.toString() );
-
-                        latency.put(id, map);
-                        System.out.println(latency);
+                            bandwidth.put(id, map);
+                            System.out.println(bandwidth);
 
 
-                    }
+                        }
+                    //}else if(keysFirstLevel_str.contains("latency_values_first_segment")){
+                    }else if(keysFirstLevel_str[i].equals("latency_values_first_segment")){
+
+                        Object ob_latancy_first = objJs.get("latancy_values_first_segment");
+                        JSONArray array_latancy_first = (JSONArray) ob_latancy_first;
+
+                        for (int j = 0; j<array_latancy_first.size() ; j++){
+                            System.out.println(array_latancy_first.get(j));
+                            System.out.println(array_latancy_first.get(j).getClass());
+                            Object temp = (array_latancy_first.get(j));
+                            JSONObject temp_js = (JSONObject) temp;
+
+                            Long[] map = new Long[2];
+                            map[0] = Long.parseLong(temp_js.get("timestamp_millis").toString());
+                            System.out.println(map[0] );
+
+                            map[1] = Long.parseLong(temp_js.get("latency").toString());
+                            //Double val = Double.parseDouble(temp_js.get("latency").toString());
+                            //System.out.println(val.getClass());
+                            //Double val2 = val*exp;
+                            //DecimalFormat df = new DecimalFormat("#");
+                            //df.setMaximumFractionDigits(8);
+                            //System.out.println(df.format(val2));
+                            //String s1 = String.valueOf(df.format(val2));
+                            //Long val3 = Long.parseLong(s1);
+                            //System.out.println(val3.getClass() +""+ val3);
+
+                            //map[1] = val3;//(Double.parseDouble(temp_js.get("kBytes").toString())*exp).longValue(); non funziona
+                            int id = Integer.parseInt(temp_js.get("sub_id").toString());
+                            System.out.println("id "+id );
+                            System.out.println("map "+ map.toString() );
+
+                            latency.put(id, map);
+                            System.out.println(latency);
+
+
+                        }
                 }
 
 
