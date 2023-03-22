@@ -164,7 +164,7 @@ public class Aggregator {
                 Object ob_bandwidth_first = objJs.get("bandwidth_values_first_segment");
                 JSONArray array_bandwidth_first = (JSONArray) ob_bandwidth_first;
                 Map<Integer, Long[]>  bandwidth= null;
-                int exp = (int) Math.pow(10, 9);
+                Double exp = (Double) Math.pow(10, 9);
 
                 for (int j = 0; j<array_bandwidth_first.size() ; j++){
                     System.out.println(array_bandwidth_first.get(j));
