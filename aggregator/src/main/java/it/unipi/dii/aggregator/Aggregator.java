@@ -175,6 +175,8 @@ public class Aggregator {
 
                     Long[] map = new Long[2];
                     map[0] = Long.parseLong(temp_js.get("nanoTimes").toString());
+                    System.out.println(map[0] );
+
 //                    map[1] = Long.parseLong(Double.parseDouble(temp_js.get("kBytes").toString())*exp);
                     Double val = Double.parseDouble(temp_js.get("kBytes").toString());
                     System.out.println(val.getClass());
@@ -189,7 +191,7 @@ public class Aggregator {
                     map[1] = val3;//(Double.parseDouble(temp_js.get("kBytes").toString())*exp).longValue(); non funziona
                     int id = Integer.parseInt(temp_js.get("sub_id").toString());
                     System.out.println("id "+id );
-                    System.out.println("map "+imap );
+                    System.out.println("map "+map );
 
                     bandwidth.put(id, map);
                     System.out.println(bandwidth);
