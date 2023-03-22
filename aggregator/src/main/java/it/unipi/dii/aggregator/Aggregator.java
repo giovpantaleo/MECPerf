@@ -166,8 +166,8 @@ public class Aggregator {
                 Map<Integer, Long[]> latency= null;
 
                 Measure measure = new Measure((String) obj_first.get("Command"), (String) obj_first.get("ReceiverIdentity"), (String) obj_first.get("SenderIdentity"), 
-                (Map<Integer, Long[]>)  bandwidth,(Map<Integer, Long[]>) latency, (String) obj_first.get("Keyword"), Integer.parseInt(obj_first.get("PackSize")), 
-                 Integer.parseInt(obj_first.get("NumPack")), (String) obj_first.get("SenderIPv4Address"), (String) obj_first.get("ReceiverIPv4Address") );
+                (Map<Integer, Long[]>)  bandwidth,(Map<Integer, Long[]>) latency, (String) obj_first.get("Keyword"), Integer.parseInt(obj_first.get("PackSize").toString()), 
+                 Integer.parseInt(obj_first.get("NumPack").toString()), (String) obj_first.get("SenderIPv4Address"), (String) obj_first.get("ReceiverIPv4Address") );
 
                 switch(measure.getType()){
                     case "TCPBandwidth":
