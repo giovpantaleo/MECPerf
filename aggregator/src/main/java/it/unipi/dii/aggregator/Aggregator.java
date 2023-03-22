@@ -178,7 +178,8 @@ public class Aggregator {
                     Double val = Double.parseDouble(temp_js.get("kBytes").toString());
                     System.out.println(val.getClass());
                     Double val2 = val*exp;
-                    Long val3 = (Long) val2;
+                    String s1 = String.valueOf(val2);
+                    Long val3 = Long.parseLong(s1);
                     System.out.println(val3.getClass() +""+ val3);
 
                     //map[1] = (Double.parseDouble(temp_js.get("kBytes").toString())*exp).longValue();
