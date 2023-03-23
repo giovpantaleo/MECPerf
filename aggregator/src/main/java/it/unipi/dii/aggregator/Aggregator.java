@@ -433,6 +433,7 @@ public class Aggregator {
             int iteration = 0;
             long previous = 0;
             System.out.println("PROTOCOL: " + protocol+" MAP_SIZE: " + map.size());
+            System.out.println(map.toString());//deb
 
 
             for (Map.Entry<Integer, Long[]> entry : map.entrySet()) { //per UDP ha un solo elemento
