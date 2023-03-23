@@ -216,8 +216,8 @@ public class Observer {
                         Map<Integer, Long[]> remoteMeasure = (Map<Integer, Long[]>) mapInputStream.readObject();
                         isr.close();
                         mapInputStream.close();
-                        System.out.println(remoteMeasure); //deb
-                        System.out.println(remoteMeasure.toString());//deb
+                        //System.out.println(remoteMeasure); //deb
+                       // System.out.println(remoteMeasure.toString());//deb
 
                         //remote data
                         Measure measureSecondSegment = new Measure("TCPBandwidth",
@@ -1309,7 +1309,7 @@ public class Observer {
         }
 
         //System.out.println("Sending to " + serverURL);
-        sendPOSTRequest(payloadPOST, serverURL);//deb questo vero
+        sendPOSTRequest(payloadPOST, serverURL);
 
     }
 }

@@ -90,15 +90,15 @@ public class Aggregator {
                 System.out.println("Aggregator in attesa di connessione... " );
                 Socket connectionSocket = welcomeSoket.accept();
                 InputStream isr = connectionSocket.getInputStream();
-                System.out.println("Input Stream: "+isr); // deb 
-                System.out.println("Inet address: "+connectionSocket.getInetAddress()); // deb 
-                System.out.println("Inet address: "+connectionSocket.toString()); // deb 
+                //System.out.println("Input Stream: "+isr); // deb 
+                //System.out.println("Inet address: "+connectionSocket.getInetAddress()); // deb 
+                //System.out.println("Inet address: "+connectionSocket.toString()); // deb 
 
                 ObjectInputStream mapInputStream = new ObjectInputStream(isr);
      
                 // read the packet, and make it a JSON Object starting from a String
                 String measurestr = (String) mapInputStream.readObject();
-                System.out.println(measurestr);
+                //System.out.println(measurestr);
                 JSONParser parser = new JSONParser();
                 JSONObject objJs= null;
                 JSONArray arrayJson = null;
@@ -107,8 +107,8 @@ public class Aggregator {
                 }catch(ParseException e){
                     e.printStackTrace();
                 }
-                System.out.println("JSON obj: "+ objJs.toString());
-                System.out.println(objJs.keySet().getClass());
+                //System.out.println("JSON obj: "+ objJs.toString());
+                //System.out.println(objJs.keySet().getClass());
                 // Read the keys of the first level in the object
                 Set<String> keysFirstLevel = new HashSet<String>(objJs.keySet());
                 // To make it more easy to manage, make it a String[]
@@ -124,7 +124,7 @@ public class Aggregator {
                             JSONArray obj_temp = (JSONArray) ob;
                             int size = obj_temp.size();
                             for (int j = 0; j<size ; j++)
-                                System.out.println(obj_temp.get(j));
+                                //System.out.println(obj_temp.get(j));
                         }
 
                     }catch(Exception e){
@@ -132,7 +132,7 @@ public class Aggregator {
                     }
                 } 
 
-                System.out.println(objJs.keySet());
+                //System.out.println(objJs.keySet());
                 // Here the first segement measure is defined
                 Object ob = objJs.get("test_info_first_segment");
                 JSONObject obj_first = (JSONObject) ob;
@@ -226,9 +226,9 @@ public class Aggregator {
                         if (measure.getType().equals("TCPRTT") || measure.getType().equals("UDPRTT") )
                         {
                             Object ob3 = objJs.get("metadata_first_segment");
-                            System.out.println(objJs.get("metadata_first_segment").toString());
+                            //System.out.println(objJs.get("metadata_first_segment").toString());
                             JSONObject obj_metadata_first = (JSONObject) ob3;
-                            System.out.println(obj_metadata_first.get("measure-type").toString());
+                            //System.out.println(obj_metadata_first.get("measure-type").toString());
                             String Name_Port = null;
                             String Num_tests = null;
                             String Pktsize = null;
