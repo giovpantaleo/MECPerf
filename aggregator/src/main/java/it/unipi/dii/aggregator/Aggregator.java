@@ -307,10 +307,10 @@ public class Aggregator {
                                                        DBUSERNAME, DBPASSWORD)){
                             dbConnection.setAutoCommit(false);
                             System.out.println("r1 "+ measure);//deb
-                            System.out.println("r1 "+ measure.getTestJSON());//deb
+                            System.out.println("r1 "+ measure.getTestJSON("first"));//deb
                             System.out.println("r1 "+ measure.toString());//deb
                             System.out.println("r2 "+measureSecondSegment.toString());//deb
-                            System.out.println("r2 "+measureSecondSegment.getTestJSON());//deb
+                            System.out.println("r2 "+measureSecondSegment.getTestJSON("second"));//deb
                             System.out.println("r3 "+metadataFirstSegment.toString());//deb
                             System.out.println("r4 "+metadataSecondSegment.toString());//deb
                             System.out.println("r5 "+dbConnection);//deb
