@@ -136,7 +136,7 @@ public class Aggregator {
                 // Here the first segement measure is defined
                 Object ob = objJs.get("test_info_first_segment");
                 JSONObject obj_first = (JSONObject) ob;
-                Map<Integer, Long[]> latency= new LinkedHashMap<>();;
+                Map<Integer, Long[]> latency= new LinkedHashMap<>();
                 Map<Integer, Long[]>  bandwidth= new LinkedHashMap<>();
 
                 for (int i = 0; i<keysFirstLevel.size(); i++){
@@ -220,8 +220,8 @@ public class Aggregator {
                         (String) obj_second.get("Keyword"), (int) Integer.parseInt(obj_second.get("PackSize").toString()), (int) Integer.parseInt(obj_second.get("NumPack").toString()), 
                         (String) obj_second.get("SenderIPv4Address"), (String) obj_second.get("ReceiverIPv4Address") );
                         //Measure measureSecondSegment = (Measure) mapInputStream.readObject();
-                        HashMap<String, String> metadataFirstSegment = null;
-                        HashMap<String, String> metadataSecondSegment = null;
+                        HashMap<String, String> metadataFirstSegment = new LinkedHashMap<>();
+                        HashMap<String, String> metadataSecondSegment = new LinkedHashMap<>();
 
                         if (measure.getType().equals("TCPRTT") || measure.getType().equals("UDPRTT") )
                         {
