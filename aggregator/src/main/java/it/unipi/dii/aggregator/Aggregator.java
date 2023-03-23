@@ -96,7 +96,7 @@ public class Aggregator {
 
                 ObjectInputStream mapInputStream = new ObjectInputStream(isr);
      
-
+                // read the packet, and make it a JSON Object starting from a String
                 String measurestr = (String) mapInputStream.readObject();
                 System.out.println(measurestr);
                 JSONParser parser = new JSONParser();
@@ -109,21 +109,17 @@ public class Aggregator {
                 }
                 System.out.println("JSON obj: "+ objJs.toString());
                 System.out.println(objJs.keySet().getClass());
-
+                // Read the keys of the first level in the object
                 Set<String> keysFirstLevel = new HashSet<String>(objJs.keySet());
+                // To make it more easy to manage, make it a String[]
                 String[] keysFirstLevel_str = keysFirstLevel.toArray(new String[keysFirstLevel.size()]);
+                // This for cicle is just to understand which type of element are in the second level
                 for (int i = 0; i<keysFirstLevel.size(); i++){
                     try{
-                        //System.out.println(objJs.get(keysFirstLevel_str[i]));
-                       // System.out.println(objJs.get(keysFirstLevel_str[i]).getClass());
                         Object ob = objJs.get(keysFirstLevel_str[i]);
                         if(ob instanceof JSONObject){
                             JSONObject obj_temp = (JSONObject) ob;
                             Set<String> keys = new HashSet<String>(obj_temp.keySet());
-                            //System.out.println(keys);
-                            if (keysFirstLevel_str[i].equals("test_info_first_segment"))
-                                System.out.println( obj_temp.get("ReceiverIdentity")); 
-
                         }else if (ob instanceof JSONArray){
                             JSONArray obj_temp = (JSONArray) ob;
                             int size = obj_temp.size();
@@ -137,86 +133,72 @@ public class Aggregator {
                 } 
 
                 System.out.println(objJs.keySet());
-
+                // Here the first segement measure is defined
                 Object ob = objJs.get("test_info_first_segment");
                 JSONObject obj_first = (JSONObject) ob;
                 Map<Integer, Long[]> latency= new LinkedHashMap<>();;
                 Map<Integer, Long[]>  bandwidth= new LinkedHashMap<>();
 
-                boolean flag = true; //true bandwidth
                 for (int i = 0; i<keysFirstLevel.size(); i++){
                     if (keysFirstLevel_str[i].equals("bandwidth_values_first_segment")){
-                    //if (keysFirstLevel_str.contains("bandwidth_values_first_segment")){
                         Object ob_bandwidth_first = objJs.get("bandwidth_values_first_segment");
                         JSONArray array_bandwidth_first = (JSONArray) ob_bandwidth_first;
                         Double exp = (Double) Math.pow(10, 8);
 
                         for (int j = 0; j<array_bandwidth_first.size() ; j++){
-                            System.out.println(array_bandwidth_first.get(j));
-                            System.out.println(array_bandwidth_first.get(j).getClass());
+                            //System.out.println(array_bandwidth_first.get(j));
+                            //System.out.println(array_bandwidth_first.get(j).getClass());
                             Object temp = (array_bandwidth_first.get(j));
                             JSONObject temp_js = (JSONObject) temp;
 
                             Long[] map = new Long[2];
                             map[0] = Long.parseLong(temp_js.get("nanoTimes").toString());
-                            System.out.println(map[0] );
+                            //System.out.println(map[0] );
 
                             Double val = Double.parseDouble(temp_js.get("kBytes").toString());
-                            System.out.println(val.getClass());
+                            //System.out.println(val.getClass());
                             Double val2 = val*exp;
                             DecimalFormat df = new DecimalFormat("#");
                             df.setMaximumFractionDigits(8);
-                            System.out.println(df.format(val2));
+                            //System.out.println(df.format(val2));
                             String s1 = String.valueOf(df.format(val2));
                             Long val3 = Long.parseLong(s1);
-                            System.out.println(val3.getClass() +""+ val3);
+                            //System.out.println(val3.getClass() +""+ val3);
 
-                            map[1] = val3;//(Double.parseDouble(temp_js.get("kBytes").toString())*exp).longValue(); non funziona
+                            map[1] = val3;
                             int id = Integer.parseInt(temp_js.get("sub_id").toString());
-                            System.out.println("id "+id );
-                            System.out.println("map "+ map.toString() );
+                            //System.out.println("id "+id );
+                            //System.out.println("map "+ map.toString() );
 
                             bandwidth.put(id, map);
-                            System.out.println(bandwidth);
-
-
+                            //System.out.println(bandwidth);
                         }
-                    //}else if(keysFirstLevel_str.contains("latency_values_first_segment")){
                     }else if(keysFirstLevel_str[i].equals("latency_values_first_segment")){
 
                         Object ob_latency_first = objJs.get("latency_values_first_segment");
                         JSONArray array_latency_first = (JSONArray) ob_latency_first;
 
                         for (int j = 0; j<array_latency_first.size() ; j++){
-                            System.out.println(array_latency_first.get(j));
-                            System.out.println(array_latency_first.get(j).getClass());
+                            //System.out.println(array_latency_first.get(j));
+                            //System.out.println(array_latency_first.get(j).getClass());
                             Object temp = (array_latency_first.get(j));
                             JSONObject temp_js = (JSONObject) temp;
 
                             Long[] map = new Long[2];
                             map[0] = Long.parseLong(temp_js.get("timestamp_millis").toString());
-                            System.out.println(map[0] );
+                            //System.out.println(map[0] );
 
                             map[1] = Long.parseLong(temp_js.get("latency").toString());
                             int id = Integer.parseInt(temp_js.get("sub_id").toString());
-                            System.out.println("id "+id );
-                            System.out.println("map "+ map.toString() );
+                            //System.out.println("id "+id );
+                            //System.out.println("map "+ map.toString() );
 
                             latency.put(id, map);
-                            System.out.println(latency);
-
+                            //System.out.println(latency);
 
                         }
                     }
             }
-
-
-
-
-                
-
-           
-            
 
                 Measure measure = new Measure((String) obj_first.get("Command"), (String) obj_first.get("ReceiverIdentity"), (String) obj_first.get("SenderIdentity"), 
                 (Map<Integer, Long[]>)  bandwidth,(Map<Integer, Long[]>) latency, (String) obj_first.get("Keyword"), Integer.parseInt(obj_first.get("PackSize").toString()), 
@@ -229,11 +211,9 @@ public class Aggregator {
                     case "UDPRTT": {
                         System.out.println("Comando: " + measure.getType());
 
-                        //Measure measureSecondSegment = (Measure) mapInputStream.readObject();
+                        //original Measure measureSecondSegment = (Measure) mapInputStream.readObject();
                         Object ob2 = objJs.get("test_info_second_segment");
                         JSONObject obj_second = (JSONObject) ob2;
-                        //Map<Integer, Long[]>  bandwidth= null;
-                        //Map<Integer, Long[]> latency= null;
 
                         Measure measureSecondSegment = new Measure((String) obj_second.get("Command"), (String) obj_second.get("ReceiverIdentity"), 
                         (String) obj_second.get("SenderIdentity"), (Map<Integer, Long[]>)  bandwidth, (Map<Integer, Long[]>) latency, 
