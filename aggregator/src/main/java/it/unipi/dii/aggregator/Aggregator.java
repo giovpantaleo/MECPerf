@@ -123,7 +123,7 @@ public class Aggregator {
                         }else if (ob instanceof JSONArray){
                             JSONArray obj_temp = (JSONArray) ob;
                             int size = obj_temp.size();
-                            for (int j = 0; j<size ; j++)
+                            //for (int j = 0; j<size ; j++)
                                 //System.out.println(obj_temp.get(j));
                         }
 
