@@ -268,7 +268,6 @@ public class Aggregator {
                             metadataFirstSegment.put("direction", obj_metadata_first.get("direction").toString());
 
 
-{"Sender-identity":"Observer","pktsize-UDPRTT":"1","ObserverAddress":"192.168.3.1","UDPPort":"6790","ClientAddress":"\/192.168.3.32","command":"latencyUDP","interfacename_client":"control","experiment_timer":"100","AggregatorAddress":"192.168.3.11","Receiver-identity":"Client-application","crosstraffic":"OMbps","ObserverCMDPort":"6792","numtests-UDPRTT":"5","number-of-attempts":"1","accesstechnology_client":"wifi","nodeid_observer":"NA","Number-of-failures":"0","keyword":"prova insermento REST","direction":"receiver"}
 
                             Object ob4 = objJs.get("metadata_second_segment");
                             JSONObject obj_metadata_second = (JSONObject) ob4;
