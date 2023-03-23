@@ -306,10 +306,10 @@ public class Aggregator {
                                                      + DBADDRESS+":3306/"+ DBNAME + "?useSSL=false",
                                                        DBUSERNAME, DBPASSWORD)){
                             dbConnection.setAutoCommit(false);
-                            System.out.println("r1 "+ measure);//deb
-                            System.out.println("r2 "+measureSecondSegment);//deb
-                            System.out.println("r3 "+metadataFirstSegment);//deb
-                            System.out.println("r4 "+metadataSecondSegment);//deb
+                            System.out.println("r1 "+ measure.toString());//deb
+                            System.out.println("r2 "+measureSecondSegment.toString());//deb
+                            System.out.println("r3 "+metadataFirstSegment.toString());//deb
+                            System.out.println("r4 "+metadataSecondSegment.toString());//deb
                             System.out.println("r5 "+dbConnection);//deb
 
                             long id = writeToDB(measure, measureSecondSegment, metadataFirstSegment, metadataSecondSegment, dbConnection);
@@ -544,7 +544,12 @@ public class Aggregator {
             ps.setInt(9, measure.getLen_pack());
             // 10: NumPack
             ps.setInt(10, measure.getNum_pack());
-
+            //deb
+            try{
+                System.out.println(ps);
+            }catch(Exception e){
+                System.out.println(ps.toString());
+            }
             System.out.println("rows affected: " + ps.executeUpdate());
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
