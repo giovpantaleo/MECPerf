@@ -443,7 +443,7 @@ public class Aggregator {
 
 
             for (Map.Entry<Integer, Long[]> entry : map.entrySet()) { //per UDP ha un solo elemento
-                System.out.println(entry.getKey() + " val " + entry.getValue().toString());//deb
+                System.out.println(entry.getKey() + " val " + entry.getValue());//deb
 
                 long actualTime = entry.getValue()[0];
                 long diff = actualTime - previous;
