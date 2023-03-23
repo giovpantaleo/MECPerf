@@ -229,6 +229,18 @@ public class Aggregator {
                             System.out.println(objJs.get("metadata_first_segment").toString());
                             JSONObject obj_metadata_first = (JSONObject) ob3;
                             System.out.println(obj_metadata_first.get("measure-type").toString());
+                            String Name_Port = null;
+                            String Num_tests = null;
+                            String Pktsize = null;
+                            if (measure.getType().equals("TCPRTT")){
+                                Name_Port = "TCPPort";
+                                Num_tests = "numtests-TCPRTT";
+                                Pktsize = "pktsize-TCPRTT";
+                            }else if (measure.getType().equals("UDPRTT")){
+                                Name_Port = "UDPPort";
+                                Num_tests = "numtests-UDPRTT";
+                                Pktsize = "pktsize-UDPRTT";
+                            }
 
                             metadataFirstSegment.put("measure-type", obj_metadata_first.get("measure-type").toString());
                             metadataFirstSegment.put("nodeid_client", obj_metadata_first.get("nodeid_client").toString());
@@ -239,20 +251,24 @@ public class Aggregator {
                             metadataFirstSegment.put("ObserverAddress", obj_metadata_first.get("ObserverAddress").toString());
                             metadataFirstSegment.put("ClientAddress", obj_metadata_first.get("ClientAddress").toString());
                             metadataFirstSegment.put("command", obj_metadata_first.get("command").toString());
-                            metadataFirstSegment.put("TCPPort", obj_metadata_first.get("TCPPort").toString());
+                            metadataFirstSegment.put(Name_Port, obj_metadata_first.get(Name_Port).toString());
                             metadataFirstSegment.put("interfacename_client", obj_metadata_first.get("interfacename_client").toString());
                             metadataFirstSegment.put("experiment_timer", obj_metadata_first.get("experiment_timer").toString());
+                            metadataFirstSegment.put("AggregatorAddress", obj_metadata_first.get("AggregatorAddress").toString());
                             metadataFirstSegment.put("Receiver-identity", obj_metadata_first.get("Receiver-identity").toString());
                             metadataFirstSegment.put("crosstraffic", obj_metadata_first.get("crosstraffic").toString());
                             metadataFirstSegment.put("ObserverCMDPort", obj_metadata_first.get("ObserverCMDPort").toString());
                             metadataFirstSegment.put("number-of-attempts", obj_metadata_first.get("number-of-attempts").toString());
                             metadataFirstSegment.put("accesstechnology_client", obj_metadata_first.get("accesstechnology_client").toString());
-                            metadataFirstSegment.put("numtests-TCPRTT", obj_metadata_first.get("numtests-TCPRTT").toString());
+                            metadataFirstSegment.put(Num_tests, obj_metadata_first.get(Num_tests).toString());
                             metadataFirstSegment.put("nodeid_observer", obj_metadata_first.get("nodeid_observer").toString());
                             metadataFirstSegment.put("Number-of-failures", obj_metadata_first.get("Number-of-failures").toString());
-                            metadataFirstSegment.put("pktsize-TCPRTT", obj_metadata_first.get("pktsize-TCPRTT").toString());
+                            metadataFirstSegment.put(Pktsize, obj_metadata_first.get(Pktsize).toString());
                             metadataFirstSegment.put("keyword", obj_metadata_first.get("keyword").toString());
                             metadataFirstSegment.put("direction", obj_metadata_first.get("direction").toString());
+
+
+{"Sender-identity":"Observer","pktsize-UDPRTT":"1","ObserverAddress":"192.168.3.1","UDPPort":"6790","ClientAddress":"\/192.168.3.32","command":"latencyUDP","interfacename_client":"control","experiment_timer":"100","AggregatorAddress":"192.168.3.11","Receiver-identity":"Client-application","crosstraffic":"OMbps","ObserverCMDPort":"6792","numtests-UDPRTT":"5","number-of-attempts":"1","accesstechnology_client":"wifi","nodeid_observer":"NA","Number-of-failures":"0","keyword":"prova insermento REST","direction":"receiver"}
 
                             Object ob4 = objJs.get("metadata_second_segment");
                             JSONObject obj_metadata_second = (JSONObject) ob4;
@@ -265,18 +281,19 @@ public class Aggregator {
                             metadataSecondSegment.put("ObserverAddress", obj_metadata_second.get("ObserverAddress").toString());
                             metadataSecondSegment.put("ClientAddress", obj_metadata_second.get("ClientAddress").toString());
                             metadataSecondSegment.put("command", obj_metadata_second.get("command").toString());
-                            metadataSecondSegment.put("TCPPort", obj_metadata_second.get("TCPPort").toString());
+                            metadataSecondSegment.put(Name_Port, obj_metadata_second.get(Name_Port).toString());
                             metadataSecondSegment.put("interfacename_client", obj_metadata_second.get("interfacename_client").toString());
                             metadataSecondSegment.put("experiment_timer", obj_metadata_second.get("experiment_timer").toString());
+                            metadataSecondSegment.put("AggregatorAddress", obj_metadata_second.get("AggregatorAddress").toString());
                             metadataSecondSegment.put("Receiver-identity", obj_metadata_second.get("Receiver-identity").toString());
                             metadataSecondSegment.put("crosstraffic", obj_metadata_second.get("crosstraffic").toString());
                             metadataSecondSegment.put("ObserverCMDPort", obj_metadata_second.get("ObserverCMDPort").toString());
                             metadataSecondSegment.put("number-of-attempts", obj_metadata_second.get("number-of-attempts").toString());
                             metadataSecondSegment.put("accesstechnology_client", obj_metadata_second.get("accesstechnology_client").toString());
-                            metadataSecondSegment.put("numtests-TCPRTT", obj_metadata_second.get("numtests-TCPRTT").toString());
+                            metadataSecondSegment.put(Num_tests, obj_metadata_second.get(Num_tests).toString());
                             metadataSecondSegment.put("nodeid_observer", obj_metadata_second.get("nodeid_observer").toString());
                             metadataSecondSegment.put("Number-of-failures", obj_metadata_second.get("Number-of-failures").toString());
-                            metadataSecondSegment.put("pktsize-TCPRTT", obj_metadata_second.get("pktsize-TCPRTT").toString());
+                            metadataSecondSegment.put(Pktsize, obj_metadata_second.get(Pktsize).toString());
                             metadataSecondSegment.put("keyword", obj_metadata_second.get("keyword").toString());
                             metadataSecondSegment.put("direction", obj_metadata_second.get("direction").toString());
 
