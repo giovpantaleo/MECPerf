@@ -226,7 +226,9 @@ public class Aggregator {
                         if (measure.getType().equals("TCPRTT") || measure.getType().equals("UDPRTT") )
                         {
                             Object ob3 = objJs.get("metadata_first_segment");
+                            System.out.println(objJs.get("metadata_first_segment").getClass());
                             JSONObject obj_metadata_first = (JSONObject) ob3;
+
                             metadataFirstSegment.put("measure-type", obj_metadata_first.get("measure-type").toString());
                             metadataFirstSegment.put("nodeid_client", obj_metadata_first.get("nodeid_client").toString());
                             metadataFirstSegment.put("Sender-identity", obj_metadata_first.get("Sender-identity").toString());
