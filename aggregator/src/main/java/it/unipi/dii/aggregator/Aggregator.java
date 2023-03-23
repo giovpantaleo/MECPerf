@@ -225,8 +225,61 @@ public class Aggregator {
 
                         if (measure.getType().equals("TCPRTT") || measure.getType().equals("UDPRTT") )
                         {
-                            metadataFirstSegment = (HashMap<String, String> ) mapInputStream.readObject();
-                            metadataSecondSegment = (HashMap<String, String> ) mapInputStream.readObject();
+                            Object ob3 = objJs.get("metadata_first_segment");
+                            JSONObject obj_metadata_first = (JSONObject) ob3;
+                            metadataFirstSegment.put("measure-type", obj_metadata_first.get("measure-type").toString())
+                            metadataFirstSegment.put("nodeid_client", obj_metadata_first.get("nodeid_client").toString())
+                            metadataFirstSegment.put("Sender-identity", obj_metadata_first.get("Sender-identity").toString())
+                            metadataFirstSegment.put("observerposition", obj_metadata_first.get("observerposition").toString())
+                            metadataFirstSegment.put("MAXnumberofattempt", obj_metadata_first.get("MAXnumberofattempt").toString())
+                            metadataFirstSegment.put("numberofclients", obj_metadata_first.get("numberofclients").toString())
+                            metadataFirstSegment.put("ObserverAddress", obj_metadata_first.get("ObserverAddress").toString())
+                            metadataFirstSegment.put("ClientAddress", obj_metadata_first.get("ClientAddress").toString())
+                            metadataFirstSegment.put("command", obj_metadata_first.get("command").toString())
+                            metadataFirstSegment.put("TCPPort", obj_metadata_first.get("TCPPort").toString())
+                            metadataFirstSegment.put("interfacename_client", obj_metadata_first.get("interfacename_client").toString())
+                            metadataFirstSegment.put("experiment_timer", obj_metadata_first.get("experiment_timer").toString())
+                            metadataFirstSegment.put("Receiver-identity", obj_metadata_first.get("Receiver-identity").toString())
+                            metadataFirstSegment.put("crosstraffic", obj_metadata_first.get("crosstraffic").toString())
+                            metadataFirstSegment.put("ObserverCMDPort", obj_metadata_first.get("ObserverCMDPort").toString())
+                            metadataFirstSegment.put("number-of-attempts", obj_metadata_first.get("number-of-attempts").toString())
+                            metadataFirstSegment.put("accesstechnology_client", obj_metadata_first.get("accesstechnology_client").toString())
+                            metadataFirstSegment.put("numtests-TCPRTT", obj_metadata_first.get("numtests-TCPRTT").toString())
+                            metadataFirstSegment.put("nodeid_observer", obj_metadata_first.get("nodeid_observer").toString())
+                            metadataFirstSegment.put("Number-of-failures", obj_metadata_first.get("Number-of-failures").toString())
+                            metadataFirstSegment.put("pktsize-TCPRTT", obj_metadata_first.get("pktsize-TCPRTT").toString())
+                            metadataFirstSegment.put("keyword", obj_metadata_first.get("keyword").toString())
+                            metadataFirstSegment.put("direction", obj_metadata_first.get("direction").toString())
+
+                            Object ob4 = objJs.get("metadata_second_segment");
+                            JSONObject obj_metadata_second = (JSONObject) ob4;
+                            metadataSecondSegment.put("measure-type", obj_metadata_second.get("measure-type").toString())
+                            metadataSecondSegment.put("nodeid_client", obj_metadata_second.get("nodeid_client").toString())
+                            metadataSecondSegment.put("Sender-identity", obj_metadata_second.get("Sender-identity").toString())
+                            metadataSecondSegment.put("observerposition", obj_metadata_second.get("observerposition").toString())
+                            metadataSecondSegment.put("MAXnumberofattempt", obj_metadata_second.get("MAXnumberofattempt").toString())
+                            metadataSecondSegment.put("numberofclients", obj_metadata_second.get("numberofclients").toString())
+                            metadataSecondSegment.put("ObserverAddress", obj_metadata_second.get("ObserverAddress").toString())
+                            metadataSecondSegment.put("ClientAddress", obj_metadata_second.get("ClientAddress").toString())
+                            metadataSecondSegment.put("command", obj_metadata_second.get("command").toString())
+                            metadataSecondSegment.put("TCPPort", obj_metadata_second.get("TCPPort").toString())
+                            metadataSecondSegment.put("interfacename_client", obj_metadata_second.get("interfacename_client").toString())
+                            metadataSecondSegment.put("experiment_timer", obj_metadata_second.get("experiment_timer").toString())
+                            metadataSecondSegment.put("Receiver-identity", obj_metadata_second.get("Receiver-identity").toString())
+                            metadataSecondSegment.put("crosstraffic", obj_metadata_second.get("crosstraffic").toString())
+                            metadataSecondSegment.put("ObserverCMDPort", obj_metadata_second.get("ObserverCMDPort").toString())
+                            metadataSecondSegment.put("number-of-attempts", obj_metadata_second.get("number-of-attempts").toString())
+                            metadataSecondSegment.put("accesstechnology_client", obj_metadata_second.get("accesstechnology_client").toString())
+                            metadataSecondSegment.put("numtests-TCPRTT", obj_metadata_second.get("numtests-TCPRTT").toString())
+                            metadataSecondSegment.put("nodeid_observer", obj_metadata_second.get("nodeid_observer").toString())
+                            metadataSecondSegment.put("Number-of-failures", obj_metadata_second.get("Number-of-failures").toString())
+                            metadataSecondSegment.put("pktsize-TCPRTT", obj_metadata_second.get("pktsize-TCPRTT").toString())
+                            metadataSecondSegment.put("keyword", obj_metadata_second.get("keyword").toString())
+                            metadataSecondSegment.put("direction", obj_metadata_second.get("direction").toString())
+
+
+                            //metadataFirstSegment = (HashMap<String, String> ) mapInputStream.readObject();
+                            //metadataSecondSegment = (HashMap<String, String> ) mapInputStream.readObject();
                         }
 
                         try(
