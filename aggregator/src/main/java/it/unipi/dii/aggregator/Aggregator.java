@@ -449,7 +449,7 @@ public class Aggregator {
 
 
             for (Map.Entry<Integer, Long[]> entry : map.entrySet()) { //per UDP ha un solo elemento
-                System.out.println(entry.getKey() + " val " + Arrays.toString(entry.getValue()));//deb
+                //System.out.println(entry.getKey() + " val " + Arrays.toString(entry.getValue()));//deb
 
                 long actualTime = entry.getValue()[0];
                 long diff = actualTime - previous;
@@ -553,11 +553,12 @@ public class Aggregator {
             // 10: NumPack
             ps.setInt(10, measure.getNum_pack());
             //deb
+            /*
             try{
                 System.out.println(ps);
             }catch(Exception e){
                 System.out.println(ps.toString());
-            }
+            }*/
             System.out.println("rows affected: " + ps.executeUpdate());
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
