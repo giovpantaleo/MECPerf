@@ -306,10 +306,7 @@ public class Aggregator {
                                                      + DBADDRESS+":3306/"+ DBNAME + "?useSSL=false",
                                                        DBUSERNAME, DBPASSWORD)){
                             dbConnection.setAutoCommit(false);
-                            System.out.println("r1 "+ measure);//deb
-                            System.out.println("r1 "+ measure.getTestJSON("first"));//deb
-                            System.out.println("r1 "+ measure.toString());//deb
-                            System.out.println("r2 "+measureSecondSegment.toString());//deb
+                            System.out.println("r1 "+measure.getTestJSON("first"));//deb
                             System.out.println("r2 "+measureSecondSegment.getTestJSON("second"));//deb
                             System.out.println("r3 "+metadataFirstSegment.toString());//deb
                             System.out.println("r4 "+metadataSecondSegment.toString());//deb
