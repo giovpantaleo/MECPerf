@@ -443,12 +443,12 @@ public class Aggregator {
             //System.out.println(map.get("nanoTimes"));//deb
             System.out.println(map.keySet());//deb
             System.out.println("val chiave 1 "+ map.get("1"));//deb
-            System.out.println("val chiave 1 "+ map.getValue()[0]);//deb
-            System.out.println("val chiave 1 "+ map.getValue()[1]);//deb
+            System.out.println("val chiave 1 "+ map.getValue("1")[0]);//deb
+            System.out.println("val chiave 1 "+ map.getValue("1")[1]);//deb
 
 
             for (Map.Entry<Integer, Long[]> entry : map.entrySet()) { //per UDP ha un solo elemento
-                System.out.println(entry.getKey() + " val " + entry.getValue());//deb
+                System.out.println(entry.getKey() + " val " + Arrays.toString(entry.getValue()));//deb
 
                 long actualTime = entry.getValue()[0];
                 long diff = actualTime - previous;
