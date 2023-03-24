@@ -306,14 +306,14 @@ public class Aggregator {
                                                      + DBADDRESS+":3306/"+ DBNAME + "?useSSL=false",
                                                        DBUSERNAME, DBPASSWORD)){
                             dbConnection.setAutoCommit(false);
-                            System.out.println("r1 "+measure.getTestJSON("first"));//deb
-                            System.out.println("r2 "+measureSecondSegment.getTestJSON("second"));//deb
-                            System.out.println("r3 "+metadataFirstSegment.toString());//deb
-                            System.out.println("r4 "+metadataSecondSegment.toString());//deb
-                            System.out.println("r5 "+dbConnection);//deb
-                            System.out.println("r6 "+measure.getBandwidth());//deb
+                            //System.out.println("r1 "+measure.getTestJSON("first"));//deb
+                            //System.out.println("r2 "+measureSecondSegment.getTestJSON("second"));//deb
+                            //System.out.println("r3 "+metadataFirstSegment.toString());//deb
+                            //System.out.println("r4 "+metadataSecondSegment.toString());//deb
+                            //System.out.println("r5 "+dbConnection);//deb
+                            //System.out.println("r6 "+measure.getBandwidth());//deb
                             //System.out.println("r6b "+measure.bandwidth);//deb
-                            System.out.println("r7 "+measure.getBandwidth().toString());//deb
+                            //System.out.println("r7 "+measure.getBandwidth().toString());//deb
 
                             long id = writeToDB(measure, measureSecondSegment, metadataFirstSegment, metadataSecondSegment, dbConnection);
                             if(id == -1){
@@ -442,8 +442,8 @@ public class Aggregator {
             long previous = 0;
             System.out.println("PROTOCOL: " + protocol+" MAP_SIZE: " + map.size());
             //System.out.println(map.get("nanoTimes"));//deb
-            System.out.println(map.keySet());//deb
-            System.out.println("val chiave 1 "+ map.get("1"));//deb
+            //System.out.println(map.keySet());//deb
+            //System.out.println("val chiave 1 "+ map.get("1"));//deb
             //System.out.println("val chiave 1 "+ map.get("1")[0]);//deb
             //System.out.println("val chiave 1 "+ map.get("1")[1]);//deb
 
