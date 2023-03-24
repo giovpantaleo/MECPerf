@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.29, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.40, for Linux (x86_64)
 --
 -- Host: localhost    Database: MECPerf
 -- ------------------------------------------------------
--- Server version	5.7.29-0ubuntu0.18.04.1
+-- Server version	5.7.40-0ubuntu0.18.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,7 +28,21 @@ CREATE TABLE `BandwidthMeasure` (
   `nanoTimes` bigint(22) unsigned DEFAULT NULL,
   `kBytes` decimal(10,4) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`,`sub_id`),
-  CONSTRAINT `fk_Test_BandwidthMeasure_id` FOREIGN KEY (`id`) REFERENCES `Test` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `BandwidthMeasure_ibfk_1` FOREIGN KEY (`id`) REFERENCES `Test` (`ID`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `ExperimentMETADATA`
+--
+
+DROP TABLE IF EXISTS `ExperimentMETADATA`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ExperimentMETADATA` (
+  `ID` int(11) NOT NULL,
+  `experiment_details` longtext,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -44,7 +58,7 @@ CREATE TABLE `PassiveBandwidthMeasure` (
   `Timestamp` bigint(22) NOT NULL,
   `Bytes` int(11) NOT NULL,
   PRIMARY KEY (`ID`,`Timestamp`),
-  CONSTRAINT `PassiveBandwidthMeasure_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `PassiveTest` (`ID`)
+  CONSTRAINT `PassiveBandwidthMeasure_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `PassiveTest` (`ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -60,7 +74,7 @@ CREATE TABLE `PassiveRttMeasure` (
   `Timestamp` bigint(22) NOT NULL,
   `latency` double unsigned NOT NULL,
   PRIMARY KEY (`ID`,`Timestamp`),
-  CONSTRAINT `PassiveRttMeasure_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `PassiveTest` (`ID`)
+  CONSTRAINT `PassiveRttMeasure_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `PassiveTest` (`ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -84,7 +98,7 @@ CREATE TABLE `PassiveTest` (
   `Mode` varchar(45) NOT NULL,
   `Type` varchar(45) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=213 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=899233 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +112,9 @@ CREATE TABLE `RttMeasure` (
   `id` int(11) NOT NULL,
   `latency` double unsigned DEFAULT NULL,
   `sub_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`sub_id`)
+  `timestamp_millis` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`,`sub_id`),
+  CONSTRAINT `RttMeasure_ibfk_1` FOREIGN KEY (`id`) REFERENCES `Test` (`ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -123,7 +139,7 @@ CREATE TABLE `Test` (
   `PackSize` int(11) NOT NULL,
   `NumPack` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=60389 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=347738 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -135,4 +151,7 @@ CREATE TABLE `Test` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-29 14:17:36
+-- Dump completed on 2023-03-21 21:23:25
+
+
+

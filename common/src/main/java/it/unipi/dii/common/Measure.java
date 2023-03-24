@@ -190,8 +190,8 @@ public class Measure implements Serializable {
                "\"SenderIPv4Address\":\"" + this.getSenderAddress() + "\","+
                "\"ReceiverIPv4Address\":\"" + this.getReceiverAddress() + "\","+
                "\"Keyword\":\"" + this.getExtra() + "\", \"PackSize\":\"" + this.getLen_pack() + "\","+
-               "\"NumPack\":\"" + this.getNum_pack() +"\", \"bw\":\"" +this.getBandwidthValuesJSON(segment)+ "\" }";
-    }//deb bw l'ho messo io
+               "\"NumPack\":\"" + this.getNum_pack() +"\" }";
+    }
 
     public String getValuesJSON(String segment){
         if (this.getType().equals("TCPBandwidth") || this.getType().equals("UDPBandwidth"))
