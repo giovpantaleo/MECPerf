@@ -311,8 +311,8 @@ public class Aggregator {
                             System.out.println("r3 "+metadataFirstSegment.toString());//deb
                             System.out.println("r4 "+metadataSecondSegment.toString());//deb
                             System.out.println("r5 "+dbConnection);//deb
-                            System.out.println("r6 "+measure.get("bandwidth"));//deb
-                            System.out.println("r6b "+measure.bandwidth);//deb
+                            System.out.println("r6 "+measure.getBandwidth());//deb
+                            //System.out.println("r6b "+measure.bandwidth);//deb
                             System.out.println("r7 "+measure.getBandwidth().toString());//deb
 
                             long id = writeToDB(measure, measureSecondSegment, metadataFirstSegment, metadataSecondSegment, dbConnection);
