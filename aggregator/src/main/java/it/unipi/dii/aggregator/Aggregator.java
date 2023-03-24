@@ -439,7 +439,7 @@ public class Aggregator {
             long previous = 0;
             System.out.println("PROTOCOL: " + protocol+" MAP_SIZE: " + map.size());
             //System.out.println(map.get("nanoTimes"));//deb
-            System.out.println(map.keySet());//deb
+            System.out.println(map.get("1"));//deb
 
 
             for (Map.Entry<Integer, Long[]> entry : map.entrySet()) { //per UDP ha un solo elemento
