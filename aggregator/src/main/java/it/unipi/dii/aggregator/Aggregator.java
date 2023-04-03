@@ -203,7 +203,7 @@ public class Aggregator {
                 Measure measure = new Measure((String) obj_first.get("Command"), (String) obj_first.get("ReceiverIdentity"), (String) obj_first.get("SenderIdentity"), 
                 (Map<Integer, Long[]>)  bandwidth,(Map<Integer, Long[]>) latency, (String) obj_first.get("Keyword"), Integer.parseInt(obj_first.get("PackSize").toString()), 
                  Integer.parseInt(obj_first.get("NumPack").toString()), (String) obj_first.get("SenderIPv4Address"), (String) obj_first.get("ReceiverIPv4Address") );
-
+                System.out.println(measure.getTestJSON());//deb
                 switch(measure.getType()){
                     case "TCPBandwidth":
                     case "UDPBandwidth":
