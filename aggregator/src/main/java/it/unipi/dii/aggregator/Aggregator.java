@@ -218,7 +218,7 @@ public class Aggregator {
                         Measure measureSecondSegment = new Measure((String) obj_second.get("Command"), (String) obj_second.get("ReceiverIdentity"), 
                         (String) obj_second.get("SenderIdentity"), (Map<Integer, Long[]>)  bandwidth, (Map<Integer, Long[]>) latency, 
                         (String) obj_second.get("Keyword"), (int) Integer.parseInt(obj_second.get("PackSize").toString()), (int) Integer.parseInt(obj_second.get("NumPack").toString()), 
-                        (String) obj_second.get("SenderIPv4Address"), (String) obj_second.get("ReceiverIPv4Address") );
+                        (String) obj_second.get("ReceiverIPv4Address"), (String) obj_second.get("SenderIPv4Address") );
                         //Measure measureSecondSegment = (Measure) mapInputStream.readObject();
                         HashMap<String, String> metadataFirstSegment = new LinkedHashMap<>();
                         HashMap<String, String> metadataSecondSegment = new LinkedHashMap<>();
