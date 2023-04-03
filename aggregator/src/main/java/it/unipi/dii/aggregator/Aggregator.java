@@ -98,7 +98,7 @@ public class Aggregator {
      
                 // read the packet, and make it a JSON Object starting from a String
                 String measurestr = (String) mapInputStream.readObject();
-                //System.out.println(measurestr);
+                System.out.println(measurestr);
                 JSONParser parser = new JSONParser();
                 JSONObject objJs= null;
                 JSONArray arrayJson = null;
