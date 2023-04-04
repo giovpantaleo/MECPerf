@@ -5,5 +5,5 @@ dependencies {
     implementation 'org.jetbrains:annotations-java5:15.0'
 }
 
-sourceCompatibility = "7"
-targetCompatibility = "7"
+sourceCompatibility = "11"
+targetCompatibility = "11"

@@ -12,4 +12,5 @@
 # Database and aggregator on node 17
 ##java -cp /usr/share/java/mysql.jar:/home/MECPerf/MECPerf-master/Aggregator.jar it.unipi.dii.aggregator.Aggregator --database-ip "192.168.3.11" --database-name "MECPerf" --database-user "MECPerf" --database-password "psw" --aggregator-port 6766
 # Database 127.0.0.1
-java -cp /usr/share/java/mysql.jar:/home/MECPerf/MECPerf-master/Aggregator.jar:/home/MECPerf/MECPerf-master/json-simple-1.1.1.jar it.unipi.dii.aggregator.Aggregator --database-ip "127.0.0.1" --database-name "MECPerf" --database-user "MECPerf" --database-password "psw" --aggregator-port 6766
+# java -cp /usr/share/java/mysql.jar:/home/MECPerf/MECPerf-master/Aggregator.jar:/home/MECPerf/MECPerf-master/json-simple-1.1.1.jar it.unipi.dii.aggregator.Aggregator --database-ip "127.0.0.1" --database-name "MECPerf" --database-user "MECPerf" --database-password "psw" --aggregator-port 6766
+gradle -q :aggregator:run --args="--database-ip "127.0.0.1" --database-name "MECPerf" --database-user "MECPerf" --database-password "psw" --aggregator-port 6766"

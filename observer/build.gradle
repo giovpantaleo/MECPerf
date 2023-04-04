@@ -1,7 +1,10 @@
-apply plugin: 'java-library'
-
+apply plugin: 'application'
+//apply plugin: 'java-library'
+application {
+    mainClass = 'it.unipi.dii.observer.Observer'
+}
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':common')
 //    implementation files('/home/chiara/MECPerf/json-simple-1.1.1.jar')
 //    implementation files('/home//home/MECPerf/MECPerf-master/json-simple-1.1.1.jar')
@@ -9,5 +12,5 @@ dependencies {
 
 }
 
-sourceCompatibility = "7"
-targetCompatibility = "7"
+sourceCompatibility = "11"
+targetCompatibility = "11"
