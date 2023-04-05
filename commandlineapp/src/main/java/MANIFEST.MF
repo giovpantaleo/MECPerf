@@ -1,0 +1,3 @@
+Main-class: it.unipi.dii.mecperfng.commandlineapp.CommandLineApp
+
+
