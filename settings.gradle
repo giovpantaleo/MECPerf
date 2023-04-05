@@ -1,2 +1,3 @@
-//include ':app', ':common', ':observer', ':remoteserver', ':aggregator'
 include ':commandlineapp',':common', ':observer', ':remoteserver', ':aggregator'
+//include ':app', ':common', ':observer', ':remoteserver', ':aggregator'
+

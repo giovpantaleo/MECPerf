@@ -1,5 +1,5 @@
 apply plugin: 'application'
-apply plugin: 'java-library'
+//apply plugin: 'java-library'
 application {
     mainClass = 'it.unipi.dii.remoteserver.Server'
 }
