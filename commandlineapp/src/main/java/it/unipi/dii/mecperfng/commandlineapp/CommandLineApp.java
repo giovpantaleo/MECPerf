@@ -356,6 +356,13 @@ public class CommandLineApp {
                                        numTestsUDPCapacity + " tests of " + pktSizeUDPCapacity +
                                        "bytes)\t\t\t[Attempt #" +
                                        (MAXATTEMPTNUMBER - remainingAttempt) + "]");
+                    System.out.println(keyword);//deb
+                    System.out.println(CMDPORT);//deb
+                    System.out.println(observerAddress);//deb
+                    System.out.println(UDPPORT);//deb
+                    System.out.println(pktSizeUDPCapacity);//deb
+                    System.out.println(interfaceName);//deb
+                    System.out.println(numTestsUDPCapacity);//deb
 
                     ret = MainUtils.udpBandwidthMeasure("Receiver", keyword, CMDPORT,
                                                         observerAddress, UDPPORT,
