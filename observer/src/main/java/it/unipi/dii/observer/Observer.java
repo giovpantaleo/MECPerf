@@ -63,9 +63,9 @@ public class Observer {
 
 
     private static void initializeSocket() throws Exception {
-        cmdListener = new ServerSocket(OBSCMDPORT, "22.22.22.10");
-        tcpListener = new ServerSocket(OBSTCPPORT, "22.22.22.10");
-        udpListener = new DatagramSocket(OBSUDPPORT, "22.22.22.10");
+        cmdListener = new ServerSocket(OBSCMDPORT);
+        tcpListener = new ServerSocket(OBSTCPPORT);
+        udpListener = new DatagramSocket(OBSUDPPORT);
 
 
 
@@ -107,7 +107,7 @@ public class Observer {
 
 
     public static void main(String[] args) throws Exception{
-        OBSERVERIP = "22.22.22.10";//getAddress().replace("/", "");
+        OBSERVERIP = "192.168.61.197";//getAddress().replace("/", "");
         parseArguments(args);
         if (!checkArguments()){
             System.out.println("checkArguments() failed");
