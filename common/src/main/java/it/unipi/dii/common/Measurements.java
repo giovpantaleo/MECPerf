@@ -37,7 +37,6 @@ public class Measurements {
      */
     public static int UDPRTTReceiver(DatagramSocket serverSocket, int  udp_rtt_pktsize,
                                       int udp_rtt_num_pack) {
-        System.out.println(serverSocket.getAddress());//deb
         byte[] sendData = new byte[udp_rtt_pktsize];
         byte[] receiveData = new byte[udp_rtt_pktsize];
         DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
