@@ -463,6 +463,7 @@ public class Observer {
 
                     try {
                         udpListener.receive(dgp);
+                        System.out.println(dgp.getAddress());//deb
                         udpListener.connect(dgp.getAddress(), dgp.getPort());
 
                         //first measure (observer -> client)
