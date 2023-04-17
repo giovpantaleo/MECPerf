@@ -372,7 +372,7 @@ public class Measurements {
             //send 2 packets
             try {
                 String receivedCommand = controlSocket.receiveCMD();
-
+                System.out.println(receivedCommand);//deb
                 if (receivedCommand == null) {
                     System.out.println("Measure failed: received command is null");
                     return -1;

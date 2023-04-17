@@ -468,6 +468,7 @@ public class Observer {
 
                         //first measure (observer -> client)
                         int ret = Measurements.UDPCapacityPPSender(udpListener, udp_capacity_pktsize, udp_capacity_num_tests, controlSocketApp);
+                        System.out.println("ret "+ret):; //deb
                         if (ret < 0)
                         {
                             System.out.println("Start measure with app FAILED");
