@@ -10,4 +10,4 @@
 
 # Aggregator node 17, rms 26
 # java -jar Observer.jar --aggregator-ip "192.168.3.17" --aggregator-port 6766 --remote-ip  "192.168.3.26"  --remote-cmd-port 6789 --remote-tcp-port 6788 --remote-udp-port 6787 --observer-cmd-port 6792 --observer-tcp-port 6791 --observer-udp-port 6790
-gradle -q :observer:run --args="--aggregator-ip "192.168.3.17" --aggregator-port 6766 --remote-ip  "192.168.3.26"  --remote-cmd-port 6789 --remote-tcp-port 6788 --remote-udp-port 6787 --observer-cmd-port 6792 --observer-tcp-port 6791 --observer-udp-port 6790"
+gradle -q :observer:run --args="--aggregator-ip "22.22.22.1" --aggregator-port 6766 --remote-ip  "192.168.2.7"  --remote-cmd-port 6789 --remote-tcp-port 6788 --remote-udp-port 6787 --observer-cmd-port 6792 --observer-tcp-port 6791 --observer-udp-port 6790"

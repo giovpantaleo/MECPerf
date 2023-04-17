@@ -4,7 +4,7 @@ application {
     mainClass = 'it.unipi.dii.observer.Observer'
 }
 dependencies {
-//    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':common')
 //    implementation files('/home/chiara/MECPerf/json-simple-1.1.1.jar')
 //    implementation files('/home//home/MECPerf/MECPerf-master/json-simple-1.1.1.jar')

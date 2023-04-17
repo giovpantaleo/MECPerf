@@ -129,6 +129,8 @@ public class ControlMessages {
         InputStream inputStream = null;
 
         try {
+            System.out.println("ip: "+ this.controlSocket.getInetAddresses());//deb
+            
             inputStream = this.controlSocket.getInputStream();
         } catch (IOException ex) {
             ex.printStackTrace();
