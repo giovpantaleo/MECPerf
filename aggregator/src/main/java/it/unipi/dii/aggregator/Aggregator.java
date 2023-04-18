@@ -475,7 +475,7 @@ public class Aggregator {
 
                 ps.setInt(2, iteration);
                 if (protocol.equals("TCP"))
-                    ps.setLong(3, diff);
+                    ps.setUnsignedLong(3, diff);
                 else
                 if (protocol.equals("UDP"))
                     ps.setLong(3, actualTime);
