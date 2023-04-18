@@ -25,8 +25,8 @@ DROP TABLE IF EXISTS `BandwidthMeasure`;
 CREATE TABLE `BandwidthMeasure` (
   `id` int(11) NOT NULL,
   `sub_id` int(11) NOT NULL,
-  `nanoTimes` bigint(22) NOT NULL,
- -- `nanoTimes` bigint(22) unsigned DEFAULT NULL,
+ --  `nanoTimes` bigint(22) NOT NULL,
+ `nanoTimes` bigint(22) unsigned DEFAULT NULL,
   `kBytes` decimal(10,4) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`,`sub_id`),
   CONSTRAINT `BandwidthMeasure_ibfk_1` FOREIGN KEY (`id`) REFERENCES `Test` (`ID`) ON DELETE CASCADE

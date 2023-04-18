@@ -173,6 +173,8 @@ public class Aggregator {
                             bandwidth.put(id, map);
                             //System.out.println(bandwidth);
                         }
+                        System.out.println(bandwidth);
+
                     }else if(keysFirstLevel_str[i].equals("latency_values_first_segment")){
 
                         Object ob_latency_first = objJs.get("latency_values_first_segment");
@@ -453,7 +455,12 @@ public class Aggregator {
 
                 long actualTime = entry.getValue()[0];
                 long diff = actualTime - previous;
+                if (diff<0){
+                    System.out.println("act time "+actualTime);//deb
+                    System.out.println("diff time "+diff);//deb
+                    System.out.println("prev time "+previous);//deb
 
+                }
                 if (Long.MAX_VALUE < actualTime)
                     System.exit(1);
 
