@@ -107,7 +107,7 @@ public class Observer {
 
 
     public static void main(String[] args) throws Exception{
-        OBSERVERIP = "192.168.61.197";//getAddress().replace("/", "");
+        OBSERVERIP = "22.22.22.10";//getAddress().replace("/", "");
         parseArguments(args);
         if (!checkArguments()){
             System.out.println("checkArguments() failed");
@@ -468,7 +468,7 @@ public class Observer {
 
                         //first measure (observer -> client)
                         int ret = Measurements.UDPCapacityPPSender(udpListener, udp_capacity_pktsize, udp_capacity_num_tests, controlSocketApp);
-                        System.out.println("ret "+ret):; //deb
+                        System.out.println("ret "+ret); //deb
                         if (ret < 0)
                         {
                             System.out.println("Start measure with app FAILED");
