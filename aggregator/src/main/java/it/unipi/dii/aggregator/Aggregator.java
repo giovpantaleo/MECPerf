@@ -455,6 +455,8 @@ public class Aggregator {
 
                 long actualTime = entry.getValue()[0];
                 long diff = actualTime - previous;
+                System.out.println("diff1 time "+diff);//deb
+
                 if (diff<0){
                     System.out.println("act time "+actualTime);//deb
                     System.out.println("diff time "+diff);//deb
