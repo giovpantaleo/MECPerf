@@ -409,10 +409,10 @@ public class Aggregator {
         //csv DEB
         try (FileWriter writer = new FileWriter("measure_RTT.csv", true)) {
             for (Map.Entry<Integer, Long[]> entry : metadataSegment.entrySet()) { 
-                String toWrite = id+","+entry.getKey()+","; //id,sub_id,
+                String toWrite = id+","+entry.getKey().toString()+","; //id,sub_id,
                 //Long[] longArrayy = entry.getValue();//deb
                 for (int i = 0; i < entry.getValue().length; i++) {//deb
-                    toWrite += entry.getValue()[i]+",";
+                    toWrite += entry.getValue()[i].toString()+",";
                 }//deb
                 writer.write(toWrite+"\n");
             }
