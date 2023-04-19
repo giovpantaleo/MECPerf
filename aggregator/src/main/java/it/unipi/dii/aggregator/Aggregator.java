@@ -492,7 +492,7 @@ public class Aggregator {
 
     private static void writeToDB_Bandwidth(Map<Integer, Long[]> map, long id, Connection co, String protocol) throws SQLException {
         //csv DEB   id | sub_id | nanoTimes | kBytes
-        try (FileWriter writer = new FileWriter("measure_BW.csv", true)) {
+        try (FileWriter writer = new FileWriter("measure_bw.csv", true)) {
             for (Map.Entry<Integer, Long[]> entry : map.entrySet()) {
                 String toWrite = id+","+entry.getKey().toString()+","; //id,sub_id,
                 Long[] longArrayy = entry.getValue();//deb
