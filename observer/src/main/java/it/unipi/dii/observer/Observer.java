@@ -250,7 +250,9 @@ public class Observer {
                                 Long value = longArray[i];//deb
                                 System.out.println("Value " + i + " of entry " + entry.getKey() + ": " + value);//deb
                             }
-                        }//deb fin
+                        }
+                        System.out.println(measureFirstSegment.getValuesJSON("first"));
+                        //deb fin
                         sendAggregator(measureFirstSegment, measureSecondSegment, null, null);
 
 
