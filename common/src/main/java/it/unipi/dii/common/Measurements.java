@@ -315,8 +315,7 @@ public class Measurements {
 
             while ((totalRead = isr.read(cbuf)) != -1) {
 
-                //long actualTime = System.nanoTime();
-                long actualTime = System.currentTimeMillis();
+                long actualTime = System.nanoTime();
                 long diff =  actualTime - last;
 
                 if (diff < 0)

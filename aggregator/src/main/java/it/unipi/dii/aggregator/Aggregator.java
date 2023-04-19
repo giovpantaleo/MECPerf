@@ -69,6 +69,45 @@ public class Aggregator {
 
 
     public static void main (String[] args){
+        //csv deb  id | sub_id | nanoTimes | kBytes
+        String filenameBW  = "measure_bw.csv"
+        File fileBW = new File(filenameBW);
+        if (!fileBW .exists()) {
+            try {
+                // Create a new file
+                fileBW .createNewFile();
+                // Write header row to the file
+                FileWriter writer = new FileWriter(file);
+                writer.write("id,sub_id,nanoTimes,kBytes\n");
+                writer.close();
+                System.out.println("File created: " + filenameBW );
+            } catch (IOException e) {
+                System.err.println("Error creating file: " + e.getMessage());
+            }
+        } else {
+            System.out.println("File already exists: " + filenameBW );
+        }
+           
+        
+        String filenameRTT = "measure_RTT.csv"
+        File fileRTT = new File(filenameRTT);
+        if (!fileRTT.exists()) {
+            try {
+                // Create a new file
+                fileRTT.createNewFile();
+                FileWriter writer = new FileWriter(file);
+                writer.write("id,latency,sub_id,timestamp_millisid\n");
+                writer.close();
+                System.out.println("File created: " + filenameRTT);
+            } catch (IOException e) {
+                System.err.println("Error creating file: " + e.getMessage());
+            }
+        } else {
+            System.out.println("File already exists: " + filenameRTT);
+        }
+           
+               
+        
         ServerSocket welcomeSoket = null;
 
         parseArguments(args);
@@ -367,12 +406,32 @@ public class Aggregator {
 
 
     private static void writeToDB_Latency(Map<Integer, Long[]> latency, HashMap<String, String> metadataSegment, long id, Connection co) throws SQLException {
+        //csv
+        try (FileWriter writer = new FileWriter(filename, true)) {
+            for (Map.Entry<Integer, Long[]> entry : map.entrySet()) { 
+                String toWrite = id+","+entry.getKey()","; //id,sub_id,
+                Long[] longArray = entry.getValue();//deb
+                for (int i = 0; i < longArray.length; i++) {//deb
+                    toWrite += longArray[i]+","
+                    Long value = longArray[i];//deb
+                }//deb
+                writer.write(toWrite+"\n");
+            }
+        }
+
+
+
 
         try (PreparedStatement ps = co.prepareStatement(INSERT_METADATA_TABLE);
         ){
             String json_string = "{";
             int i = 0;
             for (Map.Entry<String, String> entry : metadataSegment.entrySet()) {
+                Long[] longArray = entry.getValue();//deb
+                for (int i = 0; i < longArray.length; i++) {//deb
+                    Long value = longArray[i];//deb
+                    System.out.println("Value " + i + " of entry " + entry.getKey() + ": " + value);//deb
+                }//deb
                 if (i != 0)
                     json_string = json_string + ",";
                 i++;
