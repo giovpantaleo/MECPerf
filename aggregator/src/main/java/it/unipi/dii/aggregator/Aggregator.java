@@ -426,10 +426,10 @@ public class Aggregator {
             String json_string = "{";
             int i = 0;
             for (Map.Entry<String, String> entry : metadataSegment.entrySet()) {
-                String[] longArray = entry.getValue();//deb
-                for (int i = 0; i < longArray.length; i++) {//deb
-                    String value = longArray[i];//deb
-                    System.out.println("Value " + i + " of entry " + entry.getKey() + ": " + value);//deb
+                String longArray = entry.getValue();//deb
+                for (int ii = 0; ii < longArray.length; ii++) {//deb
+                    String value = longArray[ii];//deb
+                    System.out.println("Value " + ii + " of entry " + entry.getKey() + ": " + value);//deb
                 }//deb
                 if (i != 0)
                     json_string = json_string + ",";
