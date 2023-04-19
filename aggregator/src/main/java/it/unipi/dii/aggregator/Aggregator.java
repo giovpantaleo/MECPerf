@@ -153,7 +153,7 @@ public class Aggregator {
 
                             Long[] map = new Long[2];
                             map[0] = Long.parseLong(temp_js.get("nanoTimes").toString());
-                            //System.out.println(map[0] );
+                            System.out.println(map[0] );
 
                             Double val = Double.parseDouble(temp_js.get("kBytes").toString());
                             //System.out.println(val.getClass());
@@ -451,12 +451,11 @@ public class Aggregator {
 
 
             for (Map.Entry<Integer, Long[]> entry : map.entrySet()) { //per UDP ha un solo elemento
-                Long[] longArray = entry.getValue();
-                for (int i = 0; i < longArray.length; i++) {
-                    Long value = longArray[i];
-                    System.out.println("Value " + i + " of entry " + entry.getKey() + ": " + value);
-                }
-                //System.out.println(entry.getKey() + " val " + Arrays.toString(entry.get(iteration)));//deb
+                Long[] longArray = entry.getValue();//deb
+                for (int i = 0; i < longArray.length; i++) {//deb
+                    Long value = longArray[i];//deb
+                    System.out.println("Value " + i + " of entry " + entry.getKey() + ": " + value);//deb
+                }//deb
 
                 long actualTime = entry.getValue()[0];
                 long diff = actualTime - previous;
