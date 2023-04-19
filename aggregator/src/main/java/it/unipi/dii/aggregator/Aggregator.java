@@ -21,7 +21,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.*;
 import org.json.simple.*;
 import java.util.*;
 import org.json.simple.parser.*;
@@ -451,7 +451,12 @@ public class Aggregator {
 
 
             for (Map.Entry<Integer, Long[]> entry : map.entrySet()) { //per UDP ha un solo elemento
-                System.out.println(entry.getKey() + " val " + Arrays.toString(entry.get(iteration)));//deb
+                Long[] longArray = entry.getValue();
+                for (int i = 0; i < longArray.length; i++) {
+                    Long value = longArray[i];
+                    System.out.println("Value " + i + " of entry " + entry.getKey() + ": " + value);
+                }
+                //System.out.println(entry.getKey() + " val " + Arrays.toString(entry.get(iteration)));//deb
 
                 long actualTime = entry.getValue()[0];
                 long diff = actualTime - previous;
