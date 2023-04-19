@@ -408,11 +408,11 @@ public class Aggregator {
     private static void writeToDB_Latency(Map<Integer, Long[]> latency, HashMap<String, String> metadataSegment, long id, Connection co) throws SQLException {
         //csv DEB
         try (FileWriter writer = new FileWriter("measure_RTT.csv", true)) {
-            for (Map.Entry<String, String> entry : metadataSegment.entrySet()) {
+            for (Map.Entry<Integer, Long[]> entry : latency.entrySet()) {
                 String toWrite = id+","+entry.getKey().toString()+","; //id,sub_id,
-                //Long[] longArrayy = entry.getValue();//deb
-                for (int i = 0; i < entry.getValue().length; i++) {//deb
-                    toWrite += entry.getValue()[i].toString()+",";
+                Long[] longArrayy = entry.getValue();//deb
+                for (int i = 0; i < longArrayy.length; i++) {//deb
+                    toWrite += longArrayy[i].toString()+",";
                 }//deb
                 writer.write(toWrite+"\n");
             }
@@ -426,9 +426,9 @@ public class Aggregator {
             String json_string = "{";
             int i = 0;
             for (Map.Entry<String, String> entry : metadataSegment.entrySet()) {
-                Long[] longArray = entry.getValue();//deb
+                String[] longArray = entry.getValue();//deb
                 for (int i = 0; i < longArray.length; i++) {//deb
-                    Long value = longArray[i];//deb
+                    String value = longArray[i];//deb
                     System.out.println("Value " + i + " of entry " + entry.getKey() + ": " + value);//deb
                 }//deb
                 if (i != 0)
