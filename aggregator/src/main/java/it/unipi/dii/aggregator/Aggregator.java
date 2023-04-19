@@ -451,7 +451,7 @@ public class Aggregator {
 
 
             for (Map.Entry<Integer, Long[]> entry : map.entrySet()) { //per UDP ha un solo elemento
-                //System.out.println(entry.getKey() + " val " + Arrays.toString(entry.getValue()));//deb
+                System.out.println(entry.getKey() + " val " + Arrays.toString(entry.getValue()));//deb
 
                 long actualTime = entry.getValue()[0];
                 long diff = actualTime - previous;
@@ -475,7 +475,7 @@ public class Aggregator {
 
                 ps.setInt(2, iteration);
                 if (protocol.equals("TCP"))
-                    ps.setUnsignedLong(3, diff);
+                    ps.seteLong(3, diff);
                 else
                 if (protocol.equals("UDP"))
                     ps.setLong(3, actualTime);
