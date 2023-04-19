@@ -211,7 +211,9 @@ public class Measure implements Serializable {
         //System.out.println("Command: " + this.getType() + " MAP_SIZE: " + this.getBandwidth().size());
         for (Map.Entry<Integer, Long[]> entry : this.getBandwidth().entrySet()) { // per UDP ha un solo elemento
             long actualTime = entry.getValue()[0];
-            long diff = actualTime - previous;
+            long diff = actualTime;
+
+//real            long diff = actualTime - previous;
             previous = actualTime;
             i++;
 
