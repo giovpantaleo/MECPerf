@@ -406,14 +406,13 @@ public class Aggregator {
 
 
     private static void writeToDB_Latency(Map<Integer, Long[]> latency, HashMap<String, String> metadataSegment, long id, Connection co) throws SQLException {
-        //csv
-        try (FileWriter writer = new FileWriter(filename, true)) {
-            for (Map.Entry<Integer, Long[]> entry : map.entrySet()) { 
+        //csv DEB
+        try (FileWriter writer = new FileWriter("measure_RTT.csv", true)) {
+            for (Map.Entry<Integer, Long[]> entry : latency.entrySet()) { 
                 String toWrite = id+","+entry.getKey()+","; //id,sub_id,
-                Long[] longArray = entry.getValue();//deb
-                for (int i = 0; i < longArray.length; i++) {//deb
-                    toWrite += longArray[i]+",";
-                    Long value = longArray[i];//deb
+                String[] longArrayy = entry.getValue();//deb
+                for (int i = 0; i < longArrayy.length; i++) {//deb
+                    toWrite += entry.getValue()[i]+",";
                 }//deb
                 writer.write(toWrite+"\n");
             }
