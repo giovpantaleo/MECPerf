@@ -416,6 +416,8 @@ public class Aggregator {
                 }//deb
                 writer.write(toWrite+"\n");
             }
+        }catch(IOException e){
+            e.printStackTrace();
         }
 
 
