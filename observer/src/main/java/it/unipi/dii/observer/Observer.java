@@ -242,9 +242,9 @@ public class Observer {
                                 cutAddress(controlSocketApp.getSocket().getRemoteSocketAddress()
                                           .toString()), OBSERVERIP);
 
-                        Map<Integer, Long[]> val = measureFirstSegment.get("bandwidth");//deb
+                        Map<Integer, Long[]> val = measureFirstSegment.getBandwidth();//deb
                         //deb start
-                        for (Map.Entry<Integer, Long[]> entry : mappaCO.entrySet()) { 
+                        for (Map.Entry<Integer, Long[]> entry : val.entrySet()) { 
                             Long[] longArray = entry.getValue();//deb
                             for (int i = 0; i < longArray.length; i++) {//deb
                                 Long value = longArray[i];//deb
