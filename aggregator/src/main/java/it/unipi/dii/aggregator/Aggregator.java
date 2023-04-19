@@ -77,7 +77,7 @@ public class Aggregator {
                 // Create a new file
                 fileBW .createNewFile();
                 // Write header row to the file
-                FileWriter writer = new FileWriter(file);
+                FileWriter writer = new FileWriter(fileBW);
                 writer.write("id,sub_id,nanoTimes,kBytes\n");
                 writer.close();
                 System.out.println("File created: " + filenameBW );
@@ -95,7 +95,7 @@ public class Aggregator {
             try {
                 // Create a new file
                 fileRTT.createNewFile();
-                FileWriter writer = new FileWriter(file);
+                FileWriter writer = new FileWriter(fileRTT);
                 writer.write("id,latency,sub_id,timestamp_millisid\n");
                 writer.close();
                 System.out.println("File created: " + filenameRTT);
