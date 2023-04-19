@@ -70,7 +70,7 @@ public class Aggregator {
 
     public static void main (String[] args){
         //csv deb  id | sub_id | nanoTimes | kBytes
-        String filenameBW  = "measure_bw.csv"
+        String filenameBW  = "measure_bw.csv";
         File fileBW = new File(filenameBW);
         if (!fileBW .exists()) {
             try {
@@ -89,7 +89,7 @@ public class Aggregator {
         }
            
         
-        String filenameRTT = "measure_RTT.csv"
+        String filenameRTT = "measure_RTT.csv";
         File fileRTT = new File(filenameRTT);
         if (!fileRTT.exists()) {
             try {
@@ -409,10 +409,10 @@ public class Aggregator {
         //csv
         try (FileWriter writer = new FileWriter(filename, true)) {
             for (Map.Entry<Integer, Long[]> entry : map.entrySet()) { 
-                String toWrite = id+","+entry.getKey()","; //id,sub_id,
+                String toWrite = id+","+entry.getKey()+","; //id,sub_id,
                 Long[] longArray = entry.getValue();//deb
                 for (int i = 0; i < longArray.length; i++) {//deb
-                    toWrite += longArray[i]+","
+                    toWrite += longArray[i]+",";
                     Long value = longArray[i];//deb
                 }//deb
                 writer.write(toWrite+"\n");
