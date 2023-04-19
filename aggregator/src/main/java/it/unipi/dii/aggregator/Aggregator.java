@@ -153,7 +153,7 @@ public class Aggregator {
 
                             Long[] map = new Long[2];
                             map[0] = Long.parseLong(temp_js.get("nanoTimes").toString());
-                            System.out.println(map[0] );
+                            System.out.println("map value, writing bw: "+map[0] );
 
                             Double val = Double.parseDouble(temp_js.get("kBytes").toString());
                             //System.out.println(val.getClass());
