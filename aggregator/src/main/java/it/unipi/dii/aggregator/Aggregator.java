@@ -408,7 +408,7 @@ public class Aggregator {
     private static void writeToDB_Latency(Map<Integer, Long[]> latency, HashMap<String, String> metadataSegment, long id, Connection co) throws SQLException {
         //csv DEB
         try (FileWriter writer = new FileWriter("measure_RTT.csv", true)) {
-            for (Map.Entry<Integer, Long[]> entry : metadataSegment.entrySet()) { 
+            for (Map.Entry<String, String> entry : metadataSegment.entrySet()) {
                 String toWrite = id+","+entry.getKey().toString()+","; //id,sub_id,
                 //Long[] longArrayy = entry.getValue();//deb
                 for (int i = 0; i < entry.getValue().length; i++) {//deb
