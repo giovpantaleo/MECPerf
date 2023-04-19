@@ -324,7 +324,7 @@ public class Measurements {
                 Long[] mapValue = new Long[2];
                 mapValue[0] = actualTime;
                 mapValue[1] = new Long (totalRead);
-
+                System.out.println("inside tcp function "+mapValue[0]);//deb
                 mappa.put(new Integer (i), mapValue);
 
                 last = actualTime;
