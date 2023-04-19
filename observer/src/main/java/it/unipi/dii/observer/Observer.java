@@ -185,6 +185,14 @@ public class Observer {
                         controlSocketApp.sendCMD(ControlMessages.Messages.START.toString());
                         Map<Integer, Long[]> mappaCO = Measurements.TCPBandwidthReceiver(
                                                 tcpReceiverConnectionSocket, tcp_bandwidth_pktsize);
+                        //deb start
+                        for (Map.Entry<Integer, Long[]> entry : mappaCO.entrySet()) { 
+                            Long[] longArray = entry.getValue();//deb
+                            for (int i = 0; i < longArray.length; i++) {//deb
+                                Long value = longArray[i];//deb
+                                System.out.println("Value " + i + " of entry " + entry.getKey() + ": " + value);//deb
+                            }
+                        }//deb fin
 
 
                         //second measure (observer -> remote)
@@ -234,6 +242,15 @@ public class Observer {
                                 cutAddress(controlSocketApp.getSocket().getRemoteSocketAddress()
                                           .toString()), OBSERVERIP);
 
+                        Map<Integer, Long[]> val = measureFirstSegment.get("bandwidth");//deb
+                        //deb start
+                        for (Map.Entry<Integer, Long[]> entry : mappaCO.entrySet()) { 
+                            Long[] longArray = entry.getValue();//deb
+                            for (int i = 0; i < longArray.length; i++) {//deb
+                                Long value = longArray[i];//deb
+                                System.out.println("Value " + i + " of entry " + entry.getKey() + ": " + value);//deb
+                            }
+                        }//deb fin
                         sendAggregator(measureFirstSegment, measureSecondSegment, null, null);
 
 
