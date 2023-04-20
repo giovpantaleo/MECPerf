@@ -331,6 +331,8 @@ public class Measurements {
                 i++;
 
                 receivedBytes += totalRead;
+                System.out.println("inside tcp function rcvBy "+receivedBytes);//deb
+
             }
 
 
