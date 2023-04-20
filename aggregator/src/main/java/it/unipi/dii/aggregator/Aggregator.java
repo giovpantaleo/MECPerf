@@ -435,6 +435,7 @@ public class Aggregator {
                 json_string = json_string +  "\"" + entry.getKey() + "\":\"" + entry.getValue() + "\"";
             }
             json_string = json_string + "}";
+            System.out.println("string in writeToDB_latency: "+json_string);//deb
 
             ps.setInt(1, (int)id);
             ps.setString(2, json_string);
@@ -508,7 +509,7 @@ public class Aggregator {
         
         
         try (PreparedStatement ps = co.prepareStatement(INSERT_BANDWIDTH_TABLE);
-        ){
+        ){writeToDB
             ps.setInt(1, (int)id);
 
             int iteration = 0;
