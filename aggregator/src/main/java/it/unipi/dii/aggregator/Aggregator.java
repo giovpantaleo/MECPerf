@@ -509,7 +509,7 @@ public class Aggregator {
         
         
         try (PreparedStatement ps = co.prepareStatement(INSERT_BANDWIDTH_TABLE);
-        ){writeToDB
+        ){
             ps.setInt(1, (int)id);
 
             int iteration = 0;
