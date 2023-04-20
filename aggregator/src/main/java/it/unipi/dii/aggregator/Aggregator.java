@@ -195,8 +195,9 @@ public class Aggregator {
                             System.out.println("map value, writing bw: "+map[0] );
 
                             Double val = Double.parseDouble(temp_js.get("kBytes").toString());
-                            //System.out.println(val.getClass());
+                            System.out.println(val);
                             Double val2 = val*exp;
+                            System.out.println(val2);
                             DecimalFormat df = new DecimalFormat("#");
                             df.setMaximumFractionDigits(8);
                             //System.out.println(df.format(val2));
