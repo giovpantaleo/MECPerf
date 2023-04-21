@@ -436,7 +436,7 @@ public class Aggregator {
                 json_string = json_string +  "\"" + entry.getKey() + "\":\"" + entry.getValue() + "\"";
             }
             json_string = json_string + "}";
-            System.out.println("string in writeToDB_latency: "+json_string);//deb
+            //System.out.println("string in writeToDB_latency: "+json_string);//deb
 
             ps.setInt(1, (int)id);
             ps.setString(2, json_string);
@@ -527,7 +527,7 @@ public class Aggregator {
                 Long[] longArray = entry.getValue();//deb
                 for (int i = 0; i < longArray.length; i++) {//deb
                     Long value = longArray[i];//deb
-                    System.out.println("Value " + i + " of entry " + entry.getKey() + ": " + value);//deb
+                    //System.out.println("Value " + i + " of entry " + entry.getKey() + ": " + value);//deb
                 }//deb
 
                 long actualTime = entry.getValue()[0];

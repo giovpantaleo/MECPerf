@@ -153,7 +153,7 @@ public class MainUtils {
 
             if (interfaceName != null) {
                 InetAddress sourceIPv4Address =getInterfacesInfo(interfaceName);
-                System.out.println(sourceIPv4Address);//deb
+                //System.out.println(sourceIPv4Address);//deb
                 if (sourceIPv4Address == null)
                 {
                     System.out.println("Error: Interface not found");
