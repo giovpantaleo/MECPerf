@@ -96,7 +96,7 @@ public class Aggregator {
                 // Create a new file
                 fileRTT.createNewFile();
                 FileWriter writer = new FileWriter(fileRTT);
-                writer.write("id,latency,sub_id,timestamp_millisid\n");
+                writer.write("id,sub_id,timestamp_millis,latency\n");
                 writer.close();
                 System.out.println("File created: " + filenameRTT);
             } catch (IOException e) {
