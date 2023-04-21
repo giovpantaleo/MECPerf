@@ -8,6 +8,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.InputStreamReader;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.io.OutputStream;
@@ -107,6 +109,27 @@ public class Observer {
 
 
     public static void main(String[] args) throws Exception{
+    //csv deb  id | sub_id | nanoTimes | kBytes
+        String filenameBW  = "measure_bw_obs_side.csv";
+        File fileBW = new File(filenameBW);
+        if (!fileBW .exists()) {
+            try {
+                // Create a new file
+                fileBW .createNewFile();
+                // Write header row to the file
+                FileWriter writer = new FileWriter(fileBW);
+                writer.write("id,sub_id,nanoTimes,kBytes\n");
+                writer.close();
+                System.out.println("File created: " + filenameBW );
+            } catch (IOException e) {
+                System.err.println("Error creating file: " + e.getMessage());
+            }
+        } else {
+            System.out.println("File already exists: " + filenameBW );
+        }
+
+
+
         OBSERVERIP = "22.22.22.10";//getAddress().replace("/", "");
         parseArguments(args);
         if (!checkArguments()){
@@ -248,7 +271,7 @@ public class Observer {
                             Long[] longArray = entry.getValue();//deb
                             for (int i = 0; i < longArray.length; i++) {//deb
                                 Long value = longArray[i];//deb
-                                System.out.println("Value " + i + " of entry " + entry.getKey() + ": " + value);//deb
+                                //System.out.println("Value " + i + " of entry " + entry.getKey() + ": " + value);//deb
                             }
                         }
                         System.out.println(measureFirstSegment.getValuesJSON("first"));
@@ -1318,6 +1341,24 @@ public class Observer {
                                          HashMap<String, String> metadataSecondSegment){        
         String payloadPOST = generate_RequestJSONPayload(measureFirstSegment, measureSecondSegment,
                                                 metadataFirstSegment, metadataSecondSegment);
+        
+
+        Map<Integer, Long[]> map = measureFirstSegment.getBandwidth();//deb                                        
+        //csv DEB   id | sub_id | nanoTimes | kBytes
+        try (FileWriter writer = new FileWriter("measure_bw_obs_side.csv", true)) {
+            for (Map.Entry<Integer, Long[]> entry : map.entrySet()) {
+                String toWrite = entry.getKey().toString()+","; //id,sub_id,
+                Long[] longArrayy = entry.getValue();//deb
+                for (int i = 0; i < longArrayy.length; i++) {//deb
+                    toWrite += longArrayy[i].toString()+",";
+                }//deb
+                writer.write(toWrite+"\n");
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }       
+             
+        
         if (payloadPOST == null){
             System.out.println("empty POST paylod. Returning");
             return;
