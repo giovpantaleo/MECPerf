@@ -324,14 +324,14 @@ public class Measurements {
                 Long[] mapValue = new Long[2];
                 mapValue[0] = actualTime;
                 mapValue[1] = new Long (totalRead);
-                System.out.println("inside tcp function "+mapValue[0]);//deb
+                //System.out.println("inside tcp function "+mapValue[0]);//deb
                 mappa.put(new Integer (i), mapValue);
 
                 last = actualTime;
                 i++;
 
                 receivedBytes += totalRead;
-                System.out.println("inside tcp function rcvBy "+receivedBytes);//deb
+                //System.out.println("inside tcp function rcvBy "+receivedBytes);//deb
 
             }
 
@@ -374,7 +374,7 @@ public class Measurements {
             //send 2 packets
             try {
                 String receivedCommand = controlSocket.receiveCMD();
-                System.out.println(receivedCommand);//deb
+                //System.out.println(receivedCommand);//deb
                 if (receivedCommand == null) {
                     System.out.println("Measure failed: received command is null");
                     return -1;

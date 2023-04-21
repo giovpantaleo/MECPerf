@@ -237,7 +237,7 @@ public class Measure implements Serializable {
         }
 
         bandwidthvalues_JSON += "]";
-        System.out.println("Measure.java bw "+bandwidthvalues_JSON); //deb
+        //System.out.println("Measure.java bw "+bandwidthvalues_JSON); //deb
         return bandwidthvalues_JSON;   
     
       

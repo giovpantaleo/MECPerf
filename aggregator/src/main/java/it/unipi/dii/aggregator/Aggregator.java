@@ -245,7 +245,7 @@ public class Aggregator {
                 Measure measure = new Measure((String) obj_first.get("Command"), (String) obj_first.get("ReceiverIdentity"), (String) obj_first.get("SenderIdentity"), 
                 (Map<Integer, Long[]>)  bandwidth,(Map<Integer, Long[]>) latency, (String) obj_first.get("Keyword"), Integer.parseInt(obj_first.get("PackSize").toString()), 
                  Integer.parseInt(obj_first.get("NumPack").toString()), (String) obj_first.get("ReceiverIPv4Address"), (String) obj_first.get("SenderIPv4Address") );
-                System.out.println(measure.getTestJSON("first"));//deb
+                //System.out.println(measure.getTestJSON("first"));//deb
                 switch(measure.getType()){
                     case "TCPBandwidth":
                     case "UDPBandwidth":
@@ -535,9 +535,9 @@ public class Aggregator {
                 System.out.println("diff1 time "+diff);//deb
 
                 if (diff<0){
-                    System.out.println("act time "+actualTime);//deb
-                    System.out.println("diff time "+diff);//deb
-                    System.out.println("prev time "+previous);//deb
+                    //System.out.println("act time "+actualTime);//deb
+                    //System.out.println("diff time "+diff);//deb
+                   // System.out.println("prev time "+previous);//deb
 
                 }
                 if (Long.MAX_VALUE < actualTime)

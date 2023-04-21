@@ -139,7 +139,7 @@ public class ControlMessages {
         DataInputStream dataInputStream = new DataInputStream(Objects.requireNonNull(inputStream));
         try {
             //The command received is composed by "command id-test"
-            System.out.println(dataInputStream.toString());//deb
+            //System.out.println(dataInputStream.toString());//deb
             receivedCommand = dataInputStream.readUTF();
         }
         catch (IOException e){
