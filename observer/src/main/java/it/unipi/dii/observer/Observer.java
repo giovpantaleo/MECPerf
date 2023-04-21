@@ -1234,9 +1234,8 @@ public class Observer {
                 return null;
 
             String firstsegment_metadataJSON = generate_metadataJSON(metadataFirstSegment, "first");
-            System.out.println("first " + firstsegment_metadataJSON);//deb
-            String secondsegment_metadataJSON = generate_metadataJSON(metadataFirstSegment, "second");
-            System.out.println("sec " + secondsegment_metadataJSON);//deb
+            //String secondsegment_metadataJSON = generate_metadataJSON(metadataFirstSegment, "second"); //original
+            String secondsegment_metadataJSON = generate_metadataJSON(metadataSecondSegment, "second");
 
             request_JSON +=  "," + firstsegment_metadataJSON + "," + secondsegment_metadataJSON;
         }
