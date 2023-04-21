@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
+import java.io.ObjectInputStream.GetField;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.DatagramPacket;
@@ -1233,8 +1234,10 @@ public class Observer {
                 return null;
 
             String firstsegment_metadataJSON = generate_metadataJSON(metadataFirstSegment, "first");
+            System.out.println("first " + firstsegment_metadataJSON);//deb
             String secondsegment_metadataJSON = generate_metadataJSON(metadataFirstSegment, "second");
-            
+            System.out.println("sec " + secondsegment_metadataJSON);//deb
+
             request_JSON +=  "," + firstsegment_metadataJSON + "," + secondsegment_metadataJSON;
         }
         
@@ -1343,11 +1346,23 @@ public class Observer {
                                                 metadataFirstSegment, metadataSecondSegment);
         
 
-        Map<Integer, Long[]> map = measureFirstSegment.getBandwidth();//deb                                        
+        Map<Integer, Long[]> map1 = measureFirstSegment.getBandwidth();//deb  
+        Map<Integer, Long[]> map2 = measureSecondSegment.getBandwidth();//deb                                        
+                                      
         //csv DEB   id | sub_id | nanoTimes | kBytes
         try (FileWriter writer = new FileWriter("measure_bw_obs_side.csv", true)) {
-            for (Map.Entry<Integer, Long[]> entry : map.entrySet()) {
-                String toWrite = entry.getKey().toString()+","; //id,sub_id,
+            String toWrite = "first segment"+ generate_metadataJSON(metadataFirstSegment, "first");
+            for (Map.Entry<Integer, Long[]> entry : map1.entrySet()) {
+                toWrite += entry.getKey().toString()+","; //id,sub_id,
+                Long[] longArrayy = entry.getValue();//deb
+                for (int i = 0; i < longArrayy.length; i++) {//deb
+                    toWrite += longArrayy[i].toString()+",";
+                }//deb
+                writer.write(toWrite+"\n");
+            }
+            String toWrite2 = "second segment"+ generate_metadataJSON(metadataSecondSegment, "second");
+            for (Map.Entry<Integer, Long[]> entry : map2.entrySet()) {
+                toWrite2 += entry.getKey().toString()+","; //id,sub_id,
                 Long[] longArrayy = entry.getValue();//deb
                 for (int i = 0; i < longArrayy.length; i++) {//deb
                     toWrite += longArrayy[i].toString()+",";
