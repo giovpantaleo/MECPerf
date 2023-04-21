@@ -1351,7 +1351,7 @@ public class Observer {
                                       
         //csv DEB   id | sub_id | nanoTimes | kBytes
         try (FileWriter writer = new FileWriter("measure_bw_obs_side.csv", true)) {
-            String toWrite = "first segment"+ generate_metadataJSON(metadataFirstSegment, "first");
+            String toWrite = "first segment";
             for (Map.Entry<Integer, Long[]> entry : map1.entrySet()) {
                 toWrite += entry.getKey().toString()+","; //id,sub_id,
                 Long[] longArrayy = entry.getValue();//deb
@@ -1360,14 +1360,14 @@ public class Observer {
                 }//deb
                 writer.write(toWrite+"\n");
             }
-            String toWrite2 = "second segment"+ generate_metadataJSON(metadataSecondSegment, "second");
+            String toWrite2 = "second segment";
             for (Map.Entry<Integer, Long[]> entry : map2.entrySet()) {
                 toWrite2 += entry.getKey().toString()+","; //id,sub_id,
                 Long[] longArrayy = entry.getValue();//deb
                 for (int i = 0; i < longArrayy.length; i++) {//deb
-                    toWrite += longArrayy[i].toString()+",";
+                    toWrite2 += longArrayy[i].toString()+",";
                 }//deb
-                writer.write(toWrite+"\n");
+                writer.write(toWrite2+"\n");
             }
         }catch(IOException e){
             e.printStackTrace();
