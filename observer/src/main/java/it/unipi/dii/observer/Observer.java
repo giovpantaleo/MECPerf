@@ -1351,23 +1351,25 @@ public class Observer {
                                       
         //csv DEB   id | sub_id | nanoTimes | kBytes
         try (FileWriter writer = new FileWriter("measure_bw_obs_side.csv", true)) {
-            String toWrite = "first segment";
+            String toWrite = "first segment \n";
+            writer.write(toWrite);
             for (Map.Entry<Integer, Long[]> entry : map1.entrySet()) {
-                toWrite += entry.getKey().toString()+","; //id,sub_id,
+                String ToWrite = entry.getKey().toString()+","; //id,sub_id,
                 Long[] longArrayy = entry.getValue();//deb
                 for (int i = 0; i < longArrayy.length; i++) {//deb
-                    toWrite += longArrayy[i].toString()+",";
+                    ToWrite += longArrayy[i].toString()+",";
                 }//deb
-                writer.write(toWrite+"\n");
+                writer.write(ToWrite+"\n");
             }
-            String toWrite2 = "second segment";
+            String toWrite2 = "second segment \n";
+            writer.write(toWrite2);
             for (Map.Entry<Integer, Long[]> entry : map2.entrySet()) {
-                toWrite2 += entry.getKey().toString()+","; //id,sub_id,
+                String ToWrite2 = entry.getKey().toString()+","; //id,sub_id,
                 Long[] longArrayy = entry.getValue();//deb
                 for (int i = 0; i < longArrayy.length; i++) {//deb
-                    toWrite2 += longArrayy[i].toString()+",";
+                    ToWrite2 += longArrayy[i].toString()+",";
                 }//deb
-                writer.write(toWrite2+"\n");
+                writer.write(ToWrite2+"\n");
             }
         }catch(IOException e){
             e.printStackTrace();
