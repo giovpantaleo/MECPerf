@@ -1350,7 +1350,7 @@ public class Observer {
                                       
         //csv DEB   id | sub_id | nanoTimes | kBytes
         try (FileWriter writer = new FileWriter("measure_bw_obs_side.csv", true)) {
-            String toWrite = "first segment sender: " + metadataFirstSegment.get("Sender-identity") +", receiver: "+  metadataFirstSegment.get("Receiver-identity")+"\n";
+            String toWrite = "first segment sender: " + measureFirstSegment.getSender() +", receiver: "+  measureFirstSegment.getReceiver()+" id: " + measureFirstSegment.getID()+ "\n";
             writer.write(toWrite);
             for (Map.Entry<Integer, Long[]> entry : map1.entrySet()) {
                 String ToWrite = entry.getKey().toString()+","; //id,sub_id,
@@ -1360,7 +1360,7 @@ public class Observer {
                 }//deb
                 writer.write(ToWrite+"\n");
             }
-            String toWrite2 = "second segment sender: " + metadataSecondSegment.get("Sender-identity") +", receiver: "+  metadataSecondSegment.get("Receiver-identity")+"\n";
+            String toWrite2 = "second segment sender: " + measureSecondSegment.getSender() +", receiver: "+  measureSecondSegment.getReceiver()+" id: " + measureSecondSegment.getID()+ "\n";
 
             writer.write(toWrite2);
             for (Map.Entry<Integer, Long[]> entry : map2.entrySet()) {
