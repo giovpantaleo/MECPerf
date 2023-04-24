@@ -599,7 +599,8 @@ public class Aggregator {
                 else
                     System.exit(1);
 
-                ps.setDouble(4, (double)entry.getValue()[1]/1024);
+//original                ps.setDouble(4, (double)entry.getValue()[1]/1024); 
+                ps.setDouble(4, (double)entry.getValue()[1]/1000);
 
                 if((iteration != 1) || (protocol.equals("UDP")))
                     ps.executeUpdate();
