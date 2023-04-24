@@ -329,7 +329,7 @@ public class CommandLineApp {
         }
         if (measureType.equalsIgnoreCase("bandwidthUDP") ||
             measureType.equalsIgnoreCase("all")){
-
+            /*
             if (pktSizeUDPCapacity < 0){
                 System.out.println("Error: pktSizeUDPCapacity missing");
                 System.exit(1);
@@ -410,13 +410,13 @@ public class CommandLineApp {
                         e.printStackTrace();
                     }
                 }
-            }
+            }*/
 
         }
         if (measureType.equalsIgnoreCase("latencyTCP")  ||
             measureType.equalsIgnoreCase("RTT") ||
             measureType.equalsIgnoreCase("all")){
-
+            /* 
             if (pktSizeTCPLatency < 0){
                 System.out.println("Error: pktSizeTCPLatency missing");
                 System.exit(1);
@@ -501,11 +501,11 @@ public class CommandLineApp {
                         e.printStackTrace();
                     }
                 }
-            }
+            }*/
         }
         if (measureType.equalsIgnoreCase("latencyUDP")  ||
             measureType.equalsIgnoreCase("RTT") ||
-            measureType.equalsIgnoreCase("all")){
+            measureType.equalsIgnoreCase("all")){/* 
             if (pktSizeUDPLatency < 0){
                 System.out.println("Error: pktSizeUDPLatency missing");
                 System.exit(1);
@@ -593,7 +593,7 @@ public class CommandLineApp {
                         e.printStackTrace();
                     }
                 }
-            }
+            }*/
         }
     }
 }
