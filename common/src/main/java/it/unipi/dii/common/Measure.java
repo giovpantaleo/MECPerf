@@ -233,7 +233,9 @@ public class Measure implements Serializable {
                 bandwidthvalues_JSON += ",\"nanoTimes\":\"" + actualTime + "\"";
             else return null;
 
-            bandwidthvalues_JSON += ",\"kBytes\":\"" + ((double)entry.getValue()[1] / 1024) + "\"}";
+//            bandwidthvalues_JSON += ",\"kBytes\":\"" + ((double)entry.getValue()[1] / 1024) + "\"}";
+            bandwidthvalues_JSON += ",\"kBytes\":\"" + ((double)entry.getValue()[1] / 1000) + "\"}";
+
         }
 
         bandwidthvalues_JSON += "]";
