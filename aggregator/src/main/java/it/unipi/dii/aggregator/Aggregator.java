@@ -146,7 +146,7 @@ public class Aggregator {
                 }catch(ParseException e){
                     e.printStackTrace();
                 }
-                //System.out.println("JSON obj: "+ objJs.toString());
+                System.out.println("JSON obj: "+ objJs.toString());
                 //System.out.println(objJs.keySet().getClass());
                 // Read the keys of the first level in the object
                 Set<String> keysFirstLevel = new HashSet<String>(objJs.keySet());
@@ -256,9 +256,49 @@ public class Aggregator {
                         //original Measure measureSecondSegment = (Measure) mapInputStream.readObject();
                         Object ob2 = objJs.get("test_info_second_segment");
                         JSONObject obj_second = (JSONObject) ob2;
+                        Map<Integer, Long[]> latency2= new LinkedHashMap<>();
+                        Map<Integer, Long[]>  bandwidth2= new LinkedHashMap<>();
+                        for (int i = 0; i<keysFirstLevel.size(); i++){
+                            if (keysFirstLevel_str[i].equals("bandwidth_values_second_segment")){
+                                Object ob_bandwidth_second = objJs.get("bandwidth_values_second_segment");
+                                JSONArray array_bandwidth_second = (JSONArray) ob_bandwidth_second;
+                                Double exp = (Double) Math.pow(10, 8);  
+                                for (int j = 0; j<array_bandwidth_second.size() ; j++){
+                                    Object temp = (array_bandwidth_second.get(j));
+                                    JSONObject temp_js = (JSONObject) temp;
+                                    Long[] map = new Long[2];
+                                    map[0] = Long.parseLong(temp_js.get("nanoTimes").toString());
+                                    Double val = Double.parseDouble(temp_js.get("kBytes").toString());
+                                    Double val2 = val*exp;
+                                    DecimalFormat df = new DecimalFormat("#");
+                                    df.setMaximumFractionDigits(8);
+                                    String s1 = String.valueOf(df.format(val2));
+                                    Long val3 = Long.parseLong(s1);
+                                    map[1] = val3;
+                                    int id = Integer.parseInt(temp_js.get("sub_id").toString());
+                                    bandwidth2.put(id, map);
+                        }
+                        System.out.println(bandwidth2);
+
+                    }else if(keysFirstLevel_str[i].equals("latency_values_second_segment")){
+
+                        Object ob_latency_second = objJs.get("latency_values_second_segment");
+                        JSONArray array_latency_second = (JSONArray) ob_latency_second;
+                        for (int j = 0; j<array_latency_second.size() ; j++){
+                            Object temp = (array_latency_second.get(j));
+                            JSONObject temp_js = (JSONObject) temp;
+                            Long[] map = new Long[2];
+                            map[0] = Long.parseLong(temp_js.get("timestamp_millis").toString());
+                            map[1] = Long.parseLong(temp_js.get("latency").toString());
+                            int id = Integer.parseInt(temp_js.get("sub_id").toString());
+
+                            latency2.put(id, map);
+                        }
+                    }
+            }
 
                         Measure measureSecondSegment = new Measure((String) obj_second.get("Command"), (String) obj_second.get("ReceiverIdentity"), 
-                        (String) obj_second.get("SenderIdentity"), (Map<Integer, Long[]>)  bandwidth, (Map<Integer, Long[]>) latency, 
+                        (String) obj_second.get("SenderIdentity"), (Map<Integer, Long[]>)  bandwidth2, (Map<Integer, Long[]>) latency2, 
                         (String) obj_second.get("Keyword"), (int) Integer.parseInt(obj_second.get("PackSize").toString()), (int) Integer.parseInt(obj_second.get("NumPack").toString()), 
                         (String) obj_second.get("ReceiverIPv4Address"), (String) obj_second.get("SenderIPv4Address") );
                         //Measure measureSecondSegment = (Measure) mapInputStream.readObject();
