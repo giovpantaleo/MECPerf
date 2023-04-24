@@ -1349,10 +1349,10 @@ public class Observer {
         Map<Integer, Long[]> map2 = measureSecondSegment.getBandwidth();//deb                                        
                                       
         //csv DEB   id | sub_id | nanoTimes | kBytes
-        try (FileWriter writer = new FileWriter("measure_bw_obs_side.csv", true)) {
-            String toWrite = "first segment sender: " + measureFirstSegment.getSender() +", receiver: "+  measureFirstSegment.getReceiver()+ "\n";
-            writer.write(toWrite);
-            if (map1.size()>0){
+        if (measureFirstSegment.getType().equals("UDPBandwidth") || measureFirstSegment.getType().equals("TCPBandwidth")){
+            try (FileWriter writer = new FileWriter("measure_bw_obs_side.csv", true)) {
+                String toWrite = "first segment sender: " + measureFirstSegment.getSender() +", receiver: "+  measureFirstSegment.getReceiver()+ "\n";
+                writer.write(toWrite);
                 for (Map.Entry<Integer, Long[]> entry : map1.entrySet()) {
                     String ToWrite = entry.getKey().toString()+","; //id,sub_id,
                     Long[] longArrayy = entry.getValue();//deb
@@ -1361,22 +1361,22 @@ public class Observer {
                     }//deb
                     writer.write(ToWrite+"\n");
                 }
-            }
-            String toWrite2 = "second segment sender: " + measureSecondSegment.getSender() +", receiver: "+  measureSecondSegment.getReceiver()+ "\n";
+                
+                String toWrite2 = "second segment sender: " + measureSecondSegment.getSender() +", receiver: "+  measureSecondSegment.getReceiver()+ "\n";
 
-            writer.write(toWrite2);
-            for (Map.Entry<Integer, Long[]> entry : map2.entrySet()) {
-                String ToWrite2 = entry.getKey().toString()+","; //id,sub_id,
-                Long[] longArrayy = entry.getValue();//deb
-                for (int i = 0; i < longArrayy.length; i++) {//deb
-                    ToWrite2 += longArrayy[i].toString()+",";
-                }//deb
-                writer.write(ToWrite2+"\n");
-            }
-        }catch(IOException e){
-            e.printStackTrace();
-        }       
-             
+                writer.write(toWrite2);
+                for (Map.Entry<Integer, Long[]> entry : map2.entrySet()) {
+                    String ToWrite2 = entry.getKey().toString()+","; //id,sub_id,
+                    Long[] longArrayy = entry.getValue();//deb
+                    for (int i = 0; i < longArrayy.length; i++) {//deb
+                        ToWrite2 += longArrayy[i].toString()+",";
+                    }//deb
+                    writer.write(ToWrite2+"\n");
+                }
+            }catch(IOException e){
+                e.printStackTrace();
+            }       
+        }
         
         if (payloadPOST == null){
             System.out.println("empty POST paylod. Returning");
