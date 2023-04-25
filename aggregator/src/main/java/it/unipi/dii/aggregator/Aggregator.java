@@ -184,7 +184,7 @@ public class Aggregator {
                         JSONArray array_bandwidth_first = (JSONArray) ob_bandwidth_first;
                         Double exp = (Double) Math.pow(10, 8);
 
-                        for (int j = 0; j<array_bandwidth_first.size()-1 ; j++){
+                        for (int j = 0; j<array_bandwidth_first.size() ; j++){
                             //System.out.println(array_bandwidth_first.get(j));
                             //System.out.println(array_bandwidth_first.get(j).getClass());
                             Object temp = (array_bandwidth_first.get(j));
