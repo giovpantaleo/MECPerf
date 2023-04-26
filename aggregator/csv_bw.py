@@ -26,5 +26,5 @@ with open(csv_file, 'r') as file:
     # I'm using just a factor 10 because: ns is 10^(-9), but in the aggregator I introduced a product
     # the product is between the value of kBytes and 10^(8)
     # So, to convert the bandwidth in kByte/s, I should multiply for 10^(9) and divide for 10^(-8)
-    print("For the test with ID: ", target_value, "the estimated bandwidth2 is: ", bw, "kByte/s")
+    print("For the test with ID: ", target_value, "the estimated bandwidth is: ", bw, "kByte/s")
 

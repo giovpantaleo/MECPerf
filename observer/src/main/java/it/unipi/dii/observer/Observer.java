@@ -117,10 +117,6 @@ public class Observer {
             try {
                 // Create a new file
                 fileBW .createNewFile();
-                // Write header row to the file
-                FileWriter writer = new FileWriter(fileBW);
-                writer.write("id,sub_id,nanoTimes,kBytes\n");
-                writer.close();
                 System.out.println("File created: " + filenameBW );
             } catch (IOException e) {
                 System.err.println("Error creating file: " + e.getMessage());
@@ -1351,7 +1347,7 @@ public class Observer {
         //csv DEB   id | sub_id | nanoTimes | kBytes
         if (measureFirstSegment.getType().equals("UDPBandwidth") || measureFirstSegment.getType().equals("TCPBandwidth")){
             try (FileWriter writer = new FileWriter("measure_bw_obs_side.csv", true)) {
-                String toWrite = "sender," + measureFirstSegment.getSender() +",receiver,"+  measureFirstSegment.getReceiver()+",type,"+measureFirstSegment.getType()+ "\n";
+                String toWrite = "sender," + measureFirstSegment.getSender() +",IPsender," + measureFirstSegment.getSenderAddress() +",receiver,"+  measureFirstSegment.getReceiver()+",IPreceiver," + measureFirstSegment.getReceiverAddress() +",type,"+measureFirstSegment.getType()+ "\n";
                 writer.write(toWrite);
                 for (Map.Entry<Integer, Long[]> entry : map1.entrySet()) {
                     String ToWrite = entry.getKey().toString()+","; //id,sub_id,
@@ -1362,7 +1358,7 @@ public class Observer {
                     writer.write(ToWrite+"\n");
                 }
                 
-                String toWrite2 = "sender," + measureSecondSegment.getSender() +",receiver,"+  measureSecondSegment.getReceiver()+",type,"+measureFirstSegment.getType()+ "\n";
+                String toWrite2 ="sender," + measureSecondSegment.getSender() +",IPsender," + measureSecondSegment.getSenderAddress() +",receiver,"+  measureSecondSegment.getReceiver()+",IPreceiver," + measureSecondSegment.getReceiverAddress() +",type,"+measureSecondSegment.getType() + "\n";
 
                 writer.write(toWrite2);
                 for (Map.Entry<Integer, Long[]> entry : map2.entrySet()) {
