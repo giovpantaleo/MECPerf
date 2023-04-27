@@ -1358,7 +1358,7 @@ public class Observer {
                     writer.write(ToWrite+"\n");
                 }
                 
-                String toWrite2 ="sender," + measureSecondSegment.getSender() +",IPsender," + measureSecondSegment.getSenderAddress() +",receiver,"+  measureSecondSegment.getReceiver()+",IPreceiver," + measureSecondSegment.getReceiverAddress() +",type,"+measureSecondSegment.getType() + "\n";
+                String toWrite2 ="sender," + measureSecondSegment.getSender() +",IPsender," + measureSecondSegment.getSenderAddress() +",receiver,"+  measureSecondSegment.getReceiver()+",IPreceiver," + measureSecondSegment.getReceiverAddress() +",type,"+measureSecondSegment.getType() +",keyword,"+measureSecondSegment.getExtra()+ "\n";
 
                 writer.write(toWrite2);
                 for (Map.Entry<Integer, Long[]> entry : map2.entrySet()) {
