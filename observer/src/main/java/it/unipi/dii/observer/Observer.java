@@ -1347,7 +1347,7 @@ public class Observer {
         //csv DEB   id | sub_id | nanoTimes | kBytes
         if (measureFirstSegment.getType().equals("UDPBandwidth") || measureFirstSegment.getType().equals("TCPBandwidth")){
             try (FileWriter writer = new FileWriter("measure_bw_obs_side.csv", true)) {
-                String toWrite = "sender," + measureFirstSegment.getSender() +",IPsender," + measureFirstSegment.getSenderAddress() +",receiver,"+  measureFirstSegment.getReceiver()+",IPreceiver," + measureFirstSegment.getReceiverAddress() +",type,"+measureFirstSegment.getType()+ "\n";
+                String toWrite = "sender," + measureFirstSegment.getSender() +",IPsender," + measureFirstSegment.getSenderAddress() +",receiver,"+  measureFirstSegment.getReceiver()+",IPreceiver," + measureFirstSegment.getReceiverAddress() +",type,"+measureFirstSegment.getType()+",keyword,"+measureFirstSegment.getExtra()+ "\n";
                 writer.write(toWrite);
                 for (Map.Entry<Integer, Long[]> entry : map1.entrySet()) {
                     String ToWrite = entry.getKey().toString()+","; //id,sub_id,
