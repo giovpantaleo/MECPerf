@@ -125,6 +125,23 @@ public class Observer {
             System.out.println("File already exists: " + filenameBW );
         }
 
+        String filenameRTT = "measure_RTT_obs_side.csv";
+        File fileRTT = new File(filenameRTT);
+        if (!fileRTT.exists()) {
+            try {
+                // Create a new file
+                fileRTT.createNewFile();
+                FileWriter writer = new FileWriter(fileRTT);
+                writer.write("id,sub_id,timestamp_millis,latency\n");
+                writer.close();
+                System.out.println("File created: " + filenameRTT);
+            } catch (IOException e) {
+                System.err.println("Error creating file: " + e.getMessage());
+            }
+        } else {
+            System.out.println("File already exists: " + filenameRTT);
+        }
+           
 
 
         OBSERVERIP = "22.22.22.10";//getAddress().replace("/", "");
@@ -1341,11 +1358,12 @@ public class Observer {
                                                 metadataFirstSegment, metadataSecondSegment);
         
 
-        Map<Integer, Long[]> map1 = measureFirstSegment.getBandwidth();//deb  
-        Map<Integer, Long[]> map2 = measureSecondSegment.getBandwidth();//deb                                        
+                                      
                                       
         //csv DEB   id | sub_id | nanoTimes | kBytes
         if (measureFirstSegment.getType().equals("UDPBandwidth") || measureFirstSegment.getType().equals("TCPBandwidth")){
+            Map<Integer, Long[]> map1 = measureFirstSegment.getBandwidth();//deb  
+            Map<Integer, Long[]> map2 = measureSecondSegment.getBandwidth();//deb  
             try (FileWriter writer = new FileWriter("measure_bw_obs_side.csv", true)) {
                 String toWrite = "sender," + measureFirstSegment.getSender() +",IPsender," + measureFirstSegment.getSenderAddress() +",receiver,"+  measureFirstSegment.getReceiver()+",IPreceiver," + measureFirstSegment.getReceiverAddress() +",type,"+measureFirstSegment.getType()+",keyword,"+measureFirstSegment.getExtra()+ "\n";
                 writer.write(toWrite);
@@ -1374,6 +1392,41 @@ public class Observer {
             }       
         }
         
+
+        //csv DEB   RTT
+        if (measureFirstSegment.getType().equals("UDPRTT") || measureFirstSegment.getType().equals("TCPRTT")){
+            Map<Integer, Long[]> map1 = measureFirstSegment.getLatency();//deb  
+            Map<Integer, Long[]> map2 = measureSecondSegment.getLatency();//deb
+            try (FileWriter writer = new FileWriter("measure_RTT_obs_side.csv", true)) {
+                String toWrite = "sender," + measureFirstSegment.getSender() +",IPsender," + measureFirstSegment.getSenderAddress() +",receiver,"+  measureFirstSegment.getReceiver()+",IPreceiver," + measureFirstSegment.getReceiverAddress() +",type,"+measureFirstSegment.getType()+",keyword,"+measureFirstSegment.getExtra()+ "\n";
+                writer.write(toWrite);
+                for (Map.Entry<Integer, Long[]> entry : map1.entrySet()) {
+                    String ToWrite = entry.getKey().toString()+","; //id,sub_id,
+                    Long[] longArrayy = entry.getValue();//deb
+                    for (int i = 0; i < longArrayy.length; i++) {//deb
+                        ToWrite += longArrayy[i].toString()+",";
+                    }//deb
+                    writer.write(ToWrite+"\n");
+                }
+                
+                String toWrite2 ="sender," + measureSecondSegment.getSender() +",IPsender," + measureSecondSegment.getSenderAddress() +",receiver,"+  measureSecondSegment.getReceiver()+",IPreceiver," + measureSecondSegment.getReceiverAddress() +",type,"+measureSecondSegment.getType() +",keyword,"+measureSecondSegment.getExtra()+ "\n";
+
+                writer.write(toWrite2);
+                for (Map.Entry<Integer, Long[]> entry : map2.entrySet()) {
+                    String ToWrite2 = entry.getKey().toString()+","; //id,sub_id,
+                    Long[] longArrayy = entry.getValue();//deb
+                    for (int i = 0; i < longArrayy.length; i++) {//deb
+                        ToWrite2 += longArrayy[i].toString()+",";
+                    }//deb
+                    writer.write(ToWrite2+"\n");
+                }
+            }catch(IOException e){
+                e.printStackTrace();
+            }       
+        }
+
+
+
         if (payloadPOST == null){
             System.out.println("empty POST paylod. Returning");
             return;
